@@ -1,0 +1,186 @@
+@font-face {
+  font-family: "honoka";
+  src: url("/Fonts/honoka.ttf") format("opentype");
+}
+@font-face {
+  font-family: "gkktt";
+  src: url("/Fonts/gkktt.ttf") format("opentype");
+}
+
+$hilight: #f3b000;
+$BGColor: #30a0c0;
+$baseColor: #200050;
+$baseColor2: #ef1f6a;
+//:0x30a0c0::0x200050:f3b000;
+
+$onHover: #ccc;
+
+img {
+  object-fit: cover;
+}
+
+h1 {
+  font-family: "Nico Moji";
+  font-family: "gkktt";
+  font-family: ta-f1blockline, sans-serif;
+  font-family: "honoka";
+  font-size: 50px;
+  text-align: center;
+  color: $baseColor;
+}
+
+h2 {
+  text-align: center;
+  color: $baseColor;
+}
+
+h3 {
+  color: $baseColor;
+}
+
+h4 {
+  color: $baseColor;
+}
+
+html {
+  font-family: "honoka";
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: $BGColor;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  /*-webkit-animation: fadeIn 2s ease 0s 1 normal;*/
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+.editIcon {
+  float: left;
+  width: 10%;
+  font-size: 48px;
+  color: #fff;
+}
+.login {
+  float: right;
+  width: 16%;
+  font-size: 18px;
+}
+
+a {
+  transition: color 0.2s;
+  text-decoration: none;
+  color: #f23473;
+}
+
+a:hover {
+  color: #f2b473;
+}
+/*# sourceMappingURL=style.scss.map */
+.postList {
+  text-align: center;
+  width: 60%;
+  .title {
+    font-size: 32px;
+  }
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 16px;
+  &:hover {
+    background: $baseColor;
+  }
+}
+.post {
+  padding: 16px;
+  width: 60%;
+  background: #fff;
+  border-radius: 10px;
+  color: $baseColor;
+}
+.textarea {
+  font-family: "honoka";
+  font-size: 32px;
+  border-radius: 4px;
+  color: #444;
+}
+
+.logo {
+  position: relative;
+  margin: 0 auto;
+  width: 30%;
+  font-family: ta-f1blockline, sans-serif;
+  font-family: "honoka";
+  font-size: 50px;
+  color: #fff;
+  float: none;
+  text-align: center;
+}
+
+.header_space {
+  height: 96px;
+}
+.header {
+  padding: 16px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  font-family: ta-f1blockline, sans-serif;
+  font-family: "honoka";
+  left: 0px;
+  top: 0px;
+  background: $baseColor;
+}
+.postContent {
+  font-size: 24px;
+}
+
+.color {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.colors {
+  background: white;
+  padding: 40px;
+  border-radius: 4px;
+  width: 33%;
+  display: inline-block;
+}
+
+.palletName {
+  border-radius: 4px;
+  display: block;
+  font-size: 32px;
+  padding: 8px;
+  width: 30%;
+  margin: 40px;
+  color: $baseColor;
+}
+.colorName {
+  color: $baseColor;
+  float: none;
+  vertical-align: "center";
+  margin-bottom: 24px;
+}
+
+.centerCollmun {
+}
+
+.colorAndName {
+  display: inline-flex;
+}
