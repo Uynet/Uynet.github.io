@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "honoka";
+  src: url("/Fonts/honoka.ttf") format("opentype");
+}
+.doCenter {
+}
+
+.screenOverLay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0vw;
+  height: 0vh;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1);
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.animateSlideDown {
+  @extend .screenOverLay;
+  animation-name: slideDown;
+}
+.animateSlideUp {
+  @extend .screenOverLay;
+  animation-name: slideUp;
+}
+.animateSlideRight {
+  @extend .screenOverLay;
+  animation-name: slideRight;
+}
+.animateSlideLeft {
+  @extend .screenOverLay;
+  animation-name: slideLeft;
+}
+
+@keyframes slideDown {
+  0% {
+    height: 0vh;
+    width: 100vw;
+  }
+  100% {
+    height: 100vh;
+    width: 100vw;
+  }
+}
+@keyframes slideUp {
+  0% {
+    top: 100vh;
+    height: 0vh;
+    width: 100vw;
+  }
+  100% {
+    top: 0vh;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+@keyframes slideRight {
+  0% {
+    width: 0vw;
+    height: 100vw;
+  }
+  100% {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+@keyframes slideLeft {
+  0% {
+    width: 0vw;
+    height: 100vw;
+    left: 100vw;
+  }
+  100% {
+    width: 100vw;
+    height: 100vw;
+    left: 0vw;
+  }
+}
