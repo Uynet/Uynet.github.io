@@ -22,24 +22,29 @@ function genStyle(color, delay) {
 
 class Home extends React.Component {
   render() {
+    const colors = ["#30c0e0", "#e0f070", "#303040", "#dff0f1"];
+    const animate = [
+      animateSlideDown,
+      animateSlideLeft,
+      animateSlideUp,
+      animateSlideRight
+    ];
+    let sec = 1.0;
+    let v = 0.3;
     return (
       <React.Fragment>
-        <div
-          className={classNames(screenOverLay, animateSlideDown)}
-          style={genStyle("#30c0e0", 1.0)}
-        ></div>
-        <div
-          className={(screenOverLay, animateSlideDown)}
-          style={genStyle("#e0f070", 1.1)}
-        ></div>
-        <div
-          className={(screenOverLay, animateSlideDown)}
-          style={genStyle("#334", 1.2)}
-        ></div>
-        <div
-          className={(screenOverLay, animateSlideDown)}
-          style={genStyle("#dff0f1", 1.3)}
-        ></div>
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221295727&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        {colors.map((c, i) => {
+          sec += v;
+          let p = Math.floor(Math.random() * 4) % 4;
+          return (
+            <div
+              key={i}
+              className={classNames(screenOverLay, animate[p])}
+              style={genStyle(c, sec)}
+            ></div>
+          );
+        })}
         <div className={home}>ゆいブログ</div>
       </React.Fragment>
     );
