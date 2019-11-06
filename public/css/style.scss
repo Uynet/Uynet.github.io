@@ -11,8 +11,7 @@ $hilight: #f3b000;
 $BGColor: #30a0c0;
 $baseColor: #200050;
 $baseColor2: #ef1f6a;
-//:0x30a0c0::0x200050:f3b000;
-$BGColor: #dff0f1;
+$BGColor: #ffcbd1;
 
 $onHover: #ccc;
 
@@ -27,19 +26,6 @@ h1 {
   font-family: "honoka";
   font-size: 50px;
   text-align: center;
-  color: $baseColor;
-}
-
-h2 {
-  text-align: center;
-  color: $baseColor;
-}
-
-h3 {
-  color: $baseColor;
-}
-
-h4 {
   color: $baseColor;
 }
 
@@ -65,17 +51,6 @@ select,
 textarea {
   font-family: inherit;
   font-size: 100%;
-}
-.editIcon {
-  float: left;
-  width: 10%;
-  font-size: 48px;
-  color: #fff;
-}
-.login {
-  float: right;
-  width: 16%;
-  font-size: 18px;
 }
 
 a {
@@ -141,47 +116,4 @@ a:hover {
   left: 0px;
   top: 0px;
   background: $baseColor;
-}
-.postContent {
-  font-size: 24px;
-}
-
-.color {
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.colors {
-  background: white;
-  padding: 40px;
-  border-radius: 4px;
-  width: 33%;
-  display: inline-block;
-}
-
-.palletName {
-  border-radius: 4px;
-  display: block;
-  font-size: 32px;
-  padding: 8px;
-  width: 30%;
-  margin: 40px;
-  color: $baseColor;
-}
-.colorName {
-  color: $baseColor;
-  float: none;
-  vertical-align: "center";
-  margin-bottom: 24px;
-}
-
-.centerCollmun {
-}
-
-.colorAndName {
-  display: inline-flex;
 }

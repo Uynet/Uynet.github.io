@@ -12,7 +12,7 @@
   width: 0vw;
   height: 0vh;
   animation-timing-function: cubic-bezier(1, 0, 0, 1);
-  animation-duration: 0.5s;
+  animation-duration: 1.5s;
   animation-fill-mode: forwards;
 }
 .animateSlideDown {
@@ -70,9 +70,80 @@
     height: 100vw;
     left: 100vw;
   }
-  100% {
+  50% {
     width: 100vw;
     height: 100vw;
     left: 0vw;
+  }
+  100% {
+    width: 0vw;
+    height: 100vw;
+    left: 0vw;
+  }
+}
+@keyframes menuSlideIn {
+  0% {
+    right: -250px;
+  }
+  10% {
+    right: -50px;
+  }
+  40% {
+    right: -40px;
+  }
+  60% {
+    right: -50px;
+  }
+  80% {
+    right: -45px;
+  }
+  100% {
+    right: -50px;
+  }
+}
+@keyframes menuSlideDown {
+  0% {
+    top: -148px;
+    box-shadow: 0px 0px #f4bebe;
+  }
+  10% {
+    top: 16px;
+  }
+  100% {
+    box-shadow: 10px 10px #f4bebe;
+  }
+}
+@keyframes pulpul {
+  0% {
+    font-size: 36px;
+  }
+  30% {
+    font-size: 56px;
+  }
+  100% {
+    font-size: 44 px;
+  }
+}
+@keyframes charaMotionY {
+  0% {
+    top: 20px;
+  }
+  50% {
+    top: 0px;
+  }
+  100% {
+    top: 20px;
+  }
+}
+@keyframes charaFadeIn {
+  0% {
+    top: -138px;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 20px;
+    opacity: 1;
+    transform: rotate(0deg);
   }
 }

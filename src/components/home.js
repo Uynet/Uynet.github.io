@@ -9,6 +9,7 @@ import {
   animateSlideLeft
 } from "./style/effects.module.scss";
 import classNames from "classnames";
+import Menubar from "./menubar.js";
 
 const s = {};
 
@@ -20,9 +21,14 @@ function genStyle(color, delay) {
   };
 }
 
+const base = "#FFCBD1";
+const main = "#FF165C";
+const accent = "#FFDF6F";
+const hilight = "#6F16FF";
+
 class Home extends React.Component {
   render() {
-    const colors = ["#30c0e0", "#e0f070", "#303040", "#dff0f1"];
+    const colors = [hilight, accent, main, base];
     const animate = [
       animateSlideDown,
       animateSlideLeft,
@@ -30,21 +36,21 @@ class Home extends React.Component {
       animateSlideRight
     ];
     let sec = 1.0;
-    let v = 0.3;
+    let v = 0.1;
     return (
       <React.Fragment>
-      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221295727&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-        {colors.map((c, i) => {
+        {/*colors.map((c, i) => {
           sec += v;
-          let p = Math.floor(Math.random() * 4) % 4;
           return (
             <div
               key={i}
-              className={classNames(screenOverLay, animate[p])}
+              className={classNames(screenOverLay, animate[1])}
               style={genStyle(c, sec)}
             ></div>
           );
-        })}
+        })*/}
+        <Menubar />
+
         <div className={home}>ゆいブログ</div>
       </React.Fragment>
     );
