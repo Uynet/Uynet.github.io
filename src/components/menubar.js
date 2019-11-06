@@ -1,16 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  animateSlideDown,
-  animateSlideRight,
-  animateSlideUp,
-  animateSlideLeft
-} from "./style/effects.module.scss";
 
-const base = "#FFCBD1";
 const main = "#FF165C";
-const accent = "#FFDF6F";
-const hilight = "#6F16FF";
 
 const width = 220;
 const s = {
@@ -38,11 +29,13 @@ class Menubar extends React.Component {
     super(props);
     this.state = { isOpen: false };
   }
+  toggleOpen = e => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
   render() {
     const className = this.state.isOpen
       ? this.props.classes.open
       : this.props.classes.closed;
-    console.log(className);
     return (
       <React.Fragment>
         <div className={className}></div>

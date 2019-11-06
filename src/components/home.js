@@ -1,18 +1,20 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { home } from "./style/home.module.scss";
-import { screenOverLay } from "./style/effects.module.scss";
+/*
 import {
   animateSlideDown,
   animateSlideRight,
   animateSlideUp,
   animateSlideLeft
 } from "./style/effects.module.scss";
-import classNames from "classnames";
+*/
 import Menubar from "./menubar.js";
+import Hamberger from "./hambarger.js";
 
 const s = {};
 
+/*
 function genStyle(color, delay) {
   delay += "s";
   return {
@@ -20,14 +22,25 @@ function genStyle(color, delay) {
     animationDelay: delay
   };
 }
+*/
 
+/*
 const base = "#FFCBD1";
 const main = "#FF165C";
 const accent = "#FFDF6F";
 const hilight = "#6F16FF";
+*/
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
+  handleClick = e => {
+    this.ref.current.toggleOpen();
+  };
   render() {
+    /*
     const colors = [hilight, accent, main, base];
     const animate = [
       animateSlideDown,
@@ -37,6 +50,8 @@ class Home extends React.Component {
     ];
     let sec = 1.0;
     let v = 0.1;
+    */
+
     return (
       <React.Fragment>
         {/*colors.map((c, i) => {
@@ -49,7 +64,8 @@ class Home extends React.Component {
             ></div>
           );
         })*/}
-        <Menubar />
+        <Hamberger onClick={this.handleClick} />
+        <Menubar ref={this.ref} />
 
         <div className={home}>ゆいブログ</div>
       </React.Fragment>
