@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 const main = "#e2146a";
 const accent = "#FFDF6F";
 
-const width = 220;
+const width = 320;
 const s = {
   open: {
     background: main,
@@ -12,7 +12,7 @@ const s = {
     height: "100vh",
     position: "fixed",
     top: 0,
-    left: "calc(100vw - " + width + "px)"
+    left: "calc(100vw - " + width / 2 + "px)"
   },
   closed: {
     background: main,
@@ -23,14 +23,17 @@ const s = {
     left: "calc(100vw)"
   },
   itemtitle: {
+    fontFamily: "Nico Moji",
     color: accent,
+    top: 300,
     fontSize: 30,
-    margin: 20
+    margin: 20,
+    paddingTop: 40
   },
   item: {
     color: "#fff",
-    fontSize: 18,
-    padding: 12
+    fontFamily: "gkktt",
+    fontSize: 24
   }
 };
 
@@ -62,7 +65,19 @@ class Menubar extends React.Component {
           <div className={itemTitleClass}>めにゅー</div>
           <div>
             {items.map((item, i) => {
-              return <div className={this.props.classes.item}>{item.name}</div>;
+              return (
+                <div style={{ padding: 12 }}>
+                  <div className={this.props.classes.item}>{item.name}</div>
+                  <div
+                    style={{
+                      background: "#fff",
+                      opacity: 0.5,
+                      height: 8,
+                      width: 100
+                    }}
+                  ></div>
+                </div>
+              );
             })}
           </div>
         </div>
