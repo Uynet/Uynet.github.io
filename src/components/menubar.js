@@ -1,7 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Item from "./item";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 const main = "#e2146a";
 const accent = "#FFDF6F";
@@ -14,7 +13,8 @@ const s = {
     height: "100vh",
     position: "fixed",
     top: 0,
-    left: "calc(100vw - " + width / 2 + "px)"
+    left: "calc(100vw - " + width / 2 + "px)",
+    animation: "menuSlideIn 0.4s"
   },
   closed: {
     background: main,
@@ -22,7 +22,8 @@ const s = {
     height: "100vh",
     position: "fixed",
     top: 0,
-    left: "calc(100vw)"
+    left: "calc(100vw)",
+    animation: "menuSlideOut 0.4s"
   },
   itemtitle: {
     fontFamily: "Nico Moji",

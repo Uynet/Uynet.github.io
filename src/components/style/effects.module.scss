@@ -17,7 +17,7 @@
 }
 .animateSlideDown {
   @extend .screenOverLay;
-  animation-name: slideDown;
+  animation-name: slideDown2;
 }
 .animateSlideUp {
   @extend .screenOverLay;
@@ -32,6 +32,24 @@
   animation-name: slideLeft;
 }
 
+@keyframes slideDown2 {
+  0% {
+    z-index: 25;
+    top: 0vh;
+    height: 100vh;
+    width: 100vw;
+  }
+  90% {
+    z-index: 25;
+    top: 0vh;
+  }
+  100% {
+    z-index: 25;
+    top: 100vh;
+    height: 100vh;
+    width: 100vw;
+  }
+}
 @keyframes slideDown {
   0% {
     height: 0vh;
@@ -112,16 +130,4 @@
   100% {
     box-shadow: 10px 10px #f4bebe;
   }
-}
-@keyframes pulpul {
-  0% {
-    font-size: 36px;
-  }
-  30% {
-    font-size: 56px;
-  }
-  100% {
-    font-size: 44 px;
-  }
-}
 }

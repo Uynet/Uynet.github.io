@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Home from "./home.js";
 import About from "./about.js";
 import Works from "./works.js";
-import Blog from "./blog.js";
 import Menubar from "./menubar.js";
 import Hamberger from "./hambarger.js";
 
