@@ -41,7 +41,7 @@ class Home extends React.Component {
 
     return (
       <React.Fragment>
-        {colors.map((c, i) => {
+        {/*colors.map((c, i) => {
           sec += v;
           return (
             <div
@@ -65,7 +65,7 @@ class Home extends React.Component {
               </div>
             </div>
           );
-        })}
+        })*/}
 
         <div className={home}>ゆいブログ</div>
         <img
