@@ -1,7 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { item as itemClass, underline } from "./style/item.module.scss";
+import Item from "./item";
 
 const main = "#e2146a";
 const accent = "#FFDF6F";
@@ -56,22 +55,13 @@ class Menubar extends React.Component {
       ? this.props.classes.open
       : this.props.classes.closed;
     const itemTitleClass = this.props.classes.itemtitle;
-    console.log(underline);
     return (
       <React.Fragment>
         <div className={className}>
           <div className={itemTitleClass}>めにゅー</div>
           <div>
             {items.map((item, i) => {
-              return (
-                <div className={itemClass} key={i}>
-                  <div>{item.name}</div>
-                  <div
-                    className={underline}
-                    style={{ background: "#fff" }}
-                  ></div>
-                </div>
-              );
+              return <Item name={item.name} link={item.link} key={i} />;
             })}
           </div>
         </div>
