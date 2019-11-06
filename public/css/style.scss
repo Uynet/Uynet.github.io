@@ -42,8 +42,7 @@ body {
   background-color: $BGColor;
   height: 100%;
   width: 100%;
-  display: grid;
-  grid-template-rows: 1fr auto;
+  margin: 0;
   /*-webkit-animation: fadeIn 2s ease 0s 1 normal;*/
 }
 button,
@@ -209,16 +208,29 @@ a:hover {
 }
 @keyframes menuSlideDown {
   0% {
-    top: -148px;
-    box-shadow: 0px 0px #f4bebe;
+    top: -100%;
   }
-  10% {
-    top: 16px;
+  20% {
+    top: 0%;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  40% {
+    top: -10%;
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  60% {
+    top: -0%;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  80% {
+    top: -2%;
+    animation-timing-function: linear;
   }
   100% {
-    box-shadow: 10px 10px #f4bebe;
+    top: 0%;
   }
 }
+
 @keyframes pulpul {
   0% {
     font-size: 36px;

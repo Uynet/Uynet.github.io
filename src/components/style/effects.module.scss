@@ -99,27 +99,7 @@
     left: 0vw;
   }
 }
-@keyframes menuSlideIn {
-  0% {
-    right: -250px;
-  }
-  10% {
-    right: -50px;
-  }
-  40% {
-    right: -40px;
-  }
-  60% {
-    right: -50px;
-  }
-  80% {
-    right: -45px;
-  }
-  100% {
-    right: -50px;
-  }
-}
-@keyframes menuSlideDown {
+@keyframes hambergerDrop {
   0% {
     top: -148px;
     box-shadow: 0px 0px #f4bebe;
