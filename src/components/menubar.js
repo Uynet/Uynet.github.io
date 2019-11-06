@@ -95,7 +95,14 @@ class Menubar extends React.Component {
             <div className={itemTitleClass}>めにゅー</div>
             <div>
               {items.map((item, i) => {
-                return <Item name={item.name} link={item.link} key={i} />;
+                return (
+                  <Item
+                    update={this.props.update}
+                    name={item.name}
+                    link={item.link}
+                    key={i}
+                  />
+                );
               })}
             </div>
           </div>
@@ -105,7 +112,14 @@ class Menubar extends React.Component {
             <div className={itemTitleClass}>めにゅー</div>
             <div>
               {items.map((item, i) => {
-                return <Item name={item.name} link={item.link} key={i} />;
+                return (
+                  <Item
+                    update={this.props.update}
+                    name={item.name}
+                    link={item.link}
+                    key={i}
+                  />
+                );
               })}
             </div>
           </div>

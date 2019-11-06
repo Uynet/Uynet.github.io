@@ -14,13 +14,16 @@ class App extends React.Component {
   handleClick = e => {
     this.ref.current.toggleOpen();
   };
+  onUpdate = () => {
+    console.log("up");
+    this.render();
+  };
   render() {
     return (
       <React.Fragment>
         <Hamberger onClick={this.handleClick} />
-        <Menubar ref={this.ref} />
+        <Menubar ref={this.ref} update={this.onUpdate} />
         <Router>
-          <Link to="/"></Link>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />

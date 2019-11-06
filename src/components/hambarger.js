@@ -16,7 +16,6 @@ class Hamberger extends React.Component {
     this.props.onClick();
   };
   render() {
-    console.log(this.ref);
     const color = this.state.isOpen ? base : main;
     const content = this.state.isOpen ? "×" : "≡";
     return (

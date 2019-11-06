@@ -9,7 +9,9 @@ class Item extends React.Component {
   constructor(props) {
     super(props);
   }
-  onClick = e => {};
+  onClick = e => {
+    this.props.update();
+  };
   render() {
     return (
       <React.Fragment>
