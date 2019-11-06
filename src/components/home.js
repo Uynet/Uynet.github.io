@@ -30,10 +30,6 @@ const hilight = "#6F16FF";
 */
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.ref = React.createRef();
-  }
   render() {
     /*
     const colors = [hilight, accent, main, base];
@@ -61,6 +57,11 @@ class Home extends React.Component {
         })*/}
 
         <div className={home}>ゆいブログ</div>
+        <img
+          className="chara"
+          src="/resource/img/bg.png"
+          style={{ width: "30%" }}
+        ></img>
       </React.Fragment>
     );
   }

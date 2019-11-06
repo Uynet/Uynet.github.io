@@ -117,3 +117,63 @@ a:hover {
   top: 0px;
   background: $baseColor;
 }
+.chara {
+  z-index: 2;
+  max-width: 250px;
+  min-width: 150px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin: auto;
+  opacity: 0;
+  animation: charaFadeIn 0.9s ease 0s 1 normal both,
+    charaMotionY 3.5s ease 0.9s infinite normal;
+}
+@keyframes charaMotionY {
+  0% {
+    top: 20px;
+  }
+  50% {
+    top: 0px;
+  }
+  100% {
+    top: 20px;
+  }
+}
+@keyframes charaFadeIn {
+  0% {
+    top: -138px;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 20px;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+@keyframes charaMotionY {
+  0% {
+    top: 20px;
+  }
+  50% {
+    top: 0px;
+  }
+  100% {
+    top: 20px;
+  }
+}
+@keyframes charaFadeIn {
+  0% {
+    top: -138px;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 20px;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}

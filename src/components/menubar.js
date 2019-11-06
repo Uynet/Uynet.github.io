@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Item from "./item";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 const main = "#e2146a";
 const accent = "#FFDF6F";

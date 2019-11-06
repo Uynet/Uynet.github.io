@@ -10,7 +10,7 @@ class Hamberger extends React.Component {
   }
   onClick = e => {
     this.setState({ isOpen: !this.state.isOpen });
-    this.props.onClick(this.state.isOpen);
+    this.props.onClick();
   };
   render() {
     console.log(this.ref);

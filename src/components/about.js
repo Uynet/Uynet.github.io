@@ -14,7 +14,7 @@ class About extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div>ゆいブログ</div>
+        <div>about</div>
       </React.Fragment>
     );
   }
