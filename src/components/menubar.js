@@ -1,5 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { item as itemClass, underline } from "./style/item.module.scss";
 
 const main = "#e2146a";
 const accent = "#FFDF6F";
@@ -29,11 +31,6 @@ const s = {
     fontSize: 30,
     margin: 20,
     paddingTop: 40
-  },
-  item: {
-    color: "#fff",
-    fontFamily: "gkktt",
-    fontSize: 24
   }
 };
 
@@ -59,6 +56,7 @@ class Menubar extends React.Component {
       ? this.props.classes.open
       : this.props.classes.closed;
     const itemTitleClass = this.props.classes.itemtitle;
+    console.log(underline);
     return (
       <React.Fragment>
         <div className={className}>
@@ -66,15 +64,11 @@ class Menubar extends React.Component {
           <div>
             {items.map((item, i) => {
               return (
-                <div style={{ padding: 12 }}>
-                  <div className={this.props.classes.item}>{item.name}</div>
+                <div className={itemClass} key={i}>
+                  <div>{item.name}</div>
                   <div
-                    style={{
-                      background: "#fff",
-                      opacity: 0.5,
-                      height: 8,
-                      width: 100
-                    }}
+                    className={underline}
+                    style={{ background: "#fff" }}
                   ></div>
                 </div>
               );
@@ -85,4 +79,5 @@ class Menubar extends React.Component {
     );
   }
 }
+
 export default withStyles(s)(Menubar);

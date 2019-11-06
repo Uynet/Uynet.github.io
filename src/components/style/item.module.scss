@@ -1,0 +1,20 @@
+$main: #e2146a;
+$accent: #ffdf6f;
+
+.item {
+  color: #fff;
+  font-family: gkktt;
+  font-size: 18px;
+  padding: 12px;
+
+  &:hover {
+    color: $main;
+    background: $accent;
+  }
+}
+.underline {
+  background: "#fff";
+  opacity: 0.5;
+  height: 8px;
+  width: 100px;
+}

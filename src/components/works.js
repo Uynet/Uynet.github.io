@@ -14,7 +14,7 @@ class Works extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div>ゆいブログ</div>
+        <div>works</div>
       </React.Fragment>
     );
   }

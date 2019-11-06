@@ -14,7 +14,7 @@ class Blog extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div>ゆいブログ</div>
+        <div>blog</div>
       </React.Fragment>
     );
   }

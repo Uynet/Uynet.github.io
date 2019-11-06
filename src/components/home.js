@@ -9,8 +9,6 @@ import {
   animateSlideLeft
 } from "./style/effects.module.scss";
 */
-import Menubar from "./menubar.js";
-import Hamberger from "./hambarger.js";
 
 const s = {};
 
@@ -36,9 +34,6 @@ class Home extends React.Component {
     super(props);
     this.ref = React.createRef();
   }
-  handleClick = e => {
-    this.ref.current.toggleOpen();
-  };
   render() {
     /*
     const colors = [hilight, accent, main, base];
@@ -64,8 +59,6 @@ class Home extends React.Component {
             ></div>
           );
         })*/}
-        <Hamberger onClick={this.handleClick} />
-        <Menubar ref={this.ref} />
 
         <div className={home}>ゆいブログ</div>
       </React.Fragment>
