@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { home } from "./style/home.module.scss";
+import { logo } from "./style/home.module.scss";
 import classNames from "classnames";
 import {
   screenOverLay,
@@ -67,7 +67,7 @@ class Home extends React.Component {
           );
         })*/}
 
-        <div className={home}>ゆいブログ</div>
+        <div className={logo}>ゆいブログ</div>
         <img
           className="chara"
           src="/resource/img/bg.png"

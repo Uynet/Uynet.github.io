@@ -15,19 +15,19 @@ class App extends React.Component {
     this.ref.current.toggleOpen();
   };
   onUpdate = () => {
-    console.log("up");
     this.render();
   };
   render() {
+    console.log("up");
     return (
       <React.Fragment>
         <Hamberger onClick={this.handleClick} />
         <Menubar ref={this.ref} update={this.onUpdate} />
         <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/works" component={Works} />
+            <Route path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/works" component={Works} />
             <Route exact component={NotFound} />
           </Switch>
         </Router>
