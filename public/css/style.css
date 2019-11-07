@@ -307,12 +307,16 @@ a:hover {
   0% {
     width: 0px;
     height: 0px;
-    border: "dashed 5px";
-    border-color: #f4bebe;
-    transform: rotate(90deg); }
+    opacity: 1; }
   100% {
     width: 100px;
     height: 100px;
-    border: "dashed 5px";
-    border-color: #f4bebe;
-    transform: rotate(0deg); } }
+    opacity: 1; } }
+
+@keyframes myname {
+  0% {
+    transform: translateX(-20%);
+    opacity: 0; }
+  100% {
+    transform: translateX(0%);
+    opacity: 1; } }

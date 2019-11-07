@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import BGEffect from "./BGEffect";
+import { NONAME } from "dns";
 
 const base = "#fad8e4";
 const main = "#e2146a";
@@ -16,39 +17,54 @@ const s = {
     height: 0,
     background: main,
     animation: "swipeY cubic-bezier(0, 1, 0, 1) 2.6s 0.4s forwards"
+    //borderBottomColor: accent,
+    //borderBottom: "solid 5px"
+  },
+  myname: {
+    color: hilight,
+    fontSize: 40,
+    fontFamily: "gkktt",
+    position: "absolute",
+    top: 200,
+    left: 150,
+    opacity: 0,
+    animation: "myname ease 0.9s 1.5s forwards"
   },
   title: {
     position: "relative",
-    width: 124,
-    margin: "auto",
-    textAlign: "center",
-    align: "center",
-    padding: 64
+    width: 244,
+    top: 64,
+    left: 32
   },
   titleString: {
-    textAlign: "center",
     fontFamily: "gkktt",
-    fontSize: 30,
-    color: accent
+    fontSize: 80,
+    color: base
   },
   underLine: {
     height: 8,
     borderRadius: 4,
-    background: accent,
+    background: base,
+    left: 0,
+    right: 0,
+    margin: "auto",
     animation: "swipeX cubic-bezier(0.99, 0.01, 0, 1) 1.6s forwards"
   },
   icon: {
     position: "absolute",
     borderRadius: "50%",
     transform: "translate(-50%,-50%)",
-    top: 170,
-    left: 0,
-    right: 0,
+    top: 270,
+    left: 120,
+    // right: 0,
     width: 0,
     height: 0,
     zIndex: 5,
+    opacity: 0,
     margin: "auto",
-    animation: "iconPop cubic-bezier(0, 1, 0, 1) 2.6s 1.3s forwards"
+    animation: "iconPop cubic-bezier(0, 1, 0, 1) 2.6s 1.3s forwards",
+    border: "solid 5px",
+    borderColor: main
   }
 };
 
@@ -66,7 +82,8 @@ class About extends React.Component {
         <BGEffect />
         <div className={this.props.classes.header}></div>
         <div className={this.props.classes.title}>
-          <div className={this.props.classes.titleString}>>>>>>>> About</div>
+          <div className={this.props.classes.titleString}>About</div>
+          <div className={this.props.classes.myname}>uynet</div>
           <div className={this.props.classes.underLine}></div>
         </div>
         <img
