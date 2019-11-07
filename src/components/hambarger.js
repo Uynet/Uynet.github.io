@@ -56,7 +56,7 @@ class Hamberger extends React.Component {
               cursor: "pointer",
               borderColor: color
             }}
-            onClick={this.props.onClick}
+            onClick={e => this.props.onClick(null)}
           >
             <div
               style={{
