@@ -76,7 +76,7 @@ const s = {
     zIndex: 5,
     opacity: 0,
     margin: "auto",
-    animation: "iconPop cubic-bezier(0, 1, 0, 1) 2.6s 1.1s forwards",
+    animation: "iconPop ease  0.4s 1.1s forwards",
     border: "solid 5px",
     borderColor: main
   }
