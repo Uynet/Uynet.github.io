@@ -15,7 +15,6 @@ import {
   animateSlideUp,
   animateSlideLeft
 } from "./style/effects.module.scss";
-import { base, main, accent, hilight, font } from "../utils/colors.js";
 
 const s = {};
 

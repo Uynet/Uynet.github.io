@@ -13,13 +13,11 @@ h1 {
   font-family: "Nico Moji";
   font-family: "gkktt";
   font-family: ta-f1blockline, sans-serif;
-  font-family: "honoka";
   font-size: 50px;
   text-align: center;
   color: #ffa088; }
 
 html {
-  font-family: "honoka";
   height: 100%; }
 
 body {
@@ -68,21 +66,9 @@ a:hover {
   color: #ffa088; }
 
 .textarea {
-  font-family: "honoka";
   font-size: 32px;
   border-radius: 4px;
   color: #444; }
-
-.logo {
-  display: inline;
-  position: relative;
-  margin: 0 auto;
-  font-family: ta-f1blockline, sans-serif;
-  font-family: "honoka";
-  font-size: 50px;
-  color: #fff;
-  float: none;
-  text-align: center; }
 
 .header_space {
   height: 96px; }

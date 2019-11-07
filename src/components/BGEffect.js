@@ -1,6 +1,5 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { base, main, accent, hilight, font } from "../utils/colors.js";
 
 const s = {};
 

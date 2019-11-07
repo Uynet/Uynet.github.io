@@ -1,13 +1,13 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import BGEffect from "./BGEffect";
-import { base, main, accent, hilight, font } from "../utils/colors.js";
+import { base, main, font } from "../utils/colors.js";
 import Box from "./box.js";
 
 const bio =
   "日本国憲法を尊重するのが趣味です。普段は日本国家に所属していて、消費税や国民年金を納めています。選挙権を持っていて、労働が義務です。資本主義が好きなみんなと繋がりたい！";
 
-const box1 = { title: "unko", content: "うんこ" };
+const box1 = { title: "説明", content: "ここに説明を入れる" };
 
 const s = {
   space: { height: 240 },

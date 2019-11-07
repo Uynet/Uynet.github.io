@@ -5,8 +5,8 @@ import {
   underline,
   headline
 } from "./style/item.module.scss";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { base, main, accent, hilight, font } from "../utils/colors.js";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import { base, main, accent } from "../utils/colors.js";
 
 const s = {};
 
