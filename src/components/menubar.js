@@ -17,7 +17,7 @@ const s = {
     top: 0,
     left: "calc(100vw - " + width / 2 + "px)",
     animation: "menuSlideIn 0.3s",
-    borderLeft: "solid 2px",
+    borderLeft: "solid 3px",
     borderColor: base
   },
   closed: {

@@ -13,8 +13,8 @@ const s = {
   space: { height: 240 },
   bio: {
     color: font,
-    padding: "40px 140px",
-    fontSize: 20,
+    padding: "30px 90px",
+    fontSize: 15,
     opacity: 0,
     animation: "fadeIn  ease 0.6s 1.7s forwards"
   },

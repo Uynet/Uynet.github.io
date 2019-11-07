@@ -1,20 +1,19 @@
-$base: #ffcbd1;
-$main: #e2146a;
-$accent: #ffdf6f;
-$hilight: #6f16ff;
+@import "public/css/variables";
+
+$main2: #e2146a;
 
 .links {
   position: absolute;
   right: 0px;
   left: 0px;
-  bottom: 10%;
   padding: 30px;
+  bottom: 0%;
   color: main;
 }
 .link {
   animation-name: PopIn;
   animation-duration: 0.5s;
-  background: $main;
+  background: $main2;
   animation-fill-mode: both;
   position: relative;
   display: inline-block;
@@ -29,8 +28,8 @@ $hilight: #6f16ff;
   &:hover {
     cursor: pointer;
     background: $accent;
-    color: $main;
-    border: dashed 1px $main;
+    color: $main2;
+    border: dashed 1px $main2;
   }
 }
 @keyframes PopIn {

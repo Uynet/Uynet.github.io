@@ -9,22 +9,15 @@
 img {
   object-fit: cover; }
 
-h1 {
-  font-family: "Nico Moji";
-  font-family: "gkktt";
-  font-family: ta-f1blockline, sans-serif;
-  font-size: 50px;
-  text-align: center;
-  color: #ffa088; }
-
 html {
+  font-family: sans-serif;
   height: 100%; }
 
 body {
   overflow-x: hidden;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #fff2f0;
+  background-color: #fffdf8;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -38,9 +31,8 @@ textarea {
   font-size: 100%; }
 
 a {
-  transition: color 0.2s;
   text-decoration: none;
-  color: #f23473; }
+  color: #a244f3; }
 
 a:hover {
   color: #f2b473; }
@@ -229,7 +221,7 @@ a:hover {
   top: 0px;
   margin: auto;
   border-radius: 50%;
-  background: #fff2f0;
+  background: #fffdf8;
   animation-name: BGIn;
   animation-duration: 0.5s;
   animation-delay: 1.1s;
