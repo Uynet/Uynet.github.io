@@ -2,9 +2,12 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import BGEffect from "./BGEffect";
 import { base, main, accent, hilight, font } from "../utils/colors.js";
+import Box from "./box.js";
 
 const bio =
   "日本国憲法を尊重するのが趣味です。普段は日本国家に所属していて、消費税や国民年金を納めています。選挙権を持っていて、労働が義務です。資本主義が好きなみんなと繋がりたい！";
+
+const box1 = { title: "unko", content: "うんこ" };
 
 const s = {
   space: { height: 240 },
@@ -13,10 +16,11 @@ const s = {
     padding: "40px 140px",
     fontSize: 20,
     opacity: 0,
-    animation: "fadeIn  ease 0.2s 1.7s forwards"
+    animation: "fadeIn  ease 0.6s 1.7s forwards"
   },
   header: {
-    position: "fixed",
+    position: "absolute",
+    zIndex: 2,
     top: 0,
     left: 0,
     width: "100vw",
@@ -37,6 +41,7 @@ const s = {
     animation: "myname ease 0.9s 1.4s forwards"
   },
   title: {
+    zIndex: 2,
     position: "relative",
     width: 244,
     textAlign: "center",
@@ -44,11 +49,13 @@ const s = {
     left: 32
   },
   titleString: {
+    zIndex: 2,
     fontFamily: "gkktt",
     fontSize: 80,
     color: base
   },
   underLine: {
+    zIndex: 2,
     height: 8,
     borderRadius: 4,
     background: base,
@@ -99,6 +106,8 @@ class About extends React.Component {
         ></img>
         <div className={this.props.classes.space}></div>
         <div className={this.props.classes.bio}>{bio}</div>
+
+        <Box box={box1} />
       </React.Fragment>
     );
   }
