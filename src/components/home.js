@@ -2,6 +2,11 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { logo } from "./style/home.module.scss";
 import classNames from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fab } from "@fortawesome/free-brands-svg-icons"; //fontawesomeのbrandアイコンのインポート
+import { fas } from "@fortawesome/free-solid-svg-icons"; //fontawesomeのsolidアイコンのインポート
+import { far } from "@fortawesome/free-regular-svg-icons"; //fontawesomeのregularアイコンのインポート
+
 import {
   screenOverLay,
   animateSlideDown,
@@ -26,6 +31,10 @@ const main = "#FF165C";
 const accent = "#FFDF6F";
 const hilight = "#6F16FF";
 
+const genLink = (name, icon) => {
+  return { name: name, icon: icon };
+};
+
 class Home extends React.Component {
   render() {
     //const colors = [hilight, accent, main, base];
@@ -38,6 +47,8 @@ class Home extends React.Component {
     ];
     let sec = 0.0;
     let v = 0.3;
+
+    const links = [genLink("github", "github")];
 
     return (
       <React.Fragment>
@@ -73,6 +84,13 @@ class Home extends React.Component {
           src="/resource/img/bg.png"
           style={{ width: "30%" }}
         ></img>
+        {links.map((link, i) => {
+          return (
+            <React.Fragment>
+              <FontAwesomeIcon icon={["fab", "github"]} />
+            </React.Fragment>
+          );
+        })}
       </React.Fragment>
     );
   }
