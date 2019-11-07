@@ -224,7 +224,7 @@ a:hover {
     background: #e2146a;
     right: 100%; }
   100% {
-    background: #f2b473;
+    background: #9a449d;
     right: -10px; } }
 
 @keyframes sidelineInL {
@@ -233,7 +233,7 @@ a:hover {
     left: 100%; }
   100% {
     left: -10px;
-    background: #f2b473; } }
+    background: #9a449d; } }
 
 .BGCircle1 {
   z-index: -3;
@@ -291,7 +291,7 @@ a:hover {
 .sideline {
   width: 10px;
   height: 100vh;
-  background: #f2b473;
+  background: #9a449d;
   animation-duration: 0.8s;
   animation-delay: 0s;
   animation-fill-mode: both; }

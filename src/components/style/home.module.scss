@@ -64,8 +64,7 @@ $hilight: #6f16ff;
   margin-top: 10%;
   min-width: 350px;
   transform-origin: 20% 50%;
-  //animation: LogoRotation 1.9s ease 0.9s both;
-  animation: LogoDrop 0.5s ease 0.4s both;
+  animation: LogoRotation 1.9s ease 0.9s both, LogoDrop 0.5s ease 0.4s both;
 }
 @keyframes LogoDrop {
   0% {

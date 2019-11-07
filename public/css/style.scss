@@ -286,7 +286,7 @@ a:hover {
     right: 100%;
   }
   100% {
-    background: $hilight;
+    background: $fontColor;
     right: -10px;
   }
 }
@@ -297,7 +297,7 @@ a:hover {
   }
   100% {
     left: -10px;
-    background: $hilight;
+    background: $fontColor;
   }
 }
 .BGCircle1 {
@@ -360,7 +360,7 @@ a:hover {
 .sideline {
   width: 10px;
   height: 100vh;
-  background: $hilight;
+  background: $fontColor;
   animation-duration: 0.8s;
   animation-delay: 0s;
   //:animation-timing-function: cubic-bezier(.07,1.15,.98,.94);
