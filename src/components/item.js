@@ -6,13 +6,9 @@ import {
   headline
 } from "./style/item.module.scss";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { base, main, accent, hilight, font } from "../utils/colors.js";
 
 const s = {};
-
-const base = "#fad8e4";
-const main = "#e2146a";
-const accent = "#FFDF6F";
-const hilight = "#6F16FF";
 
 class Item extends React.Component {
   constructor(props) {

@@ -15,6 +15,7 @@ import {
   animateSlideUp,
   animateSlideLeft
 } from "./style/effects.module.scss";
+import { base, main, accent, hilight, font } from "../utils/colors.js";
 
 const s = {};
 
@@ -26,11 +27,6 @@ function genStyle(color, delay) {
     animationDuration: "2.5s"
   };
 }
-
-const base = "#fad8e4";
-const main = "#e2146a";
-const accent = "#FFDF6F";
-const hilight = "#6F16FF";
 
 const genLink = (name, url) => {
   return { name: name, url: url };

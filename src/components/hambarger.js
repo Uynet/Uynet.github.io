@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { base, main, accent, hilight, font } from "../utils/colors.js";
 
 const s = {
   time: {
@@ -19,9 +20,6 @@ const s = {
     animationFillMode: "both"
   }
 };
-
-const base = "#fad8e4";
-const main = "#e2146a";
 
 class Hamberger extends React.Component {
   constructor(props) {

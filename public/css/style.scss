@@ -8,17 +8,14 @@
 }
 
 $width: 320;
-$hilight: #f2b473;
-$hilight2: #f23473;
+$accent: #f2b473;
 $BGColor: #fad8e4;
-$BGColor2: #cad8f4;
-$BGColor2: #a4befe;
 $baseColor: #e2146a;
-$baseColor2: #f4bebe;
+$base: #f4bebe;
 $baseColor3: #5224fa;
 $fontColor: #9a449d;
 $shadow2: #6a446d;
-$shadow: $baseColor2;
+$shadow: $base;
 
 $onHover: #ccc;
 
@@ -318,7 +315,7 @@ a:hover {
   top: 0px;
   margin: auto;
   border-radius: 50%;
-  background: $baseColor2;
+  background: $base;
   animation: BGIn 1.2s ease 0.5s both;
 }
 .BGCircle2 {
@@ -388,7 +385,6 @@ a:hover {
     opacity: 1;
   }
 }
-
 @keyframes myname {
   0% {
     transform: translateX(-20%);
@@ -396,6 +392,14 @@ a:hover {
   }
   100% {
     transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }

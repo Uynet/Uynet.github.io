@@ -2,10 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Item from "./item";
 import MediaQuery from "react-responsive";
-
-const main = "#e2146a";
-const accent = "#FFDF6F";
-const base = "#fad8e4";
+import { base, main, accent, hilight, font } from "../utils/colors.js";
 
 const width = 320;
 

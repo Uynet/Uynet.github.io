@@ -1,14 +1,20 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import BGEffect from "./BGEffect";
-import { NONAME } from "dns";
+import { base, main, accent, hilight, font } from "../utils/colors.js";
 
-const base = "#fad8e4";
-const main = "#e2146a";
-const accent = "#FFDF6F";
-const hilight = "#6F16FF";
+const bio =
+  "日本国憲法を尊重するのが趣味です。普段は日本国家に所属していて、消費税や国民年金を納めています。選挙権を持っていて、労働が義務です。資本主義が好きなみんなと繋がりたい！";
 
 const s = {
+  space: { height: 240 },
+  bio: {
+    color: font,
+    padding: "40px 140px",
+    fontSize: 20,
+    opacity: 0,
+    animation: "fadeIn  ease 0.2s 1.7s forwards"
+  },
   header: {
     position: "fixed",
     top: 0,
@@ -26,13 +32,14 @@ const s = {
     fontFamily: "gkktt",
     position: "absolute",
     top: 200,
-    left: 100,
+    left: 180,
     opacity: 0,
     animation: "myname ease 0.9s 1.4s forwards"
   },
   title: {
     position: "relative",
     width: 244,
+    textAlign: "center",
     top: 64,
     left: 32
   },
@@ -55,7 +62,7 @@ const s = {
     borderRadius: "50%",
     transform: "translate(-50%,-50%)",
     top: 270,
-    left: 70,
+    left: 140,
     // right: 0,
     width: 0,
     height: 0,
@@ -90,6 +97,8 @@ class About extends React.Component {
           src="/resource/img/icon.png"
           className={this.props.classes.icon}
         ></img>
+        <div className={this.props.classes.space}></div>
+        <div className={this.props.classes.bio}>{bio}</div>
       </React.Fragment>
     );
   }
