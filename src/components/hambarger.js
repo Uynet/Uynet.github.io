@@ -28,9 +28,8 @@ class Hamberger extends React.Component {
     super(props);
     this.state = { isOpen: false, isFirstTime: true };
   }
-  onClick = e => {
+  toggleOpen = e => {
     this.setState({ isOpen: !this.state.isOpen, isFirstTime: false });
-    this.props.onClick();
   };
   render() {
     const color = this.state.isOpen ? base : main;
@@ -57,7 +56,7 @@ class Hamberger extends React.Component {
               cursor: "pointer",
               borderColor: color
             }}
-            onClick={this.onClick}
+            onClick={this.props.onClick}
           >
             <div
               style={{

@@ -15,20 +15,18 @@ library.add(fab, fas, far);
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.ref = React.createRef();
+    this.menubar = React.createRef();
+    this.hambar = React.createRef();
   }
-  handleClick = e => {
-    this.ref.current.toggleOpen();
-  };
-  onUpdate = () => {
-    this.render();
+  toggleMenubar = e => {
+    this.menubar.current.toggleOpen();
+    this.hambar.current.toggleOpen();
   };
   render() {
-    console.log("up");
     return (
       <React.Fragment>
-        <Hamberger onClick={this.handleClick} />
-        <Menubar ref={this.ref} update={this.onUpdate} />
+        <Hamberger ref={this.hambar} onClick={this.toggleMenubar} />
+        <Menubar ref={this.menubar} update={this.toggleMenubar} />
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />

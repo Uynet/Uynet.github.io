@@ -88,26 +88,24 @@ class Home extends React.Component {
         <div className={linksClass} align="center">
           {links.map((link, i) => {
             return (
-              <React.Fragment>
-                <div
-                  onClick={() => window.location.assign(link.url)}
-                  key={i}
+              <div
+                onClick={() => window.location.assign(link.url)}
+                key={i}
+                style={{
+                  animationDelay: 1.0 + i * 0.1 + "s"
+                }}
+                className={linkClass}
+              >
+                <FontAwesomeIcon
                   style={{
-                    animationDelay: 1.0 + i * 0.1 + "s"
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%,-50%)"
                   }}
-                  className={linkClass}
-                >
-                  <FontAwesomeIcon
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%,-50%)"
-                    }}
-                    icon={["fab", link.name]}
-                  />
-                </div>
-              </React.Fragment>
+                  icon={["fab", link.name]}
+                />
+              </div>
             );
           })}
         </div>

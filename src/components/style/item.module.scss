@@ -1,20 +1,38 @@
 $main: #e2146a;
 $accent: #ffdf6f;
+$base: #ffcbd1;
 
 .item {
-  color: #fff;
+  //color: $base;
   font-family: gkktt;
-  font-size: 18px;
+  font-size: 24px;
   padding: 12px;
+  position: relative;
 
   &:hover {
-    color: $main;
+    //color: $main;
     background: $accent;
   }
 }
 .underline {
-  background: "#fff";
-  opacity: 0.5;
-  height: 8px;
+  height: 4px;
   width: 100px;
+}
+.headline {
+  position: absolute;
+  top: 0px;
+  left: 150px;
+  width: 80px;
+  animation: swipeY cubic-bezier(0.99, 0.01, 0, 1) 0.6s forwards;
+  animation-delay: 0.19;
+}
+@keyframes swipeY {
+  0% {
+    top: 50%;
+    height: 0%;
+  }
+  100% {
+    top: 0%;
+    height: 100%;
+  }
 }

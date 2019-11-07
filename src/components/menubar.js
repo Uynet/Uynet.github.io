@@ -18,7 +18,7 @@ const s = {
     position: "fixed",
     top: 0,
     left: "calc(100vw - " + width / 2 + "px)",
-    animation: "menuSlideIn 0.4s"
+    animation: "menuSlideIn 0.3s"
   },
   closed: {
     zIndex: 9,
@@ -94,35 +94,39 @@ class Menubar extends React.Component {
             }
           >
             <div className={itemTitleClass}>めにゅー</div>
-            <div>
-              {items.map((item, i) => {
-                return (
-                  <Item
-                    update={this.props.update}
-                    name={item.name}
-                    link={item.link}
-                    key={i}
-                  />
-                );
-              })}
-            </div>
+            {this.state.isOpen && (
+              <div>
+                {items.map((item, i) => {
+                  return (
+                    <Item
+                      update={this.toggleOpen}
+                      name={item.name}
+                      link={item.link}
+                      key={i}
+                    />
+                  );
+                })}
+              </div>
+            )}
           </div>
         </MediaQuery>
         <MediaQuery query="(min-width: 430px)">
           <div className={className}>
             <div className={itemTitleClass}>めにゅー</div>
-            <div>
-              {items.map((item, i) => {
-                return (
-                  <Item
-                    update={this.props.update}
-                    name={item.name}
-                    link={item.link}
-                    key={i}
-                  />
-                );
-              })}
-            </div>
+            {this.state.isOpen && (
+              <div>
+                {items.map((item, i) => {
+                  return (
+                    <Item
+                      update={this.props.update}
+                      name={item.name}
+                      link={item.link}
+                      key={i}
+                    />
+                  );
+                })}
+              </div>
+            )}
           </div>
         </MediaQuery>
       </React.Fragment>
