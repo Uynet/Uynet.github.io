@@ -19,6 +19,8 @@ $base: #ffcbd1;
   width: 100px;
 }
 .headline {
+  display: none; //とりあえず非表示
+
   position: absolute;
   top: 0px;
   left: 150px;

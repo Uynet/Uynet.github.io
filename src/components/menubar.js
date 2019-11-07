@@ -99,7 +99,7 @@ class Menubar extends React.Component {
                 {items.map((item, i) => {
                   return (
                     <Item
-                      update={this.toggleOpen}
+                      update={this.props.update}
                       name={item.name}
                       link={item.link}
                       key={i}
