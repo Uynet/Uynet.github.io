@@ -1,11 +1,12 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { logo } from "./style/home.module.scss";
+import {
+  logo,
+  links as linksClass,
+  link as linkClass
+} from "./style/home.module.scss";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fab } from "@fortawesome/free-brands-svg-icons"; //fontawesomeのbrandアイコンのインポート
-import { fas } from "@fortawesome/free-solid-svg-icons"; //fontawesomeのsolidアイコンのインポート
-import { far } from "@fortawesome/free-regular-svg-icons"; //fontawesomeのregularアイコンのインポート
 
 import {
   screenOverLay,
@@ -48,7 +49,11 @@ class Home extends React.Component {
     let sec = 0.0;
     let v = 0.3;
 
-    const links = [genLink("github", "github")];
+    const links = [
+      genLink("github", "github"),
+      genLink("twitter", "twitter"),
+      genLink("soundcloud", "soudcloud")
+    ];
 
     return (
       <React.Fragment>
@@ -84,13 +89,40 @@ class Home extends React.Component {
           src="/resource/img/bg.png"
           style={{ width: "30%" }}
         ></img>
-        {links.map((link, i) => {
-          return (
-            <React.Fragment>
-              <FontAwesomeIcon icon={["fab", "github"]} />
-            </React.Fragment>
-          );
-        })}
+        <div className={linksClass} align="center">
+          {links.map((link, i) => {
+            return (
+              <React.Fragment>
+                <div
+                  key={i}
+                  style={{
+                    position: "relative",
+                    display: "inline-block",
+                    color: base,
+                    fontSize: 30,
+                    background: main,
+                    padding: 8,
+                    borderRadius: "50%",
+                    margin: 8,
+                    width: 40,
+                    height: 40
+                  }}
+                  className={linkClass}
+                >
+                  <FontAwesomeIcon
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%,-50%)"
+                    }}
+                    icon={["fab", link.name]}
+                  />
+                </div>
+              </React.Fragment>
+            );
+          })}
+        </div>
       </React.Fragment>
     );
   }
