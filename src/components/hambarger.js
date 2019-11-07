@@ -1,7 +1,24 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const s = {};
+const s = {
+  time: {
+    position: "absolute",
+    right: 40,
+    top: 16,
+    zIndex: 10
+  },
+  bar: {
+    position: "absolute",
+    right: 40,
+    top: 16,
+    zIndex: 10,
+    animation: "hambergerDrop",
+    animationTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1)",
+    animationFillMode: "both"
+  }
+};
 
 const base = "#FFCBD1";
 const main = "#FF165C";
@@ -9,25 +26,35 @@ const main = "#FF165C";
 class Hamberger extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: false };
+    this.state = { isOpen: false, isFirstTime: true };
   }
   onClick = e => {
-    this.setState({ isOpen: !this.state.isOpen });
+    this.setState({ isOpen: !this.state.isOpen, isFirstTime: false });
     this.props.onClick();
   };
   render() {
     const color = this.state.isOpen ? base : main;
-    const content = this.state.isOpen ? "×" : "≡";
+    const content = this.state.isOpen ? "times" : "bars";
+    const className = this.state.isOpen
+      ? this.props.classes.time
+      : this.props.classes.bar;
     return (
       <React.Fragment>
-        <div style={{ position: "absolute", top: 20, right: 40, zIndex: 10 }}>
+        <div
+          className={className}
+          style={{
+            animationDelay: this.state.isFirstTime ? "1.3s" : "0s",
+            animationDuration: this.state.isFirstTime ? "0.7s" : "0s"
+          }}
+        >
           <div
             style={{
-              width: 32,
-              height: 32,
-              borderRadius: 4,
+              width: 62,
+              height: 62,
+              borderRadius: 0,
               borderStyle: "solid",
               borderWidth: 2,
+              cursor: "pointer",
               borderColor: color
             }}
             onClick={this.onClick}
@@ -43,7 +70,7 @@ class Hamberger extends React.Component {
                 margin: "0 auto"
               }}
             >
-              {content}
+              <FontAwesomeIcon icon={["fas", content]}></FontAwesomeIcon>
             </div>
           </div>
         </div>

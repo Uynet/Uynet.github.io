@@ -10,6 +10,7 @@ const width = 320;
 
 const s = {
   open: {
+    tabIndex: 1,
     zIndex: 9,
     background: main,
     width: width,
@@ -26,8 +27,8 @@ const s = {
     height: "100vh",
     position: "fixed",
     top: 0,
-    left: "calc(100vw)",
-    animation: "menuSlideOut 0.4s"
+    left: "calc(100vw)"
+    //animation: "menuSlideOut 0.4s"
   },
   itemtitle: {
     fontFamily: "Nico Moji",
