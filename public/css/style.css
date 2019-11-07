@@ -211,9 +211,16 @@ a:hover {
   100% {
     box-shadow: 10px 10px #f4bebe; } }
 
+@keyframes swipeY {
+  0% {
+    top: 0%;
+    height: 0px; }
+  100% {
+    top: 0%;
+    height: 250px; } }
+
 @keyframes swipeX {
   0% {
-    left: 50%;
     width: 0%; }
   100% {
     left: 0%;
@@ -295,3 +302,17 @@ a:hover {
   animation-duration: 0.8s;
   animation-delay: 0s;
   animation-fill-mode: both; }
+
+@keyframes iconPop {
+  0% {
+    width: 0px;
+    height: 0px;
+    border: "dashed 5px";
+    border-color: #f4bebe;
+    transform: rotate(90deg); }
+  100% {
+    width: 100px;
+    height: 100px;
+    border: "dashed 5px";
+    border-color: #f4bebe;
+    transform: rotate(0deg); } }

@@ -5,6 +5,7 @@ import MediaQuery from "react-responsive";
 
 const main = "#e2146a";
 const accent = "#FFDF6F";
+const base = "#fad8e4";
 
 const width = 320;
 
@@ -18,7 +19,9 @@ const s = {
     position: "fixed",
     top: 0,
     left: "calc(100vw - " + width / 2 + "px)",
-    animation: "menuSlideIn 0.3s"
+    animation: "menuSlideIn 0.3s",
+    borderLeft: "solid 2px",
+    borderColor: base
   },
   closed: {
     zIndex: 9,
