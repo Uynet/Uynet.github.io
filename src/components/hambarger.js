@@ -49,8 +49,8 @@ class Hamberger extends React.Component {
         >
           <div
             style={{
-              width: 62,
-              height: 62,
+              width: 32,
+              height: 32,
               borderRadius: 0,
               borderStyle: "solid",
               borderWidth: 2,

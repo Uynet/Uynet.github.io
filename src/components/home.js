@@ -5,11 +5,11 @@ import {
   links as linksClass,
   link as linkClass
 } from "./style/home.module.scss";
-import classNames from "classnames";
+//import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
-  screenOverLay,
+  //screenOverLay,
   animateSlideDown,
   animateSlideRight,
   animateSlideUp,
@@ -28,7 +28,7 @@ function genStyle(color, delay) {
 }
 
 const base = "#FFCBD1";
-const main = "#FF165C";
+const main = "#e2146a";
 const accent = "#FFDF6F";
 const hilight = "#6F16FF";
 
@@ -84,11 +84,7 @@ class Home extends React.Component {
         })*/}
 
         <div className={logo}>ゆいブログ</div>
-        <img
-          className="chara"
-          src="/resource/img/bg.png"
-          style={{ width: "30%" }}
-        ></img>
+        <img className="chara" src="/resource/img/bg.png"></img>
         <div className={linksClass} align="center">
           {links.map((link, i) => {
             return (
