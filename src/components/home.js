@@ -7,7 +7,7 @@ import {
 } from "./style/home.module.scss";
 //import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import BGEffect from "./BGEffect.js";
 import {
   //screenOverLay,
   animateSlideDown,
@@ -57,6 +57,8 @@ class Home extends React.Component {
 
     return (
       <React.Fragment>
+        <BGEffect />
+
         {/*colors.map((c, i) => {
           sec += v;
           return (

@@ -7,12 +7,18 @@
   src: url("/Fonts/gkktt.ttf") format("opentype");
 }
 
-$hilight: #f3b000;
-$BGColor: #30a0c0;
-$baseColor: #200050;
-$baseColor2: #ef1f6a;
-$BGColor: #fad8e4;
 $width: 320;
+$hilight: #f2b473;
+$hilight2: #f23473;
+$BGColor: #fad8e4;
+$BGColor2: #cad8f4;
+$BGColor2: #a4befe;
+$baseColor: #e2146a;
+$baseColor2: #f4bebe;
+$baseColor3: #5224fa;
+$fontColor: #9a449d;
+$shadow2: #6a446d;
+$shadow: $baseColor2;
 
 $onHover: #ccc;
 
@@ -274,11 +280,89 @@ a:hover {
     width: 100%;
   }
 }
-@keyframes swipeY {
+@keyframes sidelineInR {
   0% {
-    height: 100%;
+    background: $baseColor;
+    right: 100%;
   }
   100% {
-    height: 100%;
+    background: $hilight;
+    right: -10px;
   }
+}
+@keyframes sidelineInL {
+  0% {
+    background: $baseColor;
+    left: 100%;
+  }
+  100% {
+    left: -10px;
+    background: $hilight;
+  }
+}
+.BGCircle1 {
+  z-index: -3;
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  margin: auto;
+  border-radius: 50%;
+  background: $baseColor2;
+  animation: BGIn 1.2s ease 0.5s both;
+}
+.BGCircle2 {
+  z-index: -2;
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  margin: auto;
+  border-radius: 50%;
+  background: $BGColor;
+  animation-name: BGIn;
+  animation-duration: 0.5s;
+  animation-delay: 1.1s;
+  animation-fill-mode: both;
+}
+@keyframes BGIn {
+  0% {
+    width: 0vw;
+    height: 0vw;
+  }
+  100% {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+@keyframes BGIn2 {
+  0% {
+    width: 0vw;
+    height: 0vw;
+  }
+  100% {
+    width: 99vw;
+    height: 99vw;
+  }
+}
+.rightside {
+  position: fixed;
+  top: 0px;
+  animation-name: sidelineInR;
+}
+.leftside {
+  position: fixed;
+  top: 0px;
+  animation-name: sidelineInL;
+}
+.sideline {
+  width: 10px;
+  height: 100vh;
+  background: $hilight;
+  animation-duration: 0.8s;
+  animation-delay: 0s;
+  //:animation-timing-function: cubic-bezier(.07,1.15,.98,.94);
+  animation-fill-mode: both;
 }

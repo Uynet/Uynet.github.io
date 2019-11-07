@@ -16,7 +16,7 @@ h1 {
   font-family: "honoka";
   font-size: 50px;
   text-align: center;
-  color: #200050; }
+  color: #e2146a; }
 
 html {
   font-family: "honoka";
@@ -58,14 +58,14 @@ a:hover {
   .postList .title {
     font-size: 32px; }
   .postList:hover {
-    background: #200050; }
+    background: #e2146a; }
 
 .post {
   padding: 16px;
   width: 60%;
   background: #fff;
   border-radius: 10px;
-  color: #200050; }
+  color: #e2146a; }
 
 .textarea {
   font-family: "honoka";
@@ -96,7 +96,7 @@ a:hover {
   font-family: "honoka";
   left: 0px;
   top: 0px;
-  background: #200050; }
+  background: #e2146a; }
 
 .chara {
   z-index: 2;
@@ -219,8 +219,79 @@ a:hover {
     left: 0%;
     width: 100%; } }
 
-@keyframes swipeY {
+@keyframes sidelineInR {
   0% {
-    height: 100%; }
+    background: #e2146a;
+    right: 100%; }
   100% {
-    height: 100%; } }
+    background: #f2b473;
+    right: -10px; } }
+
+@keyframes sidelineInL {
+  0% {
+    background: #e2146a;
+    left: 100%; }
+  100% {
+    left: -10px;
+    background: #f2b473; } }
+
+.BGCircle1 {
+  z-index: -3;
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  margin: auto;
+  border-radius: 50%;
+  background: #f4bebe;
+  animation: BGIn 1.2s ease 0.5s both; }
+
+.BGCircle2 {
+  z-index: -2;
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  margin: auto;
+  border-radius: 50%;
+  background: #fad8e4;
+  animation-name: BGIn;
+  animation-duration: 0.5s;
+  animation-delay: 1.1s;
+  animation-fill-mode: both; }
+
+@keyframes BGIn {
+  0% {
+    width: 0vw;
+    height: 0vw; }
+  100% {
+    width: 100vw;
+    height: 100vw; } }
+
+@keyframes BGIn2 {
+  0% {
+    width: 0vw;
+    height: 0vw; }
+  100% {
+    width: 99vw;
+    height: 99vw; } }
+
+.rightside {
+  position: fixed;
+  top: 0px;
+  animation-name: sidelineInR; }
+
+.leftside {
+  position: fixed;
+  top: 0px;
+  animation-name: sidelineInL; }
+
+.sideline {
+  width: 10px;
+  height: 100vh;
+  background: #f2b473;
+  animation-duration: 0.8s;
+  animation-delay: 0s;
+  animation-fill-mode: both; }
