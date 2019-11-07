@@ -28,7 +28,7 @@ const s = {
     position: "fixed",
     top: 0,
     left: "calc(100vw)"
-    //animation: "menuSlideOut 0.4s"
+    //animation: "menuSlideOut 0.2s"
   },
   itemtitle: {
     fontFamily: "Nico Moji",
@@ -68,10 +68,10 @@ const createMenu = (name, link) => {
 class Menubar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: false };
+    this.state = { isOpen: false, isFirstTime: true };
   }
   toggleOpen = e => {
-    this.setState({ isOpen: !this.state.isOpen });
+    this.setState({ isOpen: !this.state.isOpen, isFirstTime: false });
   };
   render() {
     const items = [
@@ -111,7 +111,15 @@ class Menubar extends React.Component {
           </div>
         </MediaQuery>
         <MediaQuery query="(min-width: 430px)">
-          <div className={className}>
+          <div
+            className={className}
+            style={{
+              animation:
+                !this.state.isOpen &&
+                !this.state.isFirstTime &&
+                "menuSlideOut 0.2s"
+            }}
+          >
             <div className={itemTitleClass}>めにゅー</div>
             {this.state.isOpen && (
               <div>

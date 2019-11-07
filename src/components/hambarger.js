@@ -42,7 +42,7 @@ class Hamberger extends React.Component {
         <div
           className={className}
           style={{
-            animationDelay: this.state.isFirstTime ? "1.3s" : "0s",
+            animationDelay: this.state.isFirstTime ? "0.8s" : "0s",
             animationDuration: this.state.isFirstTime ? "0.7s" : "0s"
           }}
         >
