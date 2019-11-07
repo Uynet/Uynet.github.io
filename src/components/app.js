@@ -16,8 +16,8 @@ library.add(fab, fas, far);
 class App extends React.Component {
   constructor(props) {
     super(props);
-    let path = window.location.href.split("/").pop() + "/";
-    if (!(path == "/" || path == "about" || path == "works"))
+    let path = "/" + window.location.href.split("/").pop();
+    if (!(path == "/" || path == "/about" || path == "/works"))
       window.location.assign("/");
     this.state = { path: path };
     this.menubar = React.createRef();

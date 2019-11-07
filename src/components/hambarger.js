@@ -20,8 +20,8 @@ const s = {
   }
 };
 
-const base = "#FFCBD1";
-const main = "#FF165C";
+const base = "#fad8e4";
+const main = "#e2146a";
 
 class Hamberger extends React.Component {
   constructor(props) {
@@ -54,6 +54,7 @@ class Hamberger extends React.Component {
               borderStyle: "solid",
               borderWidth: 2,
               cursor: "pointer",
+              background: this.state.isOpen ? main : base,
               borderColor: color
             }}
             onClick={e => this.props.onClick(null)}

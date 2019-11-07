@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 const s = {};
 
-const base = "#FFCBD1";
+const base = "#fad8e4";
 const main = "#e2146a";
 const accent = "#FFDF6F";
 const hilight = "#6F16FF";
