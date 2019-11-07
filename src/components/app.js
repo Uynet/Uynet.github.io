@@ -16,7 +16,10 @@ library.add(fab, fas, far);
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { path: "/" };
+    let path = window.location.href.split("/").pop() + "/";
+    if (!(path == "/" || path == "about" || path == "works"))
+      window.location.assign("/");
+    this.state = { path: path };
     this.menubar = React.createRef();
     this.hambar = React.createRef();
   }
@@ -25,10 +28,6 @@ class App extends React.Component {
     this.hambar.current.toggleOpen();
     if (path) this.router(path);
   };
-  onComponentDidMounted() {
-    const path = window.location.href.split("/").pop() + "/";
-    this.setState({ path: path });
-  }
   router = path => {
     if (path === "top") path = "";
     path = "/" + path;
