@@ -31,9 +31,9 @@ class App extends React.Component {
         <Menubar ref={this.ref} update={this.onUpdate} />
         <Router>
           <Switch>
-            <Route path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/works" component={Works} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/works" component={Works} />
             <Route exact component={NotFound} />
           </Switch>
         </Router>

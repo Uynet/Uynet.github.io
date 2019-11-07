@@ -1,5 +1,7 @@
 $base: #ffcbd1;
 $main: #ff165c;
+$accent: #ffdf6f;
+$hilight: #6f16ff;
 
 .links {
   position: absolute;
@@ -10,16 +12,26 @@ $main: #ff165c;
   color: main;
 }
 .link {
-  /*
   animation-name: PopIn;
   animation-duration: 0.5s;
-  animation-delay: 1.3s;
+  background: $main;
   animation-fill-mode: both;
-  color: base;
-  font-size: 40;
-  background: main;
-  padding: 8;
-    */
+  position: relative;
+  display: inline-block;
+  color: $base;
+  font-size: 30px;
+  padding: 8px;
+  border-radius: 50%;
+  margin: 8px;
+  width: 40px;
+  height: 40px;
+  border: solid 1px $base;
+  &:hover {
+    cursor: pointer;
+    background: $accent;
+    color: $main;
+    border: dashed 1px $main;
+  }
 }
 @keyframes PopIn {
   0% {

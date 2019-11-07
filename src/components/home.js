@@ -32,8 +32,8 @@ const main = "#FF165C";
 const accent = "#FFDF6F";
 const hilight = "#6F16FF";
 
-const genLink = (name, icon) => {
-  return { name: name, icon: icon };
+const genLink = (name, url) => {
+  return { name: name, url: url };
 };
 
 class Home extends React.Component {
@@ -50,9 +50,9 @@ class Home extends React.Component {
     let v = 0.3;
 
     const links = [
-      genLink("github", "github"),
-      genLink("twitter", "twitter"),
-      genLink("soundcloud", "soudcloud")
+      genLink("github", "http://github.com/Uynet"),
+      genLink("twitter", "http://twitter.com/uynet"),
+      genLink("soundcloud", "https://soundcloud.com/saihate-1")
     ];
 
     return (
@@ -94,18 +94,10 @@ class Home extends React.Component {
             return (
               <React.Fragment>
                 <div
+                  onClick={() => window.location.assign(link.url)}
                   key={i}
                   style={{
-                    position: "relative",
-                    display: "inline-block",
-                    color: base,
-                    fontSize: 30,
-                    background: main,
-                    padding: 8,
-                    borderRadius: "50%",
-                    margin: 8,
-                    width: 40,
-                    height: 40
+                    animationDelay: 1.0 + i * 0.1 + "s"
                   }}
                   className={linkClass}
                 >
