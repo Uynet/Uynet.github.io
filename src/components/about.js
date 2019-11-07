@@ -21,14 +21,14 @@ const s = {
     //borderBottom: "solid 5px"
   },
   myname: {
-    color: hilight,
+    color: main,
     fontSize: 40,
     fontFamily: "gkktt",
     position: "absolute",
     top: 200,
-    left: 150,
+    left: 100,
     opacity: 0,
-    animation: "myname ease 0.9s 1.5s forwards"
+    animation: "myname ease 0.9s 1.4s forwards"
   },
   title: {
     position: "relative",
@@ -55,14 +55,14 @@ const s = {
     borderRadius: "50%",
     transform: "translate(-50%,-50%)",
     top: 270,
-    left: 120,
+    left: 70,
     // right: 0,
     width: 0,
     height: 0,
     zIndex: 5,
     opacity: 0,
     margin: "auto",
-    animation: "iconPop cubic-bezier(0, 1, 0, 1) 2.6s 1.3s forwards",
+    animation: "iconPop cubic-bezier(0, 1, 0, 1) 2.6s 1.1s forwards",
     border: "solid 5px",
     borderColor: main
   }

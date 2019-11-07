@@ -367,6 +367,7 @@ a:hover {
   animation-name: sidelineInL;
 }
 .sideline {
+  z-index: 10;
   width: 10px;
   height: 100vh;
   background: $fontColor;
