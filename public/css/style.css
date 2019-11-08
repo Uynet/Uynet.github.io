@@ -301,3 +301,11 @@ a:hover {
   100% {
     transform: translateX(0%);
     opacity: 1; } }
+
+@keyframes workTitleIn {
+  0% {
+    height: 0px;
+    opacity: 0; }
+  100% {
+    height: 20px;
+    opacity: 1; } }

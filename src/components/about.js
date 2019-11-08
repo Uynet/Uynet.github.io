@@ -108,6 +108,7 @@ class About extends React.Component {
         <div className={this.props.classes.bio}>{bio}</div>
 
         <Box box={box1} />
+        <div className={this.props.classes.space}></div>
       </React.Fragment>
     );
   }
