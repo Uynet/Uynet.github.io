@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Home from "./home.js";
 import About from "./about.js";
 import Works from "./works.js";
+import Contact from "./contact.js";
+import Blog from "./blog.js";
 import Menubar from "./menubar.js";
 import Hamberger from "./hambarger.js";
 
@@ -10,14 +12,24 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
+import Modal from "react-modal";
 
 library.add(fab, fas, far);
 
+Modal.setAppElement("#root");
 class App extends React.Component {
   constructor(props) {
     super(props);
     let path = "/" + window.location.href.split("/").pop();
-    if (!(path === "/" || path === "/about" || path === "/works"))
+    if (
+      !(
+        path === "/" ||
+        path === "/about" ||
+        path === "/works" ||
+        path == "/contact" ||
+        path == "/blog"
+      )
+    )
       window.location.assign("/");
     this.state = { path: path };
     this.menubar = React.createRef();
@@ -52,6 +64,8 @@ class App extends React.Component {
         {this.state.path === "/" && <Home />}
         {this.state.path === "/about" && <About />}
         {this.state.path === "/works" && <Works />}
+        {this.state.path === "/contact" && <Contact />}
+        {this.state.path === "/blog" && <Blog />}
       </React.Fragment>
     );
   }

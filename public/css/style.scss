@@ -239,22 +239,22 @@ a:hover {
 }
 @keyframes sidelineInR {
   0% {
-    background: $main;
+    background: $sideline;
     right: 100%;
   }
   100% {
-    background: $main;
+    background: $sideline;
     right: -10px;
   }
 }
 @keyframes sidelineInL {
   0% {
-    background: $main;
+    background: $sideline;
     left: 100%;
   }
   100% {
     left: -10px;
-    background: $main;
+    background: $sideline;
   }
 }
 .BGCircle1 {

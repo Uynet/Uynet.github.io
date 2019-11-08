@@ -46,7 +46,7 @@ class Work extends React.Component {
     this.ref = React.createRef();
   }
   handleClick = e => {
-    this.ref.current.toggleOpen();
+    window.location.assign(this.props.link);
   };
   onMouseEnter = e => {
     this.setState({ onHover: true });
@@ -59,7 +59,7 @@ class Work extends React.Component {
     return (
       <React.Fragment>
         <div
-          onClick={() => window.location.assign(this.props.link)}
+          onClick={this.handleClick}
           className={this.props.classes.card}
           onMouseEnter={this.onMouseEnter}
           onMouseLeave={this.onMouseLeave}

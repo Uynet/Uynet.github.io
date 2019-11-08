@@ -1,7 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { base, main } from "../utils/colors.js";
+import { base, main, menubar } from "../utils/colors.js";
 
 const s = {
   time: {
@@ -30,7 +30,7 @@ class Hamberger extends React.Component {
     this.setState({ isOpen: !this.state.isOpen, isFirstTime: false });
   };
   render() {
-    const color = this.state.isOpen ? base : main;
+    const color = this.state.isOpen ? base : menubar;
     const content = this.state.isOpen ? "times" : "bars";
     const className = this.state.isOpen
       ? this.props.classes.time
@@ -52,7 +52,7 @@ class Hamberger extends React.Component {
               borderStyle: "solid",
               borderWidth: 2,
               cursor: "pointer",
-              background: this.state.isOpen ? main : base,
+              background: this.state.isOpen ? menubar : base,
               borderColor: color
             }}
             onClick={e => this.props.onClick(null)}

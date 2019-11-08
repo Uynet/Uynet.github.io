@@ -110,7 +110,7 @@ const genWork = (name, imgurl, link) => {
   return { name: name, imgurl: imgurl, link: link };
 };
 
-class Works extends React.Component {
+class Contact extends React.Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
@@ -151,49 +151,22 @@ class Works extends React.Component {
         ></div>
         <div
           className={this.props.classes.header}
-          style={{ animationDelay: "0.5s", background: "#FF3090" }}
+          style={{ animationDelay: "0.5s", background: accent }}
         ></div>
         <div
           className={this.props.classes.header}
           style={{ animationDelay: "0.6s", background: menubar }}
         ></div>
         <div className={this.props.classes.title}>
-          <div className={this.props.classes.titleString}>Works</div>
+          <div className={this.props.classes.titleString}>Contact</div>
           <div className={this.props.classes.underLine}></div>
         </div>
         <div className={this.props.classes.space}></div>
 
         <div className={this.props.classes.category}>
-          <div className={this.props.classes.categoryString}>Product</div>
+          <div className={this.props.classes.categoryString}>連絡</div>
           <div className={this.props.classes.underLine2}></div>
-          <div className={this.props.classes.desc}>主な制作物</div>
-        </div>
-
-        <div className={this.props.classes.frame}>
-          {products.map((work, i) => {
-            return (
-              <Work
-                id={i}
-                key={i}
-                name={work.name}
-                imgurl={work.imgurl}
-                link={work.link}
-              />
-            );
-          })}
-        </div>
-
-        {/*
-        <div className={this.props.classes.category}>
-          <div className={this.props.classes.categoryString}>Tips</div>
-          <div className={this.props.classes.underLine2}></div>
-          <div className={this.props.classes.desc}>諸々</div>
-        </div>
-        */}
-        <div style={{ textAlign: "center", padding: 50 }}>
-          <a href="https://twitter.com/i/moments/981932201557114881">
-            もっとみる
-          </a>
+          <div className={this.props.classes.desc}>こちら</div>
         </div>
 
         <div className={this.props.classes.space}></div>
@@ -201,4 +174,4 @@ class Works extends React.Component {
     );
   }
 }
-export default withStyles(s)(Works);
+export default withStyles(s)(Contact);

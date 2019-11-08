@@ -6,7 +6,7 @@ import {
   headline
 } from "./style/item.module.scss";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { base, main, accent } from "../utils/colors.js";
+import { base, main, accent, itemColor, menubar } from "../utils/colors.js";
 
 const s = {};
 
@@ -33,9 +33,9 @@ class Item extends React.Component {
   };
   render() {
     const color = this.state.onHover
-      ? main
+      ? itemColor
       : this.state.isCurrentLoc
-      ? "#FFF"
+      ? menubar
       : base;
     return (
       <React.Fragment>

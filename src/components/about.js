@@ -1,7 +1,14 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import BGEffect from "./BGEffect";
-import { base, main, font } from "../utils/colors.js";
+import {
+  base,
+  main,
+  font,
+  menubar,
+  accent,
+  menubar2
+} from "../utils/colors.js";
 import Box from "./box.js";
 
 const bio =
@@ -62,13 +69,13 @@ const s = {
     zIndex: 2,
     fontFamily: "gkktt",
     fontSize: 80,
-    color: base
+    color: accent
   },
   underLine: {
     zIndex: 2,
     height: 8,
     borderRadius: 4,
-    background: base,
+    background: menubar2,
     left: 0,
     right: 0,
     margin: "auto",
@@ -88,7 +95,7 @@ const s = {
     margin: "auto",
     animation: "iconPop ease  0.4s 1.1s forwards",
     border: "solid 5px",
-    borderColor: main
+    borderColor: base
   }
 };
 
@@ -104,11 +111,22 @@ class About extends React.Component {
     return (
       <React.Fragment>
         <BGEffect />
-        <div className={this.props.classes.header}></div>
+        <div
+          className={this.props.classes.header}
+          style={{ animationDelay: "0.4s", background: main }}
+        ></div>
+        <div
+          className={this.props.classes.header}
+          style={{ animationDelay: "0.5s", background: "#30FFE0" }}
+        ></div>
+        <div
+          className={this.props.classes.header}
+          style={{ animationDelay: "0.6s", background: menubar }}
+        ></div>
         <div className={this.props.classes.title}>
           <div className={this.props.classes.titleString}>About</div>
           <div className={this.props.classes.myname}>uynet</div>
-          <div className={this.props.classes.sub}>creater</div>
+          <div className={this.props.classes.sub}>creator</div>
           <div className={this.props.classes.underLine}></div>
         </div>
         <img

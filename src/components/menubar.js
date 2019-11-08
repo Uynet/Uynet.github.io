@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Item from "./item";
 import MediaQuery from "react-responsive";
-import { base, main, accent } from "../utils/colors.js";
+import { base, main, accent, menubar2 } from "../utils/colors.js";
 
 const width = 320;
 
@@ -10,7 +10,7 @@ const s = {
   open: {
     tabIndex: 1,
     zIndex: 9,
-    background: main,
+    background: menubar2,
     width: width,
     height: "100vh",
     position: "fixed",
@@ -22,7 +22,7 @@ const s = {
   },
   closed: {
     zIndex: 9,
-    background: main,
+    background: menubar2,
     width: width,
     height: "100vh",
     position: "fixed",
@@ -41,7 +41,7 @@ const s = {
   closedMobile: {
     zIndex: 9,
     position: "fixed",
-    background: main,
+    background: menubar2,
     animationDuration: "0.5s",
     width: "100vw",
     height: "100vh",
@@ -51,7 +51,7 @@ const s = {
   openMobile: {
     zIndex: 9,
     position: "fixed",
-    background: main,
+    background: menubar2,
     animationDuration: "0.5s",
     animationName: "menuSlideDown",
     width: "100vw",
@@ -77,7 +77,9 @@ class Menubar extends React.Component {
     const items = [
       createMenu("Top", "/"),
       createMenu("About", "/about"),
-      createMenu("Works", "/works")
+      createMenu("Works", "/works"),
+      createMenu("Contact", "/contact")
+      //createMenu("Blog", "/blog")
     ];
     const className = this.state.isOpen
       ? this.props.classes.open
