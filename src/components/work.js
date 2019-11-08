@@ -14,7 +14,8 @@ const s = {
     animation: "fadeIn ease 1.0s forwards",
     display: "inline-block",
     position: "relative",
-    width: 200,
+    width: "30%",
+    minWidth: 250,
     height: 150,
     cursor: "pointer",
     backgroundSize: "cover",
@@ -22,7 +23,7 @@ const s = {
   },
   image: { width: "100%" },
   title: {
-    animation: "workTitleIn ease 0.3s forwards",
+    animation: "workTitleIn cubic-bezier(0,1,0,1) 1.3s forwards",
     fontFamily: "honoka",
     zIndex: 2,
     width: "100%",
@@ -31,6 +32,7 @@ const s = {
     textAlign: "center",
     padding: "4px 0px",
     float: "right",
+    borderRadius: "12px 12px 0px 0px",
     bottom: "0px"
   }
 };

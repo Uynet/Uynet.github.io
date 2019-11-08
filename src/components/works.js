@@ -5,7 +5,7 @@ import { base, main, font } from "../utils/colors.js";
 import Work from "./work.js";
 
 const s = {
-  space: { height: 240 },
+  space: { height: 200 },
   frame: {
     // background: "#fff",
     textAlign: "center",
@@ -42,12 +42,23 @@ const s = {
   underLine: {
     zIndex: 2,
     height: 8,
-    borderRadius: 4,
+    borderRadius: 3,
     background: base,
     left: 0,
     right: 0,
     margin: "auto",
     animation: "swipeX cubic-bezier(0.99, 0.01, 0, 1) 1.6s forwards"
+  },
+  underLine2: {
+    zIndex: 2,
+    height: 2,
+    borderRadius: 4,
+    background: main,
+    width: 0,
+    left: 0,
+    right: 0,
+    margin: "auto",
+    animation: "swipeX cubic-bezier(0.99, 0.01, 0, 1) 1.6s 1.3s forwards"
   },
   icon: {
     position: "absolute",
@@ -64,6 +75,27 @@ const s = {
     animation: "iconPop ease  0.4s 1.1s forwards",
     border: "solid 5px",
     borderColor: main
+  },
+  category: {
+    width: 100,
+    height: 50,
+    opacity: 0,
+    margin: "auto",
+    marginTop: 40,
+    textAlign: "center",
+    position: "relative",
+    animation: "fadeIn  ease 0.6s 1.0s forwards"
+  },
+  categoryString: {
+    color: main,
+    fontWeight: "bold",
+    fontFamily: "gkktt",
+    fontSize: 20
+  },
+  desc: {
+    color: font,
+    fontFamily: "honoka",
+    margin: 5
   }
 };
 
@@ -80,9 +112,10 @@ class Works extends React.Component {
     this.ref.current.toggleOpen();
   };
   render() {
-    const works = [
+    const products = [
       genWork("サイハテドロップ", "resource/img/kawasemi2.png"),
       genWork("NinjaFlicker", "resource/img/ninja.png"),
+      genWork("ぱれっと倶楽部", "resource/img/pallet.png"),
       genWork("CPCTF Visualizer", "resource/img/visualizer.png")
     ];
     return (
@@ -94,13 +127,27 @@ class Works extends React.Component {
           <div className={this.props.classes.underLine}></div>
         </div>
         <div className={this.props.classes.space}></div>
+
+        <div className={this.props.classes.category}>
+          <div className={this.props.classes.categoryString}>Product</div>
+          <div className={this.props.classes.underLine2}></div>
+          <div className={this.props.classes.desc}>主な制作物</div>
+        </div>
+
         <div className={this.props.classes.frame}>
-          {works.map((work, i) => {
+          {products.map((work, i) => {
             return (
               <Work id={i} key={i} name={work.name} imgurl={work.imgurl} />
             );
           })}
         </div>
+
+        <div className={this.props.classes.category}>
+          <div className={this.props.classes.categoryString}>Tips</div>
+          <div className={this.props.classes.underLine2}></div>
+          <div className={this.props.classes.desc}>諸々</div>
+        </div>
+
         <div className={this.props.classes.space}></div>
       </React.Fragment>
     );
