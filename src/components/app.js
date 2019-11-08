@@ -39,19 +39,16 @@ class App extends React.Component {
       <React.Fragment>
         <Hamberger ref={this.hambar} onClick={this.toggleMenubar} />
         <Menubar ref={this.menubar} update={this.toggleMenubar} />
-        {/*
+        {
           <Router>
             <Switch>
-              <Route exact path="/" />
-              <Route exact path="/about" />
-              <Route exact path="/works" />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/works" component={Works} />
               <Route exact component={NotFound} />
             </Switch>
           </Router>
-        */}
-        {this.state.path === "/" && <Home />}
-        {this.state.path === "/about" && <About />}
-        {this.state.path === "/works" && <Works />}
+        }
       </React.Fragment>
     );
   }
