@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "uynet.github.io",
   "scripts": {
-    "deploy": "gh-pages -d build",
     "dev": "react-scripts start",
     "build-css": "node-sass-chokidar public/css/ -o public/css/",
     "watch-css": "npm run build-css && node-sass-chokidar public/css/ -o public/css/ --watch --recursive",
