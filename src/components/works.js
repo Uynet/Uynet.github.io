@@ -89,7 +89,7 @@ const s = {
   categoryString: {
     color: main,
     fontWeight: "bold",
-    fontFamily: "gkktt",
+    fontFamily: "honoka",
     fontSize: 20
   },
   desc: {
@@ -99,8 +99,8 @@ const s = {
   }
 };
 
-const genWork = (name, imgurl) => {
-  return { name: name, imgurl: imgurl };
+const genWork = (name, imgurl, link) => {
+  return { name: name, imgurl: imgurl, link: link };
 };
 
 class Works extends React.Component {
@@ -113,10 +113,27 @@ class Works extends React.Component {
   };
   render() {
     const products = [
-      genWork("サイハテドロップ", "resource/img/kawasemi2.png"),
-      genWork("NinjaFlicker", "resource/img/ninja.png"),
-      genWork("ぱれっと倶楽部", "resource/img/pallet.png"),
-      genWork("CPCTF Visualizer", "resource/img/visualizer.png")
+      genWork(
+        "サイハテドロップ",
+        "resource/img/kawasemi2.png",
+        "http://kawasemi.uynet.trap.show"
+      ),
+      genWork(
+        "NinjaFlicker",
+        "resource/img/ninja.png",
+        "https://trap.jp/post/480/"
+      ),
+      genWork(
+        "ぱれっと倶楽部",
+        "resource/img/pallet.png",
+        "https://shinchoku.net/notes/43347"
+      ),
+      genWork(
+        "CPCTF Visualizer",
+        "resource/img/visualizer.png",
+        "http://visualizer.uynet.trap.show"
+      ),
+      genWork("ゆいブログ", "resource/img/portfolio.png", "/")
     ];
     return (
       <React.Fragment>
@@ -137,7 +154,13 @@ class Works extends React.Component {
         <div className={this.props.classes.frame}>
           {products.map((work, i) => {
             return (
-              <Work id={i} key={i} name={work.name} imgurl={work.imgurl} />
+              <Work
+                id={i}
+                key={i}
+                name={work.name}
+                imgurl={work.imgurl}
+                link={work.link}
+              />
             );
           })}
         </div>

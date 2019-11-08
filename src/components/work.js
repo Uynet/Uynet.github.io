@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { base, main, accent } from "../utils/colors.js";
+import { base, main, accent, hilight } from "../utils/colors.js";
 /*
 import {
     carg,image,title
@@ -16,9 +16,11 @@ const s = {
     position: "relative",
     width: "30%",
     minWidth: 250,
-    height: 150,
+    height: 250,
     cursor: "pointer",
     backgroundSize: "cover",
+    backgroundPosition: "center center",
+    border: "solid 3px" + "#f8f0f0",
     borderRadius: 12
   },
   image: { width: "100%" },
@@ -53,9 +55,11 @@ class Work extends React.Component {
     this.setState({ onHover: false });
   };
   render() {
+    console.log(this.props.link);
     return (
       <React.Fragment>
         <div
+          onClick={() => window.location.assign(this.props.link)}
           className={this.props.classes.card}
           onMouseEnter={this.onMouseEnter}
           onMouseLeave={this.onMouseLeave}
