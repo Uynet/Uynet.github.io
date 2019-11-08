@@ -32,6 +32,7 @@ class Box extends React.Component {
   };
   render() {
     const { title, content } = this.props.box;
+    const tags = ["ゲーム制作", "webデザイン", "作曲"];
     return (
       <React.Fragment>
         <div
@@ -103,7 +104,9 @@ class Box extends React.Component {
               <div className={this.props.classes.card}>
                 <div className={this.props.classes.title}>Skills</div>
                 <div className={this.props.classes.content}>
-                  <Tag name="JavaScript" />
+                  {tags.map((tag, i) => {
+                    return <Tag key={i} name={tag} />;
+                  })}
                 </div>
               </div>
             </div>

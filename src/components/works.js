@@ -51,7 +51,7 @@ const s = {
   },
   underLine2: {
     zIndex: 2,
-    height: 2,
+    height: 4,
     borderRadius: 4,
     background: main,
     width: 0,
@@ -165,10 +165,17 @@ class Works extends React.Component {
           })}
         </div>
 
+        {/*
         <div className={this.props.classes.category}>
           <div className={this.props.classes.categoryString}>Tips</div>
           <div className={this.props.classes.underLine2}></div>
           <div className={this.props.classes.desc}>諸々</div>
+        </div>
+*/}
+        <div style={{ textAlign: "center", padding: 50 }}>
+          <a href="https://twitter.com/i/moments/981932201557114881">
+            もっとみる
+          </a>
         </div>
 
         <div className={this.props.classes.space}></div>

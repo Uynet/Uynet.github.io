@@ -67,6 +67,7 @@ class Tag extends React.Component {
             padding: 4,
             background: main2,
             color: font,
+            marginRight: 8,
             borderRadius: 20
           }}
         >
