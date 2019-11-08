@@ -1,5 +1,6 @@
 export const base = "#fffdf8";
 export const main = "#e2146a";
+export const main2 = "#f2c49a";
 export const accent = "#FFDF6F";
 export const hilight = "#6F16FF";
 export const font = "#7a247d";

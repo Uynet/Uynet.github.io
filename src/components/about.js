@@ -13,7 +13,7 @@ const s = {
   space: { height: 240 },
   bio: {
     color: font,
-    padding: "30px 90px",
+    padding: "30px 10%",
     fontSize: 15,
     opacity: 0,
     animation: "fadeIn  ease 0.6s 1.7s forwards"
@@ -35,8 +35,18 @@ const s = {
     fontSize: 40,
     fontFamily: "gkktt",
     position: "absolute",
-    top: 200,
+    top: 210,
     left: 180,
+    opacity: 0,
+    animation: "myname ease 0.9s 1.4s forwards"
+  },
+  sub: {
+    color: font,
+    fontSize: 20,
+    fontFamily: "Nico Moji",
+    position: "absolute",
+    top: 200,
+    left: 190,
     opacity: 0,
     animation: "myname ease 0.9s 1.4s forwards"
   },
@@ -98,6 +108,7 @@ class About extends React.Component {
         <div className={this.props.classes.title}>
           <div className={this.props.classes.titleString}>About</div>
           <div className={this.props.classes.myname}>uynet</div>
+          <div className={this.props.classes.sub}>creater</div>
           <div className={this.props.classes.underLine}></div>
         </div>
         <img

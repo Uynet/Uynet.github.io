@@ -1,12 +1,13 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { main, font } from "../utils/colors.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Tag from "./tag.js";
+import { base, main, main2, font } from "../utils/colors.js";
 
 const s = {
   frame: {
     // background: "#fff",
-    margin: "0px 90px",
+    margin: "0px 10%",
     opacity: 0,
     color: font,
     animation: "fadeIn  ease 0.6s forwards"
@@ -37,28 +38,6 @@ class Box extends React.Component {
           className={this.props.classes.frame}
           style={{ animationDelay: this.getDelay() }}
         >
-          <div className={this.props.classes.card}>
-            <div className={this.props.classes.title}>Profile</div>
-            <div className={this.props.classes.content}>
-              <table border="0">
-                <tr>
-                  <th></th>
-                  <th></th>
-                </tr>
-                <tr>
-                  <td>BIRTH</td>
-                  <td></td>
-                  <td>1996/12/19</td>
-                </tr>
-                <tr>
-                  <td>ORG </td>
-                  <td></td>
-                  <td>東京工業大学/情報理工学院M1</td>
-                </tr>
-              </table>
-            </div>
-          </div>
-
           <div className={this.props.classes.card}>
             <div className={this.props.classes.title}>実績等</div>
             <div className={this.props.classes.content}>
@@ -99,6 +78,34 @@ class Box extends React.Component {
                   </td>
                 </tr>
               </table>
+            </div>
+            <div className={this.props.classes.card}>
+              <div className={this.props.classes.title}>Profile</div>
+              <div className={this.props.classes.content}>
+                <table border="0">
+                  <tr>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td>BIRTH</td>
+                    <td></td>
+                    <td>1996/12/19</td>
+                  </tr>
+                  <tr>
+                    <td>ORG </td>
+                    <td></td>
+                    <td>東京工業大学/情報理工学院M1</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div className={this.props.classes.card}>
+                <div className={this.props.classes.title}>Skills</div>
+                <div className={this.props.classes.content}>
+                  <Tag name="JavaScript" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
