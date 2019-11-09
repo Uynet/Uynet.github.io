@@ -7,7 +7,8 @@ import {
   hilight,
   menubar,
   menubar2,
-  itemColor
+  itemColor,
+  modalBG
 } from "../utils/colors.js";
 import WorkModal from "./workModal";
 /*
@@ -71,6 +72,33 @@ const s = {
     border: "3px solid #ccc"
   }
 };
+const customStylesSp = {
+  overlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 40,
+    backgroundColor: "rgba(0, 0 , 0, 0.50)"
+  },
+  content: {
+    zIndex: 41,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    margin: "auto",
+    overflow: "auto",
+    width: "100%",
+    height: "80%",
+    background: modalBG,
+    WebkitOverflowScrolling: "touch",
+    padding: 0,
+    borderRadius: 16
+  }
+};
 
 const customStyles = {
   overlay: {
@@ -90,14 +118,14 @@ const customStyles = {
     right: 0,
     bottom: 0,
     margin: "auto",
-    background: "#fff",
+    background: modalBG,
     overflow: "auto",
     width: "80%",
     minWidth: 250,
     height: "80%",
     WebkitOverflowScrolling: "touch",
     padding: 0,
-    borderRadius: 4
+    borderRadius: 16
   }
 };
 
@@ -108,8 +136,8 @@ class Work extends React.Component {
     this.ref = React.createRef();
   }
   handleClick = e => {
-    window.location.assign(this.props.link);
-    //this.openModal();
+    //window.location.assign(this.props.link);
+    this.openModal();
   };
   onMouseEnter = e => {
     this.setState({ onHover: true });
@@ -125,42 +153,35 @@ class Work extends React.Component {
     this.setState({ modalIsOpen: false });
   };
   render() {
-    console.log(this.props.tags);
+    const { name, imgurl, link, tags, description } = this.props.work;
     return (
       <React.Fragment>
-        {/* クリックすると表示される内容 */}
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-        >
-          <WorkModal
-            name={this.props.name}
-            link={this.props.link}
-            tags={this.props.tags}
-            imgurl={this.props.imgurl}
-          />
-        </Modal>
-
         {/* PC */}
         <MediaQuery query="(min-width: 430px)">
+          {/* クリックすると表示される内容 */}
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={this.closeModal}
+            style={customStyles}
+          >
+            <WorkModal work={this.props.work}></WorkModal>
+          </Modal>
+
           <div
             onClick={this.handleClick}
             className={this.props.classes.card}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             style={{
-              backgroundImage: "url(" + this.props.imgurl + ")",
+              backgroundImage: "url(" + imgurl + ")",
               animationDelay: 1.3 + this.props.id / 10 + "s",
               height: "20vw"
             }}
           >
             {this.state.onHover && (
               <>
-                <div className={this.props.classes.title}>
-                  {this.props.name}
-                </div>
+                <div className={this.props.classes.title}>{name}</div>
                 {/*<div className={this.props.classes.tag}>GAME</div>*/}
               </>
             )}
@@ -169,6 +190,16 @@ class Work extends React.Component {
 
         {/* スマホ */}
         <MediaQuery query="(max-width: 429px)">
+          {/* クリックすると表示される内容 */}
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={this.closeModal}
+            style={customStylesSp}
+          >
+            <WorkModal work={this.props.work}></WorkModal>
+          </Modal>
+
           <div
             onClick={this.handleClick}
             className={this.props.classes.card}

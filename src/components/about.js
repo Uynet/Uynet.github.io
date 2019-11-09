@@ -4,6 +4,7 @@ import BGEffect from "./BGEffect";
 import {
   base,
   main,
+  mynameColor,
   font,
   menubar,
   accent,
@@ -39,7 +40,7 @@ const s = {
     //borderBottom: "solid 5px"
   },
   myname: {
-    color: main,
+    color: mynameColor,
     fontSize: 40,
     fontFamily: "gkktt",
     position: "absolute",

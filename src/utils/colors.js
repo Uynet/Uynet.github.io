@@ -8,6 +8,8 @@ export const menubar2 = "#40c0c9";
 export const hilight = "#6F16FF";
 export const font = "#7a247d";
 export const itemColor = "#ff3088";
+export const mynameColor = itemColor;
+export const modalBG = "#201030";
 
 /*
 export const base = "#fff2f0";

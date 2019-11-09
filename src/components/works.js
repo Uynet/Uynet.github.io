@@ -108,8 +108,14 @@ const s = {
   }
 };
 
-const genWork = (name, imgurl, link, tags) => {
-  return { name: name, imgurl: imgurl, link: link, tags: tags };
+const genWork = (name, imgurl, link, tags, description) => {
+  return {
+    name: name,
+    imgurl: imgurl,
+    link: link,
+    tags: tags,
+    description: description
+  };
 };
 class PC extends React.Component {
   render() {
@@ -125,15 +131,7 @@ class PC extends React.Component {
           }}
         >
           {this.props.products.map((work, i) => {
-            return (
-              <Work
-                id={i}
-                key={i}
-                name={work.name}
-                imgurl={work.imgurl}
-                link={work.link}
-              />
-            );
+            return <Work id={i} key={i} work={work} />;
           })}
         </div>
       </div>
@@ -155,16 +153,7 @@ class Smapho extends React.Component {
           }}
         >
           {this.props.products.map((work, i) => {
-            return (
-              <Work
-                id={i}
-                key={i}
-                name={work.name}
-                imgurl={work.imgurl}
-                link={work.link}
-                tags={work.tags}
-              />
-            );
+            return <Work id={i} key={i} work={work} />;
           })}
         </div>
       </div>
@@ -184,31 +173,40 @@ class Works extends React.Component {
     const products = [
       genWork(
         "サイハテドロップ",
-        "resource/img/kawasemi2.png",
+        ["resource/img/kawasemi2.png"],
+        //["resource/img/boss.mp4"],
         "http://kawasemi.uynet.trap.show",
-        ["Game", "Program", "Graphic", "Sound"]
+        ["Game", "Program", "Graphic", "Sound"],
+        "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。設計の書き直しに追われコンテンツが全く作れないのでUnityに移植したい。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。"
       ),
       genWork(
         "NinjaFlicker",
-        "resource/img/ninja.png",
+        ["resource/img/ninja.png"],
         "https://trap.jp/post/480/",
-        ["Game", "Graphic", "Sound"]
+        ["Game", "Graphic", "Sound"],
+        "大学サークルのチームで学部2年から3年の約1年半かけて制作したスマホプラットフォーマーアクション。「背景をフリックする」をコンセプトに主人公である忍者を操作し、 テクニカルに忍術を駆使し数々の困難が待ち受ける城を攻略する。全6曲の音楽、効果音のすべてと一部のグラフィックデザインに貢献し、モダン×和の世界観を彩った。2018年GoogleIndieGameFesでTop10に入賞し、大学記事に掲載される(自分は写ってない)。IOS,Androidで配信中(240円)"
       ),
       genWork(
-        "ぱれっと倶楽部(制作中!)",
-        "resource/img/pallet.png",
+        "ぱれっと倶楽部(制作中)",
+        ["resource/img/pallet.png"],
         "https://shinchoku.net/notes/43347",
-        ["Web"]
+        ["Web"],
+        "配色投稿サービスを二人で開発中(2019/10~)。React,Express,MongoDB,Nginxなど"
       ),
       genWork(
         "CPCTF Visualizer",
-        "resource/img/visualizer.png",
+        ["resource/img/visualizer.png"],
         "http://visualizer.uynet.trap.show",
-        ["webGL"]
+        ["webGL"],
+        "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する"
       ),
-      genWork("ゆいブログ", "resource/img/portfolio.png", "/", [
-        ["Web", "Design"]
-      ])
+      genWork(
+        "ゆいブログ",
+        ["resource/img/portfolio.png"],
+        "/",
+        ["Web", "Design"],
+        "Reactで作り直した。"
+      )
     ];
     return (
       <React.Fragment>
@@ -244,13 +242,13 @@ class Works extends React.Component {
         <MediaQuery query="(max-width: 429px)">
           <Smapho frameClass={this.props.classes.frame} products={products} />
         </MediaQuery>
-        {/*
-        <div className={this.props.classes.category}>
-          <div className={this.props.classes.categoryString}>Tips</div>
-          <div className={this.props.classes.underLine2}></div>
-          <div className={this.props.classes.desc}>諸々</div>
-        </div>
-        */}
+        {
+          <div className={this.props.classes.category}>
+            <div className={this.props.classes.categoryString}>Wips</div>
+            <div className={this.props.classes.underLine2}></div>
+            <div className={this.props.classes.desc}>諸々</div>
+          </div>
+        }
         <div style={{ textAlign: "center", padding: 50 }}>
           <a href="https://twitter.com/i/moments/981932201557114881">
             もっとみる
