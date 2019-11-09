@@ -237,6 +237,15 @@ a:hover {
     width: 100%;
   }
 }
+@keyframes swipeXcat {
+  0% {
+    width: 0%;
+  }
+  100% {
+    left: 0%;
+    width: 100px;
+  }
+}
 @keyframes sidelineInR {
   0% {
     background: $sideline;

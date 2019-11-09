@@ -1,6 +1,7 @@
 import React from "react";
 import BGEffect from "./BGEffect";
 import { withStyles } from "@material-ui/core/styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   accent,
   base,
@@ -66,7 +67,7 @@ const s = {
     left: 0,
     right: 0,
     margin: "auto",
-    animation: "swipeX cubic-bezier(0.99, 0.01, 0, 1) 1.6s 1.3s forwards"
+    animation: "swipeXcat cubic-bezier(0.99, 0.01, 0, 1) 1.6s 1.3s forwards"
   },
   icon: {
     position: "absolute",
@@ -85,7 +86,6 @@ const s = {
     borderColor: main
   },
   category: {
-    width: 100,
     height: 50,
     opacity: 0,
     margin: "auto",
@@ -101,6 +101,7 @@ const s = {
     fontSize: 20
   },
   desc: {
+    textAlign: "center",
     color: font,
     fontFamily: "honoka",
     margin: 5
@@ -165,9 +166,15 @@ class Contact extends React.Component {
         <div className={this.props.classes.space}></div>
 
         <div className={this.props.classes.category}>
-          <div className={this.props.classes.categoryString}>連絡</div>
+          <div className={this.props.classes.categoryString}>連絡先</div>
           <div className={this.props.classes.underLine2}></div>
-          <div className={this.props.classes.desc}>highsate@gmail.com</div>
+          <FontAwesomeIcon icon={["fas", "envelope-sqare"]} />
+          <div className={this.props.classes.desc}>
+            highsate
+            <FontAwesomeIcon icon={["fas", "at"]} />
+            gmail.com
+          </div>
+          <div className={this.props.classes.desc}>twitter.com/uynet</div>
         </div>
 
         <div className={this.props.classes.footerSpace}></div>
