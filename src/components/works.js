@@ -108,8 +108,8 @@ const s = {
   }
 };
 
-const genWork = (name, imgurl, link) => {
-  return { name: name, imgurl: imgurl, link: link };
+const genWork = (name, imgurl, link, tags) => {
+  return { name: name, imgurl: imgurl, link: link, tags: tags };
 };
 class PC extends React.Component {
   render() {
@@ -162,6 +162,7 @@ class Smapho extends React.Component {
                 name={work.name}
                 imgurl={work.imgurl}
                 link={work.link}
+                tags={work.tags}
               />
             );
           })}
@@ -184,24 +185,30 @@ class Works extends React.Component {
       genWork(
         "サイハテドロップ",
         "resource/img/kawasemi2.png",
-        "http://kawasemi.uynet.trap.show"
+        "http://kawasemi.uynet.trap.show",
+        ["Game", "Program", "Graphic", "Sound"]
       ),
       genWork(
         "NinjaFlicker",
         "resource/img/ninja.png",
-        "https://trap.jp/post/480/"
+        "https://trap.jp/post/480/",
+        ["Game", "Graphic", "Sound"]
       ),
       genWork(
-        "ぱれっと倶楽部",
+        "ぱれっと倶楽部(制作中!)",
         "resource/img/pallet.png",
-        "https://shinchoku.net/notes/43347"
+        "https://shinchoku.net/notes/43347",
+        ["Web"]
       ),
       genWork(
         "CPCTF Visualizer",
         "resource/img/visualizer.png",
-        "http://visualizer.uynet.trap.show"
+        "http://visualizer.uynet.trap.show",
+        ["webGL"]
       ),
-      genWork("ゆいブログ", "resource/img/portfolio.png", "/")
+      genWork("ゆいブログ", "resource/img/portfolio.png", "/", [
+        ["Web", "Design"]
+      ])
     ];
     return (
       <React.Fragment>

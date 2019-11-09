@@ -5,13 +5,13 @@ import { base, main, menubar } from "../utils/colors.js";
 
 const s = {
   time: {
-    position: "absolute",
+    position: "fixed",
     right: 40,
     top: 16,
     zIndex: 10
   },
   bar: {
-    position: "absolute",
+    position: "fixed",
     right: 40,
     top: 16,
     zIndex: 10,

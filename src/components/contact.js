@@ -133,7 +133,7 @@ class Contact extends React.Component {
         "https://trap.jp/post/480/"
       ),
       genWork(
-        "ぱれっと倶楽部",
+        "ぱれっと倶楽部(制作中!)",
         "resource/img/pallet.png",
         "https://shinchoku.net/notes/43347"
       ),

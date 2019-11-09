@@ -1,6 +1,15 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { base, main, accent, hilight } from "../utils/colors.js";
+import {
+  base,
+  main,
+  accent,
+  hilight,
+  menubar,
+  menubar2,
+  itemColor
+} from "../utils/colors.js";
+import WorkModal from "./workModal";
 /*
 import {
     carg,image,title
@@ -26,6 +35,22 @@ const s = {
     borderRadius: 12
   },
   image: { width: "100%" },
+  tag: {
+    //animation: "workTitleIn cubic-bezier(0,1,0,1) 1.3s forwards",
+    position: "absolute",
+    top: "calc(100%-20px)",
+    fontFamily: "honoka",
+    zIndex: 3,
+    //width: "22%",
+    heihgt: 20,
+    float: "bottom",
+    background: itemColor,
+    color: base,
+    textAlign: "center",
+    padding: "4px",
+    //borderRadius: "0px 0px 12px 12px",
+    bottom: "0px"
+  },
   title: {
     animation: "workTitleIn cubic-bezier(0,1,0,1) 1.3s forwards",
     fontFamily: "honoka",
@@ -60,20 +85,19 @@ const customStyles = {
   content: {
     zIndex: 41,
     position: "absolute",
-    top: "0px",
-    left: "0px",
-    right: "0px",
-    bottom: "0px",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     margin: "auto",
-    border: "1px solid #fff",
     background: "#fff",
     overflow: "auto",
     width: "80%",
-    height: "90%",
+    minWidth: 250,
+    height: "80%",
     WebkitOverflowScrolling: "touch",
-    borderRadius: 16,
-    outline: "none",
-    padding: "20px"
+    padding: 0,
+    borderRadius: 4
   }
 };
 
@@ -84,8 +108,8 @@ class Work extends React.Component {
     this.ref = React.createRef();
   }
   handleClick = e => {
-    //window.location.assign(this.props.link);
-    this.openModal();
+    window.location.assign(this.props.link);
+    //this.openModal();
   };
   onMouseEnter = e => {
     this.setState({ onHover: true });
@@ -101,6 +125,7 @@ class Work extends React.Component {
     this.setState({ modalIsOpen: false });
   };
   render() {
+    console.log(this.props.tags);
     return (
       <React.Fragment>
         {/* クリックすると表示される内容 */}
@@ -109,7 +134,14 @@ class Work extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-        ></Modal>
+        >
+          <WorkModal
+            name={this.props.name}
+            link={this.props.link}
+            tags={this.props.tags}
+            imgurl={this.props.imgurl}
+          />
+        </Modal>
 
         {/* PC */}
         <MediaQuery query="(min-width: 430px)">
@@ -125,7 +157,12 @@ class Work extends React.Component {
             }}
           >
             {this.state.onHover && (
-              <div className={this.props.classes.title}>{this.props.name}</div>
+              <>
+                <div className={this.props.classes.title}>
+                  {this.props.name}
+                </div>
+                {/*<div className={this.props.classes.tag}>GAME</div>*/}
+              </>
             )}
           </div>
         </MediaQuery>
