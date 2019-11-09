@@ -18,6 +18,7 @@ const box1 = { title: "説明", content: "ここに説明を入れる" };
 
 const s = {
   space: { height: 240 },
+  footerSpace: { height: 60 },
   bio: {
     color: font,
     padding: "30px 10%",
@@ -137,7 +138,7 @@ class About extends React.Component {
         <div className={this.props.classes.bio}>{bio}</div>
 
         <Box box={box1} />
-        <div className={this.props.classes.space}></div>
+        <div className={this.props.classes.footerSpace}></div>
       </React.Fragment>
     );
   }

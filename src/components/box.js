@@ -103,11 +103,18 @@ class Box extends React.Component {
               </div>
 
               <div className={this.props.classes.card}>
-                <div className={this.props.classes.title}>Skills</div>
+                <div className={this.props.classes.title}>できること</div>
                 <div className={this.props.classes.content}>
-                  {tags.map((tag, i) => {
+                  ゲーム制作<br></br>
+                  webデザイン<br></br>
+                  作曲<br></br>
+                  JavaScript<br></br>
+                  React<br></br>
+                  webGL<br></br>
+                  vim<br></br>
+                  {/*tags.map((tag, i) => {
                     return <Tag key={i} name={tag} />;
-                  })}
+                  })*/}
                 </div>
               </div>
             </div>

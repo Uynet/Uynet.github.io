@@ -13,6 +13,7 @@ import Work from "./work.js";
 
 const s = {
   space: { height: 200 },
+  footerSpace: { height: 60 },
   frame: {
     // background: "#fff",
     textAlign: "center",
@@ -169,7 +170,7 @@ class Contact extends React.Component {
           <div className={this.props.classes.desc}>highsate@gmail.com</div>
         </div>
 
-        <div className={this.props.classes.space}></div>
+        <div className={this.props.classes.footerSpace}></div>
       </React.Fragment>
     );
   }

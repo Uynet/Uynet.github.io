@@ -14,6 +14,7 @@ import MediaQuery from "react-responsive";
 
 const s = {
   space: { height: 200 },
+  footerSpace: { height: 60 },
   frame: {
     // background: "#fff",
     textAlign: "center",
@@ -249,7 +250,7 @@ class Works extends React.Component {
           </a>
         </div>
 
-        <div className={this.props.classes.space}></div>
+        <div className={this.props.classes.footerSpace}></div>
       </React.Fragment>
     );
   }
