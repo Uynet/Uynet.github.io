@@ -123,20 +123,18 @@ class Menubar extends React.Component {
             }}
           >
             <div className={itemTitleClass}>めにゅー</div>
-            {this.state.isOpen && (
-              <div>
-                {items.map((item, i) => {
-                  return (
-                    <Item
-                      update={this.props.update}
-                      name={item.name}
-                      link={item.link}
-                      key={i}
-                    />
-                  );
-                })}
-              </div>
-            )}
+            <div>
+              {items.map((item, i) => {
+                return (
+                  <Item
+                    update={this.props.update}
+                    name={item.name}
+                    link={item.link}
+                    key={i}
+                  />
+                );
+              })}
+            </div>
           </div>
         </MediaQuery>
       </React.Fragment>

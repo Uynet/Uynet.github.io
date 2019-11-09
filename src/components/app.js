@@ -42,7 +42,7 @@ class App extends React.Component {
     if (path === "top") path = "";
     path = "/" + path;
     this.setState({ path: path });
-    console.log(this.state.path);
+    window.scrollTo(0, 0);
   };
   render() {
     return (
