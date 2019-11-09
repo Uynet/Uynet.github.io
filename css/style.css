@@ -182,21 +182,28 @@ a:hover {
     left: 0%;
     width: 100%; } }
 
+@keyframes swipeXcat {
+  0% {
+    width: 0%; }
+  100% {
+    left: 0%;
+    width: 100px; } }
+
 @keyframes sidelineInR {
   0% {
-    background: #ffa088;
+    background: #6330f0;
     right: 100%; }
   100% {
-    background: #ffa088;
+    background: #6330f0;
     right: -10px; } }
 
 @keyframes sidelineInL {
   0% {
-    background: #ffa088;
+    background: #6330f0;
     left: 100%; }
   100% {
     left: -10px;
-    background: #ffa088; } }
+    background: #6330f0; } }
 
 .BGCircle1 {
   z-index: -3;
@@ -207,7 +214,7 @@ a:hover {
   top: 0px;
   margin: auto;
   border-radius: 50%;
-  background: #f4bebe;
+  background: #ffeeae;
   animation: BGIn 1.2s ease 0.5s both; }
 
 .BGCircle2 {
