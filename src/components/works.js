@@ -10,6 +10,7 @@ import {
   menubar2
 } from "../utils/colors.js";
 import Work from "./work.js";
+import MediaQuery from "react-responsive";
 
 const s = {
   space: { height: 200 },
@@ -109,6 +110,65 @@ const s = {
 const genWork = (name, imgurl, link) => {
   return { name: name, imgurl: imgurl, link: link };
 };
+class PC extends React.Component {
+  render() {
+    return (
+      <div className={this.props.frameClass}>
+        <div
+          style={{
+            padding: "4%",
+            display: "grid",
+            gap: "10px",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gridTemplateRows: "auto"
+          }}
+        >
+          {this.props.products.map((work, i) => {
+            return (
+              <Work
+                id={i}
+                key={i}
+                name={work.name}
+                imgurl={work.imgurl}
+                link={work.link}
+              />
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Smapho extends React.Component {
+  render() {
+    return (
+      <div className={this.props.frameClass}>
+        <div
+          style={{
+            padding: "4%",
+            display: "grid",
+            gap: "10px",
+            gridTemplateColumns: "1fr",
+            gridTemplateRows: "auto"
+          }}
+        >
+          {this.props.products.map((work, i) => {
+            return (
+              <Work
+                id={i}
+                key={i}
+                name={work.name}
+                imgurl={work.imgurl}
+                link={work.link}
+              />
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+}
 
 class Works extends React.Component {
   constructor(props) {
@@ -169,20 +229,13 @@ class Works extends React.Component {
           <div className={this.props.classes.desc}>主な制作物</div>
         </div>
 
-        <div className={this.props.classes.frame}>
-          {products.map((work, i) => {
-            return (
-              <Work
-                id={i}
-                key={i}
-                name={work.name}
-                imgurl={work.imgurl}
-                link={work.link}
-              />
-            );
-          })}
-        </div>
+        <MediaQuery query="(min-width: 430px)">
+          <PC frameClass={this.props.classes.frame} products={products} />
+        </MediaQuery>
 
+        <MediaQuery query="(max-width: 429px)">
+          <Smapho frameClass={this.props.classes.frame} products={products} />
+        </MediaQuery>
         {/*
         <div className={this.props.classes.category}>
           <div className={this.props.classes.categoryString}>Tips</div>

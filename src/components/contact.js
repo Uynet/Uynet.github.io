@@ -166,7 +166,7 @@ class Contact extends React.Component {
         <div className={this.props.classes.category}>
           <div className={this.props.classes.categoryString}>連絡</div>
           <div className={this.props.classes.underLine2}></div>
-          <div className={this.props.classes.desc}>こちら</div>
+          <div className={this.props.classes.desc}>highsate@gmail.com</div>
         </div>
 
         <div className={this.props.classes.space}></div>
