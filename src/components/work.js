@@ -142,6 +142,7 @@ const customStyles = {
     background: modalBG,
     overflow: "auto",
     width: "80%",
+    maxWidth: "100vh",
     minWidth: 250,
     height: "80%",
     WebkitOverflowScrolling: "touch",
@@ -174,7 +175,7 @@ class Work extends React.Component {
     this.setState({ modalIsOpen: false });
   };
   render() {
-    const { name, imgurl, link, tags, description } = this.props.work;
+    const { name, imgurl, link, tags, description, date } = this.props.work;
     return (
       <React.Fragment>
         {/* PC */}

@@ -132,15 +132,22 @@ const LargeClip = props => {
       {ext === "mp4" ? (
         <video controls className={videoClass} src={img} />
       ) : (
-        <div
-          className={imgClass}
-          style={{
-            backgroundImage: "url(" + img + ")",
-            backgroundSize: "contain", //over
-            height: "50vmax",
-            backgroundRepeat: "no-repeat"
-          }}
-        />
+        <div style={{ position: "relative", width: "100%", height: "50vh" }}>
+          <img
+            src={img}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              margin: "auto",
+              width: "auto",
+              height: "auto",
+              maxWidth: "100%",
+              maxHeight: "100%"
+            }}
+          />
+        </div>
       )}
     </div>
   );
@@ -158,6 +165,7 @@ const SmallClip = props => {
       onClick={() => handleClick(index)}
     >
       {ext === "mp4" ? (
+        // 動画
         <video
           style={{
             width: w,
@@ -170,6 +178,7 @@ const SmallClip = props => {
           src={img}
         />
       ) : (
+        // 画像
         <div
           style={{
             borderRadius: 8,
@@ -178,7 +187,6 @@ const SmallClip = props => {
             height: "50vmax",
             width: w,
             height: h,
-            maxHeight: "70vmin",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.5) inset"
