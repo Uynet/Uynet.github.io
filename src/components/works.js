@@ -108,13 +108,14 @@ const s = {
   }
 };
 
-const genWork = (name, imgurl, link, tags, description) => {
+const genWork = (name, imgurl, link, tags, description, date) => {
   return {
     name: name,
     imgurl: imgurl,
     link: link,
     tags: tags,
-    description: description
+    description: description,
+    date: date
   };
 };
 class PC extends React.Component {
@@ -182,35 +183,40 @@ class Works extends React.Component {
         //["resource/img/boss.mp4"],
         "http://kawasemi.uynet.trap.show",
         ["Game", "Program", "Graphic", "Sound"],
-        "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。設計の書き直しに追われコンテンツが全く作れないのでUnityに移植したい。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。"
+        "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。設計の書き直しに追われコンテンツが全く作れないのでUnityに移植したい。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。",
+        "2017/1~"
       ),
       genWork(
         "NinjaFlicker",
         ["resource/img/ninja.png"],
         "https://trap.jp/post/480/",
         ["Game", "Graphic", "Sound"],
-        "大学サークルのチームで学部2年から3年の約1年半かけて制作したスマホプラットフォーマーアクション。「背景をフリックする」をコンセプトに主人公である忍者を操作し、 テクニカルに忍術を駆使し数々の困難が待ち受ける城を攻略する。全6曲の音楽、効果音のすべてと一部のグラフィックデザインに貢献し、モダン×和の世界観を彩った。2018年GoogleIndieGameFesでTop10に入賞し、大学記事に掲載される(自分は写ってない)。IOS,Androidで配信中(240円)"
+        "大学サークルのチームで学部2年から3年の約1年半かけて制作したスマホプラットフォーマーアクション。「背景をフリックする」をコンセプトに主人公である忍者を操作し、 テクニカルに忍術を駆使し数々の困難が待ち受ける城を攻略する。全6曲の音楽、効果音のすべてと一部のグラフィックデザインに貢献し、モダン×和の世界観を彩った。2018年GoogleIndieGameFesでTop10に入賞し、大学記事に掲載される(自分は写ってない)。IOS,Androidで配信中(240円)",
+        "2016/6~2017/12"
       ),
       genWork(
         "ぱれっと倶楽部(制作中)",
         ["resource/img/pallet.png"],
         "https://shinchoku.net/notes/43347",
         ["Web"],
-        "配色投稿サービスを二人で開発中(2019/10~)。React,Express,MongoDB,Nginxなど"
+        "配色投稿サービスを二人で開発中(2019/10~)。React,Express,MongoDB,Nginxなど",
+        "2019/10"
       ),
       genWork(
         "CPCTF Visualizer",
         ["resource/img/visualizer.png"],
         "http://visualizer.uynet.trap.show",
         ["webGL"],
-        "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する"
+        "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する",
+        "2019/2~2019/4"
       ),
       genWork(
         "ゆいブログ",
         ["resource/img/portfolio.png"],
         "/",
         ["Web", "Design"],
-        "Reactで作り直した。"
+        "Reactで作り直した。",
+        "2019/11"
       )
     ];
     return (

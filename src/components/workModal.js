@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import {
   modalBG,
@@ -46,15 +46,20 @@ const s = {
     background: modalBG,
     color: font,
     color: base,
-    marginLeft: 10
+    marginLeft: 10,
+    marginTop: 18
+  },
+  date: {
+    fontSize: 2,
+    // fontFamily: "honoka",
+    //background: menubar,
+    color: base
   },
   title: {
     fontSize: 40,
     // fontFamily: "honoka",
     //background: menubar,
-    textAlign: "center",
     fontWeight: "bold",
-    color: itemColor,
     color: base
   }
 };
@@ -68,28 +73,44 @@ class WorkModal extends React.Component {
   handleClick = e => {
     this.ref.current.toggleOpen();
   };
+  // 小さい方の画像を押すとそれを選択して表示させる
+  handleClickSmall = index => {
+    this.setState({ imgLoc: index });
+  };
   render() {
-    const { name, imgurl, link, tags, description } = this.props.work;
+    const { name, imgurl, link, tags, description, date } = this.props.work;
+    const LargeClipImgurl = imgurl[this.state.imgLoc];
 
     return (
       <React.Fragment>
         <div className={this.props.classes.modal}>
-          {imgurl.map((img, i) => {
-            const ext = img.split(".")[1];
-            return (
-              this.state.imgLoc === i && (
-                <LargeClip
+          <LargeClip
+            style={{
+              display: "inline-block"
+            }}
+            className={this.props.classes.LargeClip}
+            ext={LargeClipImgurl.split(".")[1]}
+            img={LargeClipImgurl}
+            imgClass={this.props.classes.image}
+            videoClass={this.props.classes.video}
+          />
+          {//画像が複数なら切り替え用サムネイルを出す
+          imgurl.length >= 2 &&
+            imgurl.map((img, i) => {
+              return (
+                <SmallClip
                   key={i}
-                  ext={ext}
+                  index={i}
+                  isDisplaying={i === this.state.imgLoc}
+                  ext={img.split(".")[1]}
                   img={img}
-                  imgClass={this.props.classes.image}
-                  videoClass={this.props.classes.image}
+                  handleClick={this.handleClickSmall}
                 />
-              )
-            );
-          })}
+              );
+            })}
           <div className={this.props.classes.card}>
             <div className={this.props.classes.title}>{name}</div>
+            <div className={this.props.classes.date}>{date}</div>
             <div className={this.props.classes.description}>{description}</div>
           </div>
         </div>
@@ -112,6 +133,46 @@ const LargeClip = props => {
             backgroundImage: "url(" + img + ")",
             height: "50vmax",
             maxHeight: "70vmin"
+          }}
+        />
+      )}
+    </div>
+  );
+};
+
+const SmallClip = props => {
+  // index:画像index
+  // isDisplaying:拡大表示選択している画像のサムネであるかどうか:
+  const { img, ext, index, isDisplaying, handleClick } = props;
+  const w = 100;
+  const h = 100;
+  return (
+    <div
+      style={{ display: "inline-block", cursor: "pointer" }}
+      onClick={() => handleClick(index)}
+    >
+      {ext === "mp4" ? (
+        <video
+          style={{
+            width: w,
+            height: h,
+            preload: "none",
+            border: isDisplaying && "2px solid" + itemColor
+          }}
+          src={img}
+        />
+      ) : (
+        <div
+          style={{
+            border: isDisplaying && "2px solid" + itemColor,
+            backgroundImage: "url(" + img + ")",
+            height: "50vmax",
+            width: w,
+            height: h,
+            maxHeight: "70vmin",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.5) inset"
           }}
         />
       )}
