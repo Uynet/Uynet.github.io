@@ -15,6 +15,7 @@ import { overLay } from "./style/home.module.scss";
 
 import Modal from "react-modal";
 import MediaQuery from "react-responsive";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 Modal.setAppElement("#root");
 
 const s = {
@@ -66,6 +67,24 @@ const s = {
     padding: "10px",
     borderRadius: "8px",
     border: "3px solid #ccc"
+  },
+  // >
+  nextCursor: {
+    position: "absolute",
+    zIndex: 999999,
+    top: 0,
+    right: 20,
+    fontSize: 40,
+    color: "#000"
+  },
+  // <
+  prevCursor: {
+    position: "absolute",
+    zIndex: 9999,
+    top: 0,
+    left: 20,
+    fontSize: 40,
+    color: "#000"
   }
 };
 const customStylesSp = {
@@ -156,7 +175,6 @@ class Work extends React.Component {
   };
   render() {
     const { name, imgurl, link, tags, description } = this.props.work;
-    console.log(imgurl);
     return (
       <React.Fragment>
         {/* PC */}
@@ -178,7 +196,7 @@ class Work extends React.Component {
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             style={{
-              backgroundImage: "url(" + imgurl + ")",
+              backgroundImage: "url(" + imgurl[0] + ")",
               animationDelay: 1.3 + this.props.id / 10 + "s",
               height: "20vw"
             }}
@@ -210,7 +228,7 @@ class Work extends React.Component {
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             style={{
-              backgroundImage: "url(" + imgurl + ")",
+              backgroundImage: "url(" + imgurl[0] + ")",
               animationDelay: 1.3 + this.props.id / 10 + "s",
               height: "50vw"
             }}

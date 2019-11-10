@@ -174,7 +174,11 @@ class Works extends React.Component {
     const products = [
       genWork(
         "サイハテドロップ",
-        ["resource/img/kawasemi2.png"],
+        [
+          "resource/img/kawasemi2.png",
+          "resource/img/kawasemi.png",
+          "resource/img/boss.mp4"
+        ],
         //["resource/img/boss.mp4"],
         "http://kawasemi.uynet.trap.show",
         ["Game", "Program", "Graphic", "Sound"],
