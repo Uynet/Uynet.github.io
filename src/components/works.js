@@ -297,12 +297,37 @@ class Works extends React.Component {
         "2019/11"
       ),
       genWork(
+        "ゆれ画像メーカー",
+        ["resource/img/tips/yure.mp4"],
+        [{ name: "リンク", url: "yure.uynet.trap.show" }],
+        ["CG"],
+        "一時期流行ったアレを作るやつ。思いついてすぐ流行りに乗りたかったのでかなり作りが雑。",
+        "2019/09"
+      ),
+
+      genWork(
+        "四分木空間分割",
+        ["resource/img/tips/quad.mp4"],
+        [{ name: "動くもの", url: "http://quartenarytree.uynet.trap.show/" }],
+        [""],
+        "衝突判定がしたかったので前々からやりたかった四分木空間分割を実装したが、見た目がよかったので分割だけして判定までやらずに満足してしまった。",
+        "2019/07"
+      ),
+      genWork(
         "cartoon blur",
         ["resource/img/tips/cartoon1.gif", "resource/img/tips/cartoon2.mp4"],
         [{ name: "shadertoy", url: "https://www.shadertoy.com/view/3sB3zd" }],
         ["CG"],
         "漫画的なモーションブラーをゲームで使いたくて研究中。これは完全に距離感吸うだけのレンダリングで、速度の逆方向に伸ばしたりノイズをかけたりすることによって表現している。",
         "2019/02"
+      ),
+      genWork(
+        "shelAnime",
+        ["resource/img/tips/shellAnime.mp4"],
+        [{ name: "gitHub", url: "github.com/Uynet/shelAnime" }],
+        ["shell"],
+        "顔文字がアニメーションするだけのシェル芸....なのだけどちょっとバズって、githubで一番likeがついてしまった。npmで配布していて、npx poyopoyochanでお手元で動きます",
+        "2019/01"
       ),
       genWork(
         "スマホ全天球VRするやつ",
@@ -319,6 +344,19 @@ class Works extends React.Component {
         ["CG"],
         "CGの研究室に入る前に入門しておいた。fragment一枚で描く簡単なもの。屈折、反射までやった",
         "2018/04"
+      ),
+      genWork(
+        "花火",
+        ["resource/img/tips/hanabi.mp4"],
+        [
+          {
+            name: "リンク",
+            url: "https://uynet.github.io/src/Product/e1g/e1g1/"
+          }
+        ],
+        ["canvas"],
+        "結構お気に入りのパーティクルエフェクト",
+        "2016/08"
       ),
       genWork(
         "Polar Snow Fantasy",
@@ -377,7 +415,7 @@ class Works extends React.Component {
           <Smapho frameClass={this.props.classes.frame} products={products} />
         </MediaQuery>
         <div className={this.props.classes.category}>
-          <div className={this.props.classes.categoryString}>Wips</div>
+          <div className={this.props.classes.categoryString}>Tips</div>
           <div className={this.props.classes.underLine2}></div>
           <div className={this.props.classes.desc}>諸々</div>
         </div>

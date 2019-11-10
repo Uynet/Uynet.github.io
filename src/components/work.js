@@ -52,7 +52,7 @@ const s = {
   title: {
     animation: "workTitleIn cubic-bezier(0,1,0,1) 1.3s forwards",
     fontFamily: "honoka",
-    zIndex: 2,
+    zIndex: 200000000000000000,
     width: "100%",
     background: "#6020a0",
     color: base,
@@ -142,7 +142,7 @@ const customStyles = {
     width: "80%",
     maxWidth: "100vh",
     minWidth: 250,
-    height: "91%",
+    height: "88%",
     WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 16,
@@ -189,7 +189,22 @@ class Work extends React.Component {
           >
             <WorkModal work={this.props.work}></WorkModal>
           </Modal>
-
+          <Clip
+            img={imgurls[0]}
+            ext={imgurls[0].split(".")[1]}
+            className={this.props.classes.card}
+            titleClass={this.props.classes.title}
+            name={name}
+            index={this.props.id}
+            onClick={this.handleClick}
+            onMouseEnter={this.onMouseEnter}
+            onMouseLeave={this.onMouseLeave}
+            onHover={this.state.onHover}
+            style={{
+              height: "20vw"
+            }}
+          >
+            {/*
           <div
             onClick={this.handleClick}
             className={this.props.classes.card}
@@ -201,13 +216,8 @@ class Work extends React.Component {
               height: "20vw"
             }}
           >
-            {this.state.onHover && (
-              <>
-                <div className={this.props.classes.title}>{name}</div>
-                {/*<div className={this.props.classes.tag}>GAME</div>*/}
-              </>
-            )}
-          </div>
+          */}
+          </Clip>
         </MediaQuery>
 
         {/* スマホ */}
@@ -222,24 +232,110 @@ class Work extends React.Component {
             <WorkModal work={this.props.work}></WorkModal>
           </Modal>
 
-          <div
-            onClick={this.handleClick}
+          <Clip
+            img={imgurls[0]}
+            ext={imgurls[0].split("."[1])}
             className={this.props.classes.card}
+            onClick={this.handleClick}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             style={{
-              backgroundImage: "url(" + imgurls[0] + ")",
-              animationDelay: 1.3 + this.props.id / 10 + "s",
-              height: "50vw"
+              height: "20vw"
             }}
-          >
-            {this.state.onHover && (
-              <div className={this.props.classes.title}>{name}</div>
-            )}
-          </div>
+          />
         </MediaQuery>
       </React.Fragment>
     );
   }
 }
+const Clip = props => {
+  // index:画像index
+  // isDisplaying:拡大表示選択している画像のサムネであるかどうか:
+  const {
+    img,
+    ext,
+    onClick,
+    onMouseEnter,
+    onMouseLeave,
+    className,
+    name,
+    onHover,
+    titleClass,
+    index
+  } = props;
+  const w = "100%";
+  const h = "20vw";
+  return (
+    <div
+      onClick={onClick}
+      onMouseEnter={e => onMouseEnter()}
+      onMouseLeave={e => onMouseLeave()}
+      className={className}
+      style={{
+        animationDelay: 1.3 + index / 10 + "s",
+        position: "relative",
+        display: "inline-block",
+        cursor: "pointer",
+        margin: "16px 8px",
+        width: w,
+        height: h
+      }}
+    >
+      {onHover && (
+        <>
+          <div className={titleClass}>{name}</div>
+          {/*<div className={this.props.classes.tag}>GAME</div>*/}
+        </>
+      )}
+      {ext === "mp4" ? (
+        // 動画
+        <>
+          <FontAwesomeIcon
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              margin: "auto",
+              color: menubar2,
+              background: modalBG,
+              borderRadius: "50%",
+              border: "solid 2px" + modalBG,
+              fontSize: 35,
+              zIndex: 1
+            }}
+            icon={["fas", "play-circle"]}
+          />
+          <video
+            style={{
+              objectFit: "cover",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              preload: "none",
+              borderRadius: 8
+            }}
+            src={img}
+          />
+        </>
+      ) : (
+        // 画像
+        <div
+          style={{
+            borderRadius: 8,
+            width: "100%",
+            height: "100%",
+            backgroundImage: "url(" + img + ")",
+            backgroundSize: "cover",
+            backgroundPosition: "center center"
+          }}
+        />
+      )}
+    </div>
+  );
+};
+
 export default withStyles(s)(Work);

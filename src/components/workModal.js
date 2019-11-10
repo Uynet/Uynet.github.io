@@ -214,9 +214,10 @@ const SmallClip = props => {
               left: 0,
               right: 0,
               margin: "auto",
-              color: accent,
+              color: menubar2,
               background: modalBG,
               borderRadius: "50%",
+              border: "solid 2px" + modalBG,
               fontSize: 35,
               zIndex: 1
             }}
