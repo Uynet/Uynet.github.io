@@ -121,29 +121,6 @@ class Contact extends React.Component {
     this.ref.current.toggleOpen();
   };
   render() {
-    const products = [
-      genWork(
-        "サイハテドロップ",
-        "resource/img/kawasemi2.png",
-        "http://kawasemi.uynet.trap.show"
-      ),
-      genWork(
-        "NinjaFlicker",
-        "resource/img/ninja.png",
-        "https://trap.jp/post/480/"
-      ),
-      genWork(
-        "ぱれっと倶楽部(制作中!)",
-        "resource/img/pallet.png",
-        "https://shinchoku.net/notes/43347"
-      ),
-      genWork(
-        "CPCTF Visualizer",
-        "resource/img/visualizer.png",
-        "http://visualizer.uynet.trap.show"
-      ),
-      genWork("ゆいブログ", "resource/img/portfolio.png", "/")
-    ];
     return (
       <React.Fragment>
         <BGEffect />

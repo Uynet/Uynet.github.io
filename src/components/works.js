@@ -184,11 +184,11 @@ class Works extends React.Component {
         "http://kawasemi.uynet.trap.show",
         ["Game", "Program", "Graphic", "Sound"],
         "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。設計の書き直しに追われコンテンツが全く作れないのでUnityに移植したい。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。",
-        "2017/1~"
+        "2018/1~"
       ),
       genWork(
         "NinjaFlicker",
-        ["resource/img/ninja.png"],
+        ["resource/img/ninja.png", "resource/img/ninja2.png"],
         "https://trap.jp/post/480/",
         ["Game", "Graphic", "Sound"],
         "大学サークルのチームで学部2年から3年の約1年半かけて制作したスマホプラットフォーマーアクション。「背景をフリックする」をコンセプトに主人公である忍者を操作し、 テクニカルに忍術を駆使し数々の困難が待ち受ける城を攻略する。全6曲の音楽、効果音のすべてと一部のグラフィックデザインに貢献し、モダン×和の世界観を彩った。2018年GoogleIndieGameFesでTop10に入賞し、大学記事に掲載される(自分は写ってない)。IOS,Androidで配信中(240円)",

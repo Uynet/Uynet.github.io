@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   modalBG,
   base,
   font,
   main,
   accent,
+  menubar,
   menubar2,
   itemColor
 } from "../utils/colors.js";
@@ -98,7 +100,7 @@ class WorkModal extends React.Component {
           />
           {//画像が複数なら切り替え用サムネイルを出す
           imgurl.length >= 2 && (
-            <div align="center">
+            <div align="center" style={{ background: menubar }}>
               {imgurl.map((img, i) => {
                 return (
                   <SmallClip
@@ -166,32 +168,59 @@ const SmallClip = props => {
   const h = 100;
   return (
     <div
-      style={{ display: "inline-block", cursor: "pointer", margin: 4 }}
+      style={{
+        position: "relative",
+        display: "inline-block",
+        cursor: "pointer",
+        margin: "16px 8px",
+        width: w,
+        height: h
+      }}
       onClick={() => handleClick(index)}
     >
       {ext === "mp4" ? (
         // 動画
-        <video
-          style={{
-            width: w,
-            height: h,
-            preload: "none",
-            //border: isDisplaying && "2px solid" + menubar2
-            borderRadius: 8,
-            border: isDisplaying && "1px double" + menubar2
-          }}
-          src={img}
-        />
+        <>
+          <FontAwesomeIcon
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              margin: "auto",
+              color: accent,
+              background: modalBG,
+              borderRadius: "50%",
+              fontSize: 35,
+              zIndex: 1
+            }}
+            icon={["fas", "play-circle"]}
+          />
+          <video
+            style={{
+              objectFit: "cover",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              preload: "none",
+              borderRadius: 8,
+              boxShadow: isDisplaying && "0 0 0 2px" + menubar2
+            }}
+            src={img}
+          />
+        </>
       ) : (
         // 画像
         <div
           style={{
             borderRadius: 8,
             border: isDisplaying && "1px double" + menubar2,
+            width: "100%",
+            height: "100%",
             backgroundImage: "url(" + img + ")",
-            height: "50vmax",
-            width: w,
-            height: h,
             backgroundSize: "cover",
             backgroundPosition: "center center",
             boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.5) inset"
