@@ -132,7 +132,7 @@ class WorkModal extends React.Component {
             <div className={this.props.classes.links}>
               {links.map((link, i) => {
                 return (
-                  <a href={link.url} className={linkClass}>
+                  <a href={link.url} className={linkClass} key={i}>
                     {link.name}
                     <FontAwesomeIcon
                       style={{ fontSize: 10 }}

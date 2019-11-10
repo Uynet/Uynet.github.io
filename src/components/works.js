@@ -201,6 +201,16 @@ class Works extends React.Component {
           {
             name: "大学ニュース記事",
             url: "https://github.com/Uynet/palletclub_client"
+          },
+          {
+            name: "[IOS]",
+            url:
+              "https://itunes.apple.com/jp/app/ninja-flicker/id1330300477?mt=8"
+          },
+          {
+            name: "[Android]",
+            url:
+              "https://play.google.com/store/apps/details?id=com.traP.ninjaflicker"
           }
         ],
         ["Game", "Graphic", "Sound"],
@@ -287,12 +297,49 @@ class Works extends React.Component {
         "2019/11"
       ),
       genWork(
+        "cartoon blur",
+        ["resource/img/tips/cartoon1.gif", "resource/img/tips/cartoon2.mp4"],
+        [{ name: "shadertoy", url: "https://www.shadertoy.com/view/3sB3zd" }],
+        ["CG"],
+        "漫画的なモーションブラーをゲームで使いたくて研究中。これは完全に距離感吸うだけのレンダリングで、速度の逆方向に伸ばしたりノイズをかけたりすることによって表現している。",
+        "2019/02"
+      ),
+      genWork(
+        "スマホ全天球VRするやつ",
+        ["resource/img/artc.png"],
+        [],
+        ["CG"],
+        "スマホの重力センサと全天球画像を使ってVRをするアプリ。もともとは文系講義の作品課題で、初めて使うwebGLで悪戦苦闘しながら作った。残念ながら現在はリンク切れ",
+        "2018/06"
+      ),
+      genWork(
         "Raymarch",
         ["resource/img/raitracing.png"],
         [],
         ["CG"],
         "CGの研究室に入る前に入門しておいた。fragment一枚で描く簡単なもの。屈折、反射までやった",
-        "2019/04"
+        "2018/04"
+      ),
+      genWork(
+        "Polar Snow Fantasy",
+        ["resource/img/po.png", "resource/img/po2.png"],
+        [
+          {
+            name: "作品解説記事",
+            url: "https://trap.jp/post/35/"
+          },
+          {
+            name: "動画",
+            url: "https://www.nicovideo.jp/watch/sm28103282"
+          },
+          {
+            name: "対戦BGM(そこそこ好評)",
+            url: "https://soundcloud.com/saihate-1/pobattle4"
+          }
+        ],
+        ["Web", "Design"],
+        "学部一年のときに企画した、「雪合戦」をコンセプトにしたアクションSTG。足元の雪を使って弾を撃つ。企画および全8曲と一部のグラフィック、ステージ制作を担当したがコードは一行も書いてない。",
+        "2015/10~2016/04"
       )
     ];
     return (

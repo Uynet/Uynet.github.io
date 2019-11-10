@@ -142,7 +142,7 @@ const customStyles = {
     width: "80%",
     maxWidth: "100vh",
     minWidth: 250,
-    height: "90%",
+    height: "91%",
     WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 16,
