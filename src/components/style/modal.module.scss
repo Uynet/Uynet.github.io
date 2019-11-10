@@ -10,3 +10,10 @@
   filter: "blur 2px";
   background-color: "rgba(0, 0 , 0, 0.50)";
 }
+.linkClass {
+  color: $menubar2;
+  display: block;
+  &:hover {
+    color: $accent;
+  }
+}

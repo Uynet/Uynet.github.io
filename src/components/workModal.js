@@ -11,6 +11,7 @@ import {
   menubar2,
   itemColor
 } from "../utils/colors.js";
+import { linkClass } from "./style/modal.module.scss";
 
 const s = {
   image: {
@@ -57,13 +58,6 @@ const s = {
     marginLeft: 10,
     marginTop: 14
   },
-  link: {
-    display: "block",
-    color: menubar2,
-    "&:hover": {
-      color: accent
-    }
-  },
   date: {
     fontSize: 2,
     // fontFamily: "honoka",
@@ -101,7 +95,6 @@ class WorkModal extends React.Component {
   render() {
     const { name, imgurls, links, tags, description, date } = this.props.work;
     const LargeClipImgurl = imgurls[this.state.imgLoc];
-
     return (
       <React.Fragment>
         <div className={this.props.classes.modal}>
@@ -139,11 +132,7 @@ class WorkModal extends React.Component {
             <div className={this.props.classes.links}>
               {links.map((link, i) => {
                 return (
-                  <a
-                    href={link.url}
-                    className={this.props.classes.link}
-                    style={{ color: this.state.onHover ? accent : menubar2 }}
-                  >
+                  <a href={link.url} className={linkClass}>
                     {link.name}
                     <FontAwesomeIcon
                       style={{ fontSize: 10 }}
