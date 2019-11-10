@@ -5,13 +5,15 @@ import {
   base,
   font,
   main,
-  menubar,
+  accent,
+  menubar2,
   itemColor
 } from "../utils/colors.js";
 
 const s = {
   image: {
-    position: "fixed",
+    textAlign: "centere",
+    margin: "auto",
     position: "relative",
     top: 0,
     left: 0,
@@ -19,7 +21,7 @@ const s = {
     cursor: "pointer",
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.5) inset"
+    boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.8) inset"
   },
 
   video: {
@@ -32,7 +34,7 @@ const s = {
     backgroundPosition: "center center",
     outline: "none",
     height: "50vmax",
-    boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.5) inset"
+    boxShadow: "0px 0px 40px 10px rgba(,0,0,0.8) inset"
   },
   card: {
     padding: 20,
@@ -95,19 +97,22 @@ class WorkModal extends React.Component {
             videoClass={this.props.classes.video}
           />
           {//画像が複数なら切り替え用サムネイルを出す
-          imgurl.length >= 2 &&
-            imgurl.map((img, i) => {
-              return (
-                <SmallClip
-                  key={i}
-                  index={i}
-                  isDisplaying={i === this.state.imgLoc}
-                  ext={img.split(".")[1]}
-                  img={img}
-                  handleClick={this.handleClickSmall}
-                />
-              );
-            })}
+          imgurl.length >= 2 && (
+            <div align="center">
+              {imgurl.map((img, i) => {
+                return (
+                  <SmallClip
+                    key={i}
+                    index={i}
+                    isDisplaying={i === this.state.imgLoc}
+                    ext={img.split(".")[1]}
+                    img={img}
+                    handleClick={this.handleClickSmall}
+                  />
+                );
+              })}
+            </div>
+          )}
           <div className={this.props.classes.card}>
             <div className={this.props.classes.title}>{name}</div>
             <div className={this.props.classes.date}>{date}</div>
@@ -131,8 +136,9 @@ const LargeClip = props => {
           className={imgClass}
           style={{
             backgroundImage: "url(" + img + ")",
+            backgroundSize: "contain", //over
             height: "50vmax",
-            maxHeight: "70vmin"
+            backgroundRepeat: "no-repeat"
           }}
         />
       )}
@@ -148,7 +154,7 @@ const SmallClip = props => {
   const h = 100;
   return (
     <div
-      style={{ display: "inline-block", cursor: "pointer" }}
+      style={{ display: "inline-block", cursor: "pointer", margin: 4 }}
       onClick={() => handleClick(index)}
     >
       {ext === "mp4" ? (
@@ -157,14 +163,17 @@ const SmallClip = props => {
             width: w,
             height: h,
             preload: "none",
-            border: isDisplaying && "2px solid" + itemColor
+            //border: isDisplaying && "2px solid" + menubar2
+            borderRadius: 8,
+            border: isDisplaying && "1px double" + menubar2
           }}
           src={img}
         />
       ) : (
         <div
           style={{
-            border: isDisplaying && "2px solid" + itemColor,
+            borderRadius: 8,
+            border: isDisplaying && "1px double" + menubar2,
             backgroundImage: "url(" + img + ")",
             height: "50vmax",
             width: w,
