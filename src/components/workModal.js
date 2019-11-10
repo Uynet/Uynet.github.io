@@ -53,6 +53,17 @@ const s = {
     marginLeft: 10,
     marginTop: 18
   },
+  links: {
+    marginLeft: 10,
+    marginTop: 14
+  },
+  link: {
+    display: "block",
+    color: menubar2,
+    "&:hover": {
+      color: accent
+    }
+  },
   date: {
     fontSize: 2,
     // fontFamily: "honoka",
@@ -72,7 +83,7 @@ class WorkModal extends React.Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
-    this.state = { imgLoc: 0 }; //表示中のimgのindex
+    this.state = { imgLoc: 0, onHover: false }; //表示中のimgのindex
   }
   handleClick = e => {
     this.ref.current.toggleOpen();
@@ -81,9 +92,15 @@ class WorkModal extends React.Component {
   handleClickSmall = index => {
     this.setState({ imgLoc: index });
   };
+  onMouseEnter = e => {
+    this.setState({ onHover: true });
+  };
+  onMouseLeave = e => {
+    this.setState({ onHover: false });
+  };
   render() {
-    const { name, imgurl, link, tags, description, date } = this.props.work;
-    const LargeClipImgurl = imgurl[this.state.imgLoc];
+    const { name, imgurls, links, tags, description, date } = this.props.work;
+    const LargeClipImgurl = imgurls[this.state.imgLoc];
 
     return (
       <React.Fragment>
@@ -99,9 +116,9 @@ class WorkModal extends React.Component {
             videoClass={this.props.classes.video}
           />
           {//画像が複数なら切り替え用サムネイルを出す
-          imgurl.length >= 2 && (
+          imgurls.length >= 2 && (
             <div align="center" style={{ background: menubar }}>
-              {imgurl.map((img, i) => {
+              {imgurls.map((img, i) => {
                 return (
                   <SmallClip
                     key={i}
@@ -119,6 +136,23 @@ class WorkModal extends React.Component {
             <div className={this.props.classes.title}>{name}</div>
             <div className={this.props.classes.date}>{date}</div>
             <div className={this.props.classes.description}>{description}</div>
+            <div className={this.props.classes.links}>
+              {links.map((link, i) => {
+                return (
+                  <a
+                    href={link.url}
+                    className={this.props.classes.link}
+                    style={{ color: this.state.onHover ? accent : menubar2 }}
+                  >
+                    {link.name}
+                    <FontAwesomeIcon
+                      style={{ fontSize: 10 }}
+                      icon={["fas", "external-link-alt"]}
+                    ></FontAwesomeIcon>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </React.Fragment>

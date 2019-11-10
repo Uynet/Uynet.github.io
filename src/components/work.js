@@ -95,7 +95,6 @@ const customStylesSp = {
     right: 0,
     bottom: 0,
     zIndex: 40,
-    filter: "blur 2px",
     backgroundColor: "rgba(0, 0 , 0, 0.50)"
   },
   content: {
@@ -118,14 +117,13 @@ const customStylesSp = {
 
 const customStyles = {
   overlay: {
-    backdropFilter: "blur(4px)",
+    //backdropFilter: "blur(4px)",
     position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
     zIndex: 40,
-    filter: "blur 4px",
     backgroundColor: "rgba(0, 0 , 0, 0.40)",
     "&:hover": {
       backgroundColor: "rgba(0, 0 , 0, 0.10)"
@@ -176,7 +174,7 @@ class Work extends React.Component {
     this.setState({ modalIsOpen: false });
   };
   render() {
-    const { name, imgurl, link, tags, description, date } = this.props.work;
+    const { name, imgurls, description, date } = this.props.work;
     return (
       <React.Fragment>
         {/* PC */}
@@ -198,7 +196,7 @@ class Work extends React.Component {
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             style={{
-              backgroundImage: "url(" + imgurl[0] + ")",
+              backgroundImage: "url(" + imgurls[0] + ")",
               animationDelay: 1.3 + this.props.id / 10 + "s",
               height: "20vw"
             }}
@@ -230,7 +228,7 @@ class Work extends React.Component {
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             style={{
-              backgroundImage: "url(" + imgurl[0] + ")",
+              backgroundImage: "url(" + imgurls[0] + ")",
               animationDelay: 1.3 + this.props.id / 10 + "s",
               height: "50vw"
             }}

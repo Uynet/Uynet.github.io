@@ -108,11 +108,11 @@ const s = {
   }
 };
 
-const genWork = (name, imgurl, link, tags, description, date) => {
+const genWork = (name, imgurls, links, tags, description, date) => {
   return {
     name: name,
-    imgurl: imgurl,
-    link: link,
+    imgurls: imgurls,
+    links: links,
     tags: tags,
     description: description,
     date: date
@@ -219,7 +219,7 @@ class Works extends React.Component {
         ["resource/img/portfolio.png", "resource/img/uyblog.png"],
         [],
         ["Web", "Design"],
-        "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョン。",
+        "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョン。絵も自作です ",
         "2019/11"
       )
     ];
@@ -265,7 +265,7 @@ class Works extends React.Component {
         ["resource/img/raitracing.png"],
         [],
         ["CG"],
-        "CGの研究室に入る前に入門しておいた。fragment一枚で描く一般的なもの。屈折、反射までやった",
+        "CGの研究室に入る前に入門しておいた。fragment一枚で描く簡単なもの。屈折、反射までやった",
         "2019/04"
       )
     ];
