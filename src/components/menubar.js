@@ -124,16 +124,17 @@ class Menubar extends React.Component {
           >
             <div className={itemTitleClass}>めにゅー</div>
             <div>
-              {items.map((item, i) => {
-                return (
-                  <Item
-                    update={this.props.update}
-                    name={item.name}
-                    link={item.link}
-                    key={i}
-                  />
-                );
-              })}
+              {this.state.isOpen &&
+                items.map((item, i) => {
+                  return (
+                    <Item
+                      update={this.props.update}
+                      name={item.name}
+                      link={item.link}
+                      key={i}
+                    />
+                  );
+                })}
             </div>
           </div>
         </MediaQuery>

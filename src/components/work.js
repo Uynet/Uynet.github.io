@@ -11,11 +11,7 @@ import {
   modalBG
 } from "../utils/colors.js";
 import WorkModal from "./workModal";
-/*
-import {
-    carg,image,title
-} from "./style/home.module.scss";
-*/
+import { overLay } from "./style/home.module.scss";
 
 import Modal from "react-modal";
 import MediaQuery from "react-responsive";
@@ -80,6 +76,7 @@ const customStylesSp = {
     right: 0,
     bottom: 0,
     zIndex: 40,
+    filter: "blur 2px",
     backgroundColor: "rgba(0, 0 , 0, 0.50)"
   },
   content: {
@@ -102,13 +99,18 @@ const customStylesSp = {
 
 const customStyles = {
   overlay: {
+    backdropFilter: "blur(4px)",
     position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
     zIndex: 40,
-    backgroundColor: "rgba(0, 0 , 0, 0.50)"
+    filter: "blur 4px",
+    backgroundColor: "rgba(0, 0 , 0, 0.40)",
+    "&:hover": {
+      backgroundColor: "rgba(0, 0 , 0, 0.10)"
+    }
   },
   content: {
     zIndex: 41,
@@ -154,6 +156,7 @@ class Work extends React.Component {
   };
   render() {
     const { name, imgurl, link, tags, description } = this.props.work;
+    console.log(imgurl);
     return (
       <React.Fragment>
         {/* PC */}
@@ -164,6 +167,7 @@ class Work extends React.Component {
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
             style={customStyles}
+            overLayClassName={overLay}
           >
             <WorkModal work={this.props.work}></WorkModal>
           </Modal>
@@ -206,13 +210,13 @@ class Work extends React.Component {
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             style={{
-              backgroundImage: "url(" + this.props.imgurl + ")",
+              backgroundImage: "url(" + imgurl + ")",
               animationDelay: 1.3 + this.props.id / 10 + "s",
               height: "50vw"
             }}
           >
             {this.state.onHover && (
-              <div className={this.props.classes.title}>{this.props.name}</div>
+              <div className={this.props.classes.title}>{name}</div>
             )}
           </div>
         </MediaQuery>

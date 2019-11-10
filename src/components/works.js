@@ -141,6 +141,7 @@ class PC extends React.Component {
 
 class Smapho extends React.Component {
   render() {
+    console.log(this.props.products);
     return (
       <div className={this.props.frameClass}>
         <div
