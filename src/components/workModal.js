@@ -125,29 +125,34 @@ class WorkModal extends React.Component {
 }
 export default withStyles(s)(WorkModal);
 
+const centerize = {
+  position: "absolute",
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  margin: "auto",
+  width: "auto",
+  height: "auto",
+  maxWidth: "100%",
+  maxHeight: "100%"
+};
+
 const LargeClip = props => {
   const { img, ext, imgClass, videoClass } = props;
   return (
-    <div>
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "50vh",
+        background: "#000"
+      }}
+    >
       {ext === "mp4" ? (
-        <video controls className={videoClass} src={img} />
+        <video controls style={centerize} src={img} />
       ) : (
-        <div style={{ position: "relative", width: "100%", height: "50vh" }}>
-          <img
-            src={img}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              margin: "auto",
-              width: "auto",
-              height: "auto",
-              maxWidth: "100%",
-              maxHeight: "100%"
-            }}
-          />
-        </div>
+        <img src={img} style={centerize} />
       )}
     </div>
   );

@@ -112,7 +112,7 @@ const customStylesSp = {
     background: modalBG,
     WebkitOverflowScrolling: "touch",
     padding: 0,
-    borderRadius: 16
+    borderRadius: 0
   }
 };
 
