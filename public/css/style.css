@@ -194,19 +194,19 @@ a:hover {
 
 @keyframes sidelineInR {
   0% {
-    background: #6330f0;
+    background: #f39090;
     right: 100%; }
   100% {
-    background: #6330f0;
+    background: #f39090;
     right: -10px; } }
 
 @keyframes sidelineInL {
   0% {
-    background: #6330f0;
+    background: #f39090;
     left: 100%; }
   100% {
     left: -10px;
-    background: #6330f0; } }
+    background: #f39090; } }
 
 .BGCircle1 {
   z-index: -3;

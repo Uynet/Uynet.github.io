@@ -188,7 +188,8 @@ class Works extends React.Component {
       genWork(
         "NinjaFlicker",
         ["resource/img/ninja.png", "resource/img/ninja2.png"],
-        "https://trap.jp/post/480/",
+
+        [{ name: "作品記事", url: "https://trap.jp/post/480/" }],
         ["Game", "Graphic", "Sound"],
         "大学サークルのチームで学部2年から3年の約1年半かけて制作したスマホプラットフォーマーアクション。「背景をフリックする」をコンセプトに主人公である忍者を操作し、 テクニカルに忍術を駆使し数々の困難が待ち受ける城を攻略する。全6曲の音楽、効果音のすべてと一部のグラフィックデザインに貢献し、モダン×和の世界観を彩った。2018年GoogleIndieGameFesでTop10に入賞し、大学記事に掲載される(自分は写ってない)。IOS,Androidで配信中(240円)",
         "2016/6~2017/12"
@@ -200,7 +201,7 @@ class Works extends React.Component {
           "resource/img/pallet2.png",
           "resource/img/pallet3.png"
         ],
-        "https://shinchoku.net/notes/43347",
+        [{ name: "進捗ノート", url: "https://shinchoku.net/notes/43347" }],
         ["Web"],
         "配色投稿サービスを二人で開発中(2019/10~)。React,Express,MongoDB,Nginxなど",
         "2019/10"
@@ -208,7 +209,7 @@ class Works extends React.Component {
       genWork(
         "CPCTF Visualizer",
         ["resource/img/visualizer.png"],
-        "http://visualizer.uynet.trap.show",
+        [{ name: "作品解説記事", url: "http://visualizer.uynet.trap.show" }],
         ["webGL"],
         "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する",
         "2019/2~2019/4"
@@ -216,7 +217,7 @@ class Works extends React.Component {
       genWork(
         "ゆいブログ",
         ["resource/img/portfolio.png", "resource/img/uyblog.png"],
-        "/",
+        [],
         ["Web", "Design"],
         "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョン。",
         "2019/11"
@@ -226,9 +227,19 @@ class Works extends React.Component {
       genWork(
         "canvasで雷エフェクト",
         ["resource/img/tips/thunder.gif"],
-        "http://kawasemi.uynet.trap.show",
+        [
+          {
+            name: "NEORT",
+            url:
+              " https://neort.io/art/bmvq9d43p9f7m1g03bdg?index=1&origin=latest"
+          },
+          {
+            name: "作品解説記事",
+            url: "https://www.pixiv.net/fanbox/creator/4180713/post/640754"
+          }
+        ],
         ["Effect"],
-        "NEORTを知ったので遊んだ。fillRectだけで雷エフェクトをつくる。いくつかばりえーしょんがある",
+        "NEORTを知ったので遊んだ。fillRectだけで雷エフェクトをつくる。こういう作画をゲームで使いたい",
         "2019/11"
       ),
       genWork(
@@ -252,7 +263,7 @@ class Works extends React.Component {
       genWork(
         "Raymarch",
         ["resource/img/raitracing.png"],
-        "",
+        [],
         ["CG"],
         "CGの研究室に入る前に入門しておいた。fragment一枚で描く一般的なもの。屈折、反射までやった",
         "2019/04"

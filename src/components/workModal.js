@@ -137,7 +137,9 @@ const centerize = {
   width: "auto",
   height: "auto",
   maxWidth: "100%",
-  maxHeight: "100%"
+  maxHeight: "100%",
+  minWidth: "100%",
+  minHeight: "100%"
 };
 
 const LargeClip = props => {
