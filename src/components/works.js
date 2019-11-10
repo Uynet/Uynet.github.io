@@ -178,20 +178,33 @@ class Works extends React.Component {
         [
           "resource/img/kawasemi2.png",
           "resource/img/kawasemi.png",
+          "resource/img/kawasemi3.png",
           "resource/img/boss.mp4"
         ],
-        [{ name: "ゲームURL", url: "http://kawasemi.uynet.trap.show" }],
+        [
+          { name: "ゲームURL", url: "http://kawasemi.uynet.trap.show" },
+          {
+            name: "大学ニュース記事",
+            url: "https://www.titech.ac.jp/news/2019/043553.html"
+          }
+        ],
         ["Game", "Program", "Graphic", "Sound"],
-        "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。設計の書き直しに追われコンテンツが全く作れないのでUnityに移植したい。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。",
+        "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。動産環境はPC(Chromeのみ)。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。",
         "2018/1~"
       ),
       genWork(
         "NinjaFlicker",
         ["resource/img/ninja.png", "resource/img/ninja2.png"],
 
-        [{ name: "作品記事", url: "https://trap.jp/post/480/" }],
+        [
+          { name: "作品記事", url: "https://trap.jp/post/480/" },
+          {
+            name: "大学ニュース記事",
+            url: "https://github.com/Uynet/palletclub_client"
+          }
+        ],
         ["Game", "Graphic", "Sound"],
-        "大学サークルのチームで学部2年から3年の約1年半かけて制作したスマホプラットフォーマーアクション。「背景をフリックする」をコンセプトに主人公である忍者を操作し、 テクニカルに忍術を駆使し数々の困難が待ち受ける城を攻略する。全6曲の音楽、効果音のすべてと一部のグラフィックデザインに貢献し、モダン×和の世界観を彩った。2018年GoogleIndieGameFesでTop10に入賞し、大学記事に掲載される(自分は写ってない)。IOS,Androidで配信中(240円)",
+        "大学サークルのチームで学部2年から3年の約1年半かけて制作したスマホプラットフォーマーアクション。「背景をフリックする」をコンセプトに主人公である忍者を操作し、 テクニカルに忍術を駆使し数々の困難が待ち受ける城を攻略する。全6曲の音楽、効果音のすべてと一部のグラフィックデザイン、敵AI二体のプログラムに貢献しスタイリッシュな和の世界観を彩った。2018年のGoogleIndieGameFesでTop10に入賞し、大学記事に掲載される(自分は写ってない)。IOS,Androidで配信中(240円)",
         "2016/6~2017/12"
       ),
       genWork(
@@ -201,25 +214,38 @@ class Works extends React.Component {
           "resource/img/pallet2.png",
           "resource/img/pallet3.png"
         ],
-        [{ name: "進捗ノート", url: "https://shinchoku.net/notes/43347" }],
+        [
+          { name: "進捗ノート", url: "https://shinchoku.net/notes/43347" },
+          {
+            name: "GitHub(client)",
+            url: "https://github.com/Uynet/palletclub_client"
+          },
+          {
+            name: "GitHub(server)",
+            url: "https://github.com/Uynet/palletclub_server"
+          }
+        ],
         ["Web"],
-        "配色投稿サービスを二人で開発中(2019/10~)。React,Express,MongoDB,Nginxなど",
-        "2019/10"
+        "色彩設計が好きなので配色投稿サービスを作ることに。開発メンバーは二人で、自分はフロントエンド、APIサーバ、Twitter認証のほとんどを書いてもう一人がインフラ周りを担当。世界のどこかで試験運用中。React,Express,MongoDB,Nginxなど",
+        "2019/10~"
       ),
       genWork(
         "CPCTF Visualizer",
         ["resource/img/visualizer.png"],
-        [{ name: "作品解説記事", url: "http://visualizer.uynet.trap.show" }],
+        [
+          { name: "作品解説記事", url: "https://trap.jp/post/697/" },
+          { name: "当日レプリカ", url: "http://visualizer.uynet.trap.show/" }
+        ],
         ["webGL"],
-        "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する",
+        "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。よくあるサイバーダークに対抗して、ポップでクールな雰囲気を目指した。勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する。元ネタはOZ(サマーウォーズ)",
         "2019/2~2019/4"
       ),
       genWork(
         "ゆいブログ",
-        ["resource/img/portfolio.png", "resource/img/uyblog.png"],
+        ["resource/img/portfolio.png", "resource/img/web.png"],
         [],
         ["Web", "Design"],
-        "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョン。絵も自作です ",
+        "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
         "2019/11"
       )
     ];
