@@ -180,8 +180,7 @@ class Works extends React.Component {
           "resource/img/kawasemi.png",
           "resource/img/boss.mp4"
         ],
-        //["resource/img/boss.mp4"],
-        "http://kawasemi.uynet.trap.show",
+        [{ name: "ゲームURL", url: "http://kawasemi.uynet.trap.show" }],
         ["Game", "Program", "Graphic", "Sound"],
         "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。設計の書き直しに追われコンテンツが全く作れないのでUnityに移植したい。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。",
         "2018/1~"
@@ -196,7 +195,11 @@ class Works extends React.Component {
       ),
       genWork(
         "ぱれっと倶楽部(制作中)",
-        ["resource/img/pallet.png"],
+        [
+          "resource/img/pallet.png",
+          "resource/img/pallet2.png",
+          "resource/img/pallet3.png"
+        ],
         "https://shinchoku.net/notes/43347",
         ["Web"],
         "配色投稿サービスを二人で開発中(2019/10~)。React,Express,MongoDB,Nginxなど",
@@ -212,11 +215,47 @@ class Works extends React.Component {
       ),
       genWork(
         "ゆいブログ",
-        ["resource/img/portfolio.png"],
+        ["resource/img/portfolio.png", "resource/img/uyblog.png"],
         "/",
         ["Web", "Design"],
-        "Reactで作り直した。",
+        "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョン。",
         "2019/11"
+      )
+    ];
+    const tips = [
+      genWork(
+        "canvasで雷エフェクト",
+        ["resource/img/tips/thunder.gif"],
+        "http://kawasemi.uynet.trap.show",
+        ["Effect"],
+        "NEORTを知ったので遊んだ。fillRectだけで雷エフェクトをつくる。いくつかばりえーしょんがある",
+        "2019/11"
+      ),
+      genWork(
+        "particle芸",
+        ["resource/img/tips/sparkle.gif"],
+        [
+          {
+            name: "NEORT",
+            url:
+              "https://neort.io/art/bmul6pk3p9f7m1g034p0?index=0&origin=my_profile"
+          },
+          {
+            name: "解説記事",
+            url: "https://www.pixiv.net/fanbox/manage/post/639990/edit"
+          }
+        ],
+        ["Effect"],
+        "NEORTを知ったので遊んだ。ゲームでよく使ってるパーティクル芸で、2Dだけど立体感を出すテク。詳しくは解説記事読んでください",
+        "2019/11"
+      ),
+      genWork(
+        "Raymarch",
+        ["resource/img/raitracing.png"],
+        "",
+        ["CG"],
+        "CGの研究室に入る前に入門しておいた。fragment一枚で描く一般的なもの。屈折、反射までやった",
+        "2019/04"
       )
     ];
     return (
@@ -253,13 +292,18 @@ class Works extends React.Component {
         <MediaQuery query="(max-width: 429px)">
           <Smapho frameClass={this.props.classes.frame} products={products} />
         </MediaQuery>
-        {
-          <div className={this.props.classes.category}>
-            <div className={this.props.classes.categoryString}>Wips</div>
-            <div className={this.props.classes.underLine2}></div>
-            <div className={this.props.classes.desc}>諸々</div>
-          </div>
-        }
+        <div className={this.props.classes.category}>
+          <div className={this.props.classes.categoryString}>Wips</div>
+          <div className={this.props.classes.underLine2}></div>
+          <div className={this.props.classes.desc}>諸々</div>
+        </div>
+        <MediaQuery query="(min-width: 430px)">
+          <PC frameClass={this.props.classes.frame} products={tips} />
+        </MediaQuery>
+
+        <MediaQuery query="(max-width: 429px)">
+          <Smapho frameClass={this.props.classes.frame} products={tips} />
+        </MediaQuery>
         <div style={{ textAlign: "center", padding: 50 }}>
           <a href="https://twitter.com/i/moments/981932201557114881">
             もっとみる

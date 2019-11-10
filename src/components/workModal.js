@@ -35,8 +35,8 @@ const s = {
     backgroundSize: "cover",
     backgroundPosition: "center center",
     outline: "none",
-    height: "50vmax",
-    boxShadow: "0px 0px 40px 10px rgba(,0,0,0.8) inset"
+    height: "50vmax"
+    //boxShadow: "0px 0px 40px 10px rgba(,0,0,0.8) inset"
   },
   card: {
     padding: 20,
@@ -217,13 +217,12 @@ const SmallClip = props => {
         <div
           style={{
             borderRadius: 8,
-            border: isDisplaying && "1px double" + menubar2,
             width: "100%",
             height: "100%",
             backgroundImage: "url(" + img + ")",
             backgroundSize: "cover",
             backgroundPosition: "center center",
-            boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.5) inset"
+            boxShadow: isDisplaying && "0 0 0 2px" + menubar2
           }}
         />
       )}
