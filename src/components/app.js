@@ -20,19 +20,19 @@ class App extends React.Component {
     super(props);
     let path = "/#/" + window.location.href.split("/").pop();
     console.log(path);
-    if (
-      !(
-        path === "/#/" ||
-        path === "/#/about" ||
-        path === "/#/works" ||
-        path == "/#/contact" ||
-        path == "/#/blog"
-      )
-    )
-      window.location.assign("/#/");
+    const k =
+      path === "/#/" ||
+      path === "/#/about" ||
+      path === "/#/works" ||
+      path == "/#/contact" ||
+      path == "/#/blog";
     this.state = { path: path };
     this.menubar = React.createRef();
     this.hambar = React.createRef();
+    console.log(k);
+    if (!k) {
+      window.location.assign("/");
+    }
   }
   toggleMenubar = path => {
     this.menubar.current.toggleOpen();

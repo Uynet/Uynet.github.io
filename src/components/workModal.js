@@ -12,6 +12,7 @@ import {
   itemColor
 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
+import { footer } from "./style/modal.module.scss";
 
 const s = {
   image: {
@@ -95,6 +96,7 @@ class WorkModal extends React.Component {
   render() {
     const { name, imgurls, links, tags, description, date } = this.props.work;
     const LargeClipImgurl = imgurls[this.state.imgLoc];
+    console.log(this.props);
     return (
       <React.Fragment>
         <div className={this.props.classes.modal}>
@@ -110,7 +112,14 @@ class WorkModal extends React.Component {
           />
           {//画像が複数なら切り替え用サムネイルを出す
           imgurls.length >= 2 && (
-            <div align="center" style={{ background: menubar }}>
+            //modalBG = "#201030";
+            <div
+              align="center"
+              style={{
+                background: "#302040",
+                boxShadow: "4px 4px 10px 0px rgba(0,0,0,0.3) inset"
+              }}
+            >
               {imgurls.map((img, i) => {
                 return (
                   <SmallClip
@@ -142,6 +151,14 @@ class WorkModal extends React.Component {
                 );
               })}
             </div>
+          </div>
+          <div className={footer}>
+            {/*<FontAwesomeIcon icon={["fas", "less-than"]} />{" "}
+            <FontAwesomeIcon icon={["fas", "greater-than"]} />*/}
+            <FontAwesomeIcon
+              icon={["fas", "times"]}
+              onClick={() => this.props.close()}
+            />
           </div>
         </div>
       </React.Fragment>
@@ -177,7 +194,8 @@ const LargeClip = props => {
       }}
     >
       {ext === "mp4" ? (
-        <video controls style={centerize} src={img} />
+        // 再生アイコンのついたサムネイルを押してから表示されるので、自動再生の方がUX的に良いかなと思った
+        <video controls style={centerize} src={img} autoPlay preload="true" />
       ) : (
         <img src={img} style={centerize} />
       )}

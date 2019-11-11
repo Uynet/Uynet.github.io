@@ -16,6 +16,7 @@ import { overLay } from "./style/home.module.scss";
 import Modal from "react-modal";
 import MediaQuery from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NONAME } from "dns";
 Modal.setAppElement("#root");
 
 const s = {
@@ -106,8 +107,9 @@ const customStylesSp = {
     bottom: 0,
     margin: "auto",
     overflow: "auto",
+    border: "none",
     width: "100%",
-    height: "80%",
+    height: "100%",
     background: modalBG,
     WebkitOverflowScrolling: "touch",
     padding: 0,
@@ -187,7 +189,10 @@ class Work extends React.Component {
             style={customStyles}
             overLayClassName={overLay}
           >
-            <WorkModal work={this.props.work}></WorkModal>
+            <WorkModal
+              work={this.props.work}
+              close={this.closeModal}
+            ></WorkModal>
           </Modal>
           <Clip
             img={imgurls[0]}
@@ -229,7 +234,10 @@ class Work extends React.Component {
             onRequestClose={this.closeModal}
             style={customStylesSp}
           >
-            <WorkModal work={this.props.work}></WorkModal>
+            <WorkModal
+              work={this.props.work}
+              close={this.closeModal}
+            ></WorkModal>
           </Modal>
 
           <Clip
@@ -264,7 +272,7 @@ const Clip = props => {
     index
   } = props;
   const w = "100%";
-  const h = "20vw";
+  const h = "20vmax";
   return (
     <div
       onClick={onClick}
@@ -290,6 +298,7 @@ const Clip = props => {
       {ext === "mp4" ? (
         // 動画
         <>
+          {/*
           <FontAwesomeIcon
             style={{
               position: "absolute",
@@ -307,6 +316,7 @@ const Clip = props => {
             }}
             icon={["fas", "play-circle"]}
           />
+ */}
           <video
             style={{
               objectFit: "cover",
@@ -319,6 +329,7 @@ const Clip = props => {
               borderRadius: 8
             }}
             src={img}
+            autoPlay
           />
         </>
       ) : (
