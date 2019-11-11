@@ -99,13 +99,12 @@ class WorkModal extends React.Component {
     this.setState({
       deltaX: e.deltaX
     });
-    console.log(this.state.deltaX);
   };
   onPanStart = () => {
     //
   };
   onPanEnd = () => {
-    if (Math.abs(this.state.deltaX) < 99) {
+    if (Math.abs(this.state.deltaX) < 199) {
       this.setState({
         deltaX: 0
       });
@@ -114,7 +113,7 @@ class WorkModal extends React.Component {
     }
   };
   calcOpacity(dx) {
-    return Math.min(Math.max(0, 1 - Math.abs(dx) / 100), 1);
+    return Math.min(Math.max(0, 1 - Math.abs(dx) / 200), 1);
   }
   render() {
     const { name, imgurls, links, tags, description, date } = this.props.work;
