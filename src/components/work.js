@@ -88,6 +88,9 @@ const s = {
     left: 20,
     fontSize: 40,
     color: "#000"
+  },
+  modalbody: {
+    overflow: "hidden"
   }
 };
 const customStylesSp = {
@@ -112,11 +115,14 @@ const customStylesSp = {
     border: "none",
     width: "100%",
     height: "100%",
-    // background: modalBG,
     backgroundColor: "rgba(0, 0 , 0, 0)",
+    background: modalBG,
     WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 0
+  },
+  ReactModal__BodyOpen: {
+    position: fixed
   }
 };
 
@@ -191,6 +197,7 @@ class Work extends React.Component {
             onRequestClose={this.closeModal}
             style={customStyles}
             overLayClassName={overLay}
+            bodyOpenClassName={this.props.classes.modalbody}
           >
             <WorkModal
               work={this.props.work}
@@ -236,6 +243,7 @@ class Work extends React.Component {
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
             style={customStylesSp}
+            bodyOpenClassName={this.props.classes.modalbody}
           >
             <WorkModal
               work={this.props.work}

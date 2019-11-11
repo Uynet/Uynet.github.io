@@ -236,7 +236,7 @@ class Works extends React.Component {
           }
         ],
         ["Web"],
-        "色彩設計が好きなので配色投稿サービスを作ることに。開発メンバーは二人で、自分はフロントエンド、APIサーバ、Twitter認証のほとんどを書いてもう一人がインフラ周りを担当。世界のどこかで試験運用中。React,Express,MongoDB,Nginxなど",
+        "色彩設計が好きなので配色投稿サービスを作っています。開発メンバーは二人で、自分はフロントエンド、APIサーバ、認証周りなどほとんどを書いてもう一人がインフラ周りを担当。技術スタック的にはReact,Express,MongoDB,Nginxなど",
         "2019/10~"
       ),
       genWork(
@@ -299,7 +299,7 @@ class Works extends React.Component {
       genWork(
         "ゆれ画像メーカー",
         ["resource/img/tips/yure.mp4"],
-        [{ name: "リンク", url: "yure.uynet.trap.show" }],
+        [{ name: "リンク", url: "http://yure.uynet.trap.show" }],
         ["CG"],
         "一時期流行ったアレを作るやつ。思いついてすぐ流行りに乗りたかったのでかなり作りが雑。",
         "2019/09"

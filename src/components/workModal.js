@@ -48,7 +48,8 @@ const s = {
   },
   modal: {
     position: "relative",
-    background: modalBG
+    background: modalBG,
+    height: "100%"
   },
   description: {
     background: modalBG,
@@ -104,7 +105,7 @@ class WorkModal extends React.Component {
     //
   };
   onPanEnd = () => {
-    if (Math.abs(this.state.deltaX) < 199) {
+    if (Math.abs(this.state.deltaX) < 49) {
       this.setState({
         deltaX: 0
       });
@@ -113,7 +114,7 @@ class WorkModal extends React.Component {
     }
   };
   calcOpacity(dx) {
-    return Math.min(Math.max(0, 1 - Math.abs(dx) / 200), 1);
+    return Math.min(Math.max(0, 1 - Math.abs(dx) / 50), 1);
   }
   render() {
     const { name, imgurls, links, tags, description, date } = this.props.work;
@@ -186,14 +187,12 @@ class WorkModal extends React.Component {
                 })}
               </div>
             </div>
-            <div className={footer}>
-              {/*<FontAwesomeIcon icon={["fas", "less-than"]} />{" "}
+            {/*<FontAwesomeIcon icon={["fas", "less-than"]} />{" "}
             <FontAwesomeIcon icon={["fas", "greater-than"]} />
               <FontAwesomeIcon
                 icon={["fas", "times"]}
                 onClick={() => this.props.close()}
               />*/}
-            </div>
           </div>
         </Hammer>
       </React.Fragment>

@@ -52,6 +52,9 @@ a {
 a:hover {
   color: #f2b473;
 }
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
 /*# sourceMappingURL=style.scss.map */
 .postList {
   text-align: center;
