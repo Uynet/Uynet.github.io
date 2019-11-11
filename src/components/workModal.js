@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Hammer from "react-hammerjs"; //スワイプ検出
+
 import {
   modalBG,
   base,
@@ -78,7 +80,7 @@ class WorkModal extends React.Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
-    this.state = { imgLoc: 0, onHover: false }; //表示中のimgのindex
+    this.state = { imgLoc: 0, onHover: false, deltaX: 0 };
   }
   handleClick = e => {
     this.ref.current.toggleOpen();
@@ -93,74 +95,108 @@ class WorkModal extends React.Component {
   onMouseLeave = e => {
     this.setState({ onHover: false });
   };
+  onPan = e => {
+    this.setState({
+      deltaX: e.deltaX
+    });
+    console.log(this.state.deltaX);
+  };
+  onPanStart = () => {
+    //
+  };
+  onPanEnd = () => {
+    if (Math.abs(this.state.deltaX) < 99) {
+      this.setState({
+        deltaX: 0
+      });
+    } else {
+      this.props.close();
+    }
+  };
+  calcOpacity(dx) {
+    return Math.min(Math.max(0, 1 - Math.abs(dx) / 100), 1);
+  }
   render() {
     const { name, imgurls, links, tags, description, date } = this.props.work;
     const LargeClipImgurl = imgurls[this.state.imgLoc];
-    console.log(this.props);
     return (
       <React.Fragment>
-        <div className={this.props.classes.modal}>
-          <LargeClip
+        <Hammer
+          onPanStart={this.onPanStart}
+          onPan={this.onPan}
+          onPanEnd={this.onPanEnd}
+        >
+          <div
+            className={this.props.classes.modal}
             style={{
-              display: "inline-block"
+              transform: "translate(" + this.state.deltaX + "px)",
+              opacity: this.calcOpacity(this.state.deltaX)
             }}
-            className={this.props.classes.LargeClip}
-            ext={LargeClipImgurl.split(".")[1]}
-            img={LargeClipImgurl}
-            imgClass={this.props.classes.image}
-            videoClass={this.props.classes.video}
-          />
-          {//画像が複数なら切り替え用サムネイルを出す
-          imgurls.length >= 2 && (
-            //modalBG = "#201030";
-            <div
-              align="center"
+          >
+            <LargeClip
               style={{
-                background: "#302040",
-                boxShadow: "4px 4px 10px 0px rgba(0,0,0,0.3) inset"
+                display: "inline-block"
               }}
-            >
-              {imgurls.map((img, i) => {
-                return (
-                  <SmallClip
-                    key={i}
-                    index={i}
-                    isDisplaying={i === this.state.imgLoc}
-                    ext={img.split(".")[1]}
-                    img={img}
-                    handleClick={this.handleClickSmall}
-                  />
-                );
-              })}
-            </div>
-          )}
-          <div className={this.props.classes.card}>
-            <div className={this.props.classes.title}>{name}</div>
-            <div className={this.props.classes.date}>{date}</div>
-            <div className={this.props.classes.description}>{description}</div>
-            <div className={this.props.classes.links}>
-              {links.map((link, i) => {
-                return (
-                  <a href={link.url} className={linkClass} key={i}>
-                    {link.name}
-                    <FontAwesomeIcon
-                      style={{ fontSize: 10 }}
-                      icon={["fas", "external-link-alt"]}
-                    ></FontAwesomeIcon>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-          <div className={footer}>
-            {/*<FontAwesomeIcon icon={["fas", "less-than"]} />{" "}
-            <FontAwesomeIcon icon={["fas", "greater-than"]} />*/}
-            <FontAwesomeIcon
-              icon={["fas", "times"]}
-              onClick={() => this.props.close()}
+              className={this.props.classes.LargeClip}
+              ext={LargeClipImgurl.split(".")[1]}
+              img={LargeClipImgurl}
+              imgClass={this.props.classes.image}
+              videoClass={this.props.classes.video}
             />
+            {//画像が複数なら切り替え用サムネイルを出す
+            imgurls.length >= 2 && (
+              //modalBG = "#201030";
+              <div
+                align="center"
+                style={{
+                  background: "#302040",
+                  boxShadow: "4px 4px 10px 0px rgba(0,0,0,0.3) inset"
+                }}
+              >
+                {imgurls.map((img, i) => {
+                  return (
+                    <SmallClip
+                      key={i}
+                      index={i}
+                      isDisplaying={i === this.state.imgLoc}
+                      ext={img.split(".")[1]}
+                      img={img}
+                      handleClick={this.handleClickSmall}
+                    />
+                  );
+                })}
+              </div>
+            )}
+            <div className={this.props.classes.card}>
+              <div className={this.props.classes.title}>{name}</div>
+              <div className={this.props.classes.date}>{date}</div>
+              <div className={this.props.classes.description}>
+                {description}
+              </div>
+              <div className={this.props.classes.links}>
+                {links.map((link, i) => {
+                  return (
+                    <a href={link.url} className={linkClass} key={i}>
+                      {link.name}
+                      <FontAwesomeIcon
+                        style={{ fontSize: 10 }}
+                        icon={["fas", "external-link-alt"]}
+                      ></FontAwesomeIcon>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+            <div className={footer}>
+              {/*<FontAwesomeIcon icon={["fas", "less-than"]} />{" "}
+            <FontAwesomeIcon icon={["fas", "greater-than"]} />
+              <FontAwesomeIcon
+                icon={["fas", "times"]}
+                onClick={() => this.props.close()}
+              />*/}
+            </div>
           </div>
-        </div>
+        </Hammer>
       </React.Fragment>
     );
   }

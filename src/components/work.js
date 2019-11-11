@@ -17,6 +17,8 @@ import Modal from "react-modal";
 import MediaQuery from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NONAME } from "dns";
+import ReactSwipe from "react-swipe";
+
 Modal.setAppElement("#root");
 
 const s = {
@@ -96,7 +98,7 @@ const customStylesSp = {
     right: 0,
     bottom: 0,
     zIndex: 40,
-    backgroundColor: "rgba(0, 0 , 0, 0.50)"
+    backgroundColor: "rgba(0, 0 , 0, 0)"
   },
   content: {
     zIndex: 41,
@@ -110,7 +112,8 @@ const customStylesSp = {
     border: "none",
     width: "100%",
     height: "100%",
-    background: modalBG,
+    // background: modalBG,
+    backgroundColor: "rgba(0, 0 , 0, 0)",
     WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 0
