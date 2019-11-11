@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { base, main, main2, font } from "../utils/colors.js";
+import { base, main2, font } from "../utils/colors.js";
 /*
 import {
     carg,image,title

@@ -1,8 +1,8 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Tag from "./tag.js";
-import { base, main, main2, font } from "../utils/colors.js";
+//import Tag from "./tag.js";
+import { main, font } from "../utils/colors.js";
 
 const s = {
   frame: {

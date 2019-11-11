@@ -1,23 +1,11 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  base,
-  main,
-  accent,
-  hilight,
-  menubar,
-  menubar2,
-  itemColor,
-  modalBG
-} from "../utils/colors.js";
+import { base, itemColor, modalBG } from "../utils/colors.js";
 import WorkModal from "./workModal";
 import { overLay } from "./style/home.module.scss";
 
 import Modal from "react-modal";
 import MediaQuery from "react-responsive";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NONAME } from "dns";
-import ReactSwipe from "react-swipe";
 
 Modal.setAppElement("#root");
 
@@ -122,7 +110,7 @@ const customStylesSp = {
     borderRadius: 0
   },
   ReactModal__BodyOpen: {
-    position: fixed
+    position: "fixed"
   }
 };
 
@@ -185,7 +173,7 @@ class Work extends React.Component {
     this.setState({ modalIsOpen: false });
   };
   render() {
-    const { name, imgurls, description, date } = this.props.work;
+    const { name, imgurls } = this.props.work;
     return (
       <React.Fragment>
         {/* PC */}

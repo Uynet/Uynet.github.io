@@ -2,15 +2,8 @@ import React from "react";
 import BGEffect from "./BGEffect";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  accent,
-  base,
-  main,
-  font,
-  menubar,
-  menubar2
-} from "../utils/colors.js";
-import Work from "./work.js";
+import { accent, main, font, menubar, menubar2 } from "../utils/colors.js";
+// import Work from "./work.js";
 
 const s = {
   space: { height: 200 },
@@ -145,7 +138,6 @@ class Contact extends React.Component {
         <div className={this.props.classes.category}>
           <div className={this.props.classes.categoryString}>連絡先</div>
           <div className={this.props.classes.underLine2}></div>
-          <FontAwesomeIcon icon={["fas", "envelope-sqare"]} />
           <div className={this.props.classes.desc}>
             highsate
             <FontAwesomeIcon icon={["fas", "at"]} />

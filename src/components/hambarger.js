@@ -1,7 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { base, main, menubar } from "../utils/colors.js";
+import { base, menubar } from "../utils/colors.js";
 
 const s = {
   time: {

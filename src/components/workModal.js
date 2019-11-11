@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Hammer from "react-hammerjs"; //スワイプ検出
@@ -7,14 +7,10 @@ import {
   modalBG,
   base,
   font,
-  main,
-  accent,
-  menubar,
   menubar2,
-  itemColor
 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
-import { footer } from "./style/modal.module.scss";
+//import { footer } from "./style/modal.module.scss";
 
 const s = {
   image: {
@@ -29,7 +25,6 @@ const s = {
     backgroundPosition: "center center",
     boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.8) inset"
   },
-
   video: {
     position: "relative",
     top: 0,

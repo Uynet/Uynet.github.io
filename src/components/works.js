@@ -1,14 +1,7 @@
 import React from "react";
 import BGEffect from "./BGEffect";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  accent,
-  base,
-  main,
-  font,
-  menubar,
-  menubar2
-} from "../utils/colors.js";
+import { accent, main, font, menubar, menubar2 } from "../utils/colors.js";
 import Work from "./work.js";
 import MediaQuery from "react-responsive";
 

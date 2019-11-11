@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+//import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Home from "./home.js";
 import About from "./about.js";
 import Works from "./works.js";
@@ -24,8 +24,8 @@ class App extends React.Component {
       path === "/#/" ||
       path === "/#/about" ||
       path === "/#/works" ||
-      path == "/#/contact" ||
-      path == "/#/blog";
+      path === "/#/contact" ||
+      path === "/#/blog";
     this.state = { path: path };
     this.menubar = React.createRef();
     this.hambar = React.createRef();
@@ -69,8 +69,10 @@ class App extends React.Component {
     );
   }
 }
+/*
 const NotFound = () => {
   return <div>404 Not Found</div>;
 };
+*/
 
 export default App;
