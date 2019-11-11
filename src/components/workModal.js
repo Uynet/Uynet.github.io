@@ -20,6 +20,20 @@ const s = {
     backgroundPosition: "center center",
     boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.8) inset"
   },
+  pleyIcon: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    margin: "auto",
+    color: menubar2,
+    background: base,
+    borderRadius: "50%",
+    border: "solid 2px" + base,
+    fontSize: 35,
+    zIndex: 1
+  },
   video: {
     position: "relative",
     top: 0,
@@ -146,6 +160,7 @@ class WorkModal extends React.Component {
                 {imgurls.map((img, i) => {
                   return (
                     <SmallClip
+                      classes={this.props.classes}
                       key={i}
                       index={i}
                       isDisplaying={i === this.state.imgLoc}
@@ -207,8 +222,8 @@ const centerize = {
 };
 
 const LargeClip = props => {
-  const { img, ext, imgClass, videoClass } = props;
-  return (
+  const { img, ext } = props;
+  https: return (
     <div
       style={{
         position: "relative",
@@ -220,8 +235,15 @@ const LargeClip = props => {
       {ext === "mp4" ? (
         // 再生アイコンのついたサムネイルを押してから表示されるので、自動再生の方がUX的に良いかなと思った
         <video controls style={centerize} src={img} autoPlay preload="true" />
-      ) : (
+      ) : ext === "png" || ext === "gif" ? (
         <img src={img} style={centerize} />
+      ) : (
+        <iframe
+          style={centerize}
+          src={img}
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        ></iframe>
       )}
     </div>
   );
@@ -230,7 +252,8 @@ const LargeClip = props => {
 const SmallClip = props => {
   // index:画像index
   // isDisplaying:拡大表示選択している画像のサムネであるかどうか:
-  const { img, ext, index, isDisplaying, handleClick } = props;
+  const { img, ext, index, isDisplaying, handleClick, classes } = props;
+  const youtubeID = img.split("embed/")[1]; //may be undefined
   return (
     <div
       style={{
@@ -251,20 +274,7 @@ const SmallClip = props => {
         // 動画
         <>
           <FontAwesomeIcon
-            style={{
-              position: "absolute",
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0,
-              margin: "auto",
-              color: menubar2,
-              background: base,
-              borderRadius: "50%",
-              border: "solid 2px" + base,
-              fontSize: 35,
-              zIndex: 1
-            }}
+            className={classes.pleyIcon}
             icon={["fas", "play-circle"]}
           />
           <video
@@ -282,8 +292,8 @@ const SmallClip = props => {
             src={img}
           />
         </>
-      ) : (
-        // 画像
+      ) : // 画像
+      ext === "png" || ext === "gif" ? (
         <div
           style={{
             borderRadius: 8,
@@ -295,6 +305,29 @@ const SmallClip = props => {
             boxShadow: isDisplaying && "0 0 0 2px" + menubar2
           }}
         />
+      ) : (
+        <>
+          <FontAwesomeIcon
+            className={classes.pleyIcon}
+            icon={["fas", "play-circle"]}
+          />
+          <div
+            style={{
+              borderRadius: 8,
+              width: "100%",
+              height: "100%",
+              backgroundImage:
+                "url(" +
+                "https://img.youtube.com/vi/" +
+                youtubeID +
+                "/1.jpg" +
+                ")",
+              backgroundSize: "cover",
+              backgroundPosition: "center center",
+              boxShadow: isDisplaying && "0 0 0 2px" + menubar2
+            }}
+          />
+        </>
       )}
     </div>
   );

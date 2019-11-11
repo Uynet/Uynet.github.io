@@ -187,7 +187,11 @@ class Works extends React.Component {
       ),
       genWork(
         "NinjaFlicker",
-        ["resource/img/ninja.png", "resource/img/ninja2.png"],
+        [
+          "resource/img/ninja.png",
+          "resource/img/ninja2.png",
+          "https://www.youtube.com/embed/ekiIBCfWgZs"
+        ],
 
         [
           { name: "作品記事", url: "https://trap.jp/post/480/" },
