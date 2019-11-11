@@ -18,17 +18,18 @@ library.add(fab, fas, far);
 class App extends React.Component {
   constructor(props) {
     super(props);
-    let path = "/" + window.location.href.split("/").pop();
+    let path = "/#/" + window.location.href.split("/").pop();
+    console.log(path);
     if (
       !(
-        path === "/" ||
-        path === "/about" ||
-        path === "/works" ||
-        path == "/contact" ||
-        path == "/blog"
+        path === "/#/" ||
+        path === "/#/about" ||
+        path === "/#/works" ||
+        path == "/#/contact" ||
+        path == "/#/blog"
       )
     )
-      window.location.assign("/");
+      window.location.assign("/#/");
     this.state = { path: path };
     this.menubar = React.createRef();
     this.hambar = React.createRef();
@@ -40,7 +41,7 @@ class App extends React.Component {
   };
   router = path => {
     if (path === "top") path = "";
-    path = "/" + path;
+    path = "/#/" + path;
     this.setState({ path: path });
     window.scrollTo(0, 0);
   };
@@ -59,11 +60,11 @@ class App extends React.Component {
             </Switch>
           </Router>
         */}
-        {this.state.path === "/" && <Home />}
-        {this.state.path === "/about" && <About />}
-        {this.state.path === "/works" && <Works />}
-        {this.state.path === "/contact" && <Contact />}
-        {this.state.path === "/blog" && <Blog />}
+        {this.state.path === "/#/" && <Home />}
+        {this.state.path === "/#/about" && <About />}
+        {this.state.path === "/#/works" && <Works />}
+        {this.state.path === "/#/contact" && <Contact />}
+        {this.state.path === "/#/blog" && <Blog />}
       </React.Fragment>
     );
   }

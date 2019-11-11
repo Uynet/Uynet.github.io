@@ -75,10 +75,10 @@ class Menubar extends React.Component {
   };
   render() {
     const items = [
-      createMenu("Top", "/"),
-      createMenu("About", "/about"),
-      createMenu("Works", "/works"),
-      createMenu("Contact", "/contact")
+      createMenu("Top", "/#/"),
+      createMenu("About", "/#/about"),
+      createMenu("Works", "/#/works"),
+      createMenu("Contact", "/#/contact")
       //createMenu("Blog", "/blog")
     ];
     const className = this.state.isOpen
