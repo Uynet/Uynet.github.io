@@ -189,8 +189,6 @@ const SmallClip = props => {
   // index:画像index
   // isDisplaying:拡大表示選択している画像のサムネであるかどうか:
   const { img, ext, index, isDisplaying, handleClick } = props;
-  const w = 100;
-  const h = 100;
   return (
     <div
       style={{
@@ -198,8 +196,12 @@ const SmallClip = props => {
         display: "inline-block",
         cursor: "pointer",
         margin: "16px 8px",
-        width: w,
-        height: h
+        width: "20vw",
+        height: "20vw",
+        maxWidth: 100,
+        maxHeight: 100,
+        minWidth: 20,
+        minHeight: 20
       }}
       onClick={() => handleClick(index)}
     >
@@ -215,9 +217,9 @@ const SmallClip = props => {
               right: 0,
               margin: "auto",
               color: menubar2,
-              background: modalBG,
+              background: base,
               borderRadius: "50%",
-              border: "solid 2px" + modalBG,
+              border: "solid 2px" + base,
               fontSize: 35,
               zIndex: 1
             }}

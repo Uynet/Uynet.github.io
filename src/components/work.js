@@ -299,9 +299,9 @@ const Clip = props => {
               right: 0,
               margin: "auto",
               color: menubar2,
-              background: modalBG,
+              background: base,
               borderRadius: "50%",
-              border: "solid 2px" + modalBG,
+              border: "solid 2px" + base,
               fontSize: 35,
               zIndex: 1
             }}
