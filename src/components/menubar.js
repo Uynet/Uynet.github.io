@@ -87,57 +87,57 @@ class Menubar extends React.Component {
     const itemTitleClass = this.props.classes.itemtitle;
     return (
       <React.Fragment>
-        <MediaQuery query="(max-width: 429px)">
-          <div
-            className={
-              this.state.isOpen
-                ? this.props.classes.openMobile
-                : this.props.classes.closedMobile
-            }
-          >
-            <div className={itemTitleClass}>めにゅー</div>
-            {this.state.isOpen && (
-              <div>
-                {items.map((item, i) => {
-                  return (
-                    <Item
-                      update={this.props.update}
-                      name={item.name}
-                      link={item.link}
-                      key={i}
-                    />
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        </MediaQuery>
-        <MediaQuery query="(min-width: 430px)">
-          <div
-            className={className}
-            style={{
-              animation:
-                !this.state.isOpen &&
-                !this.state.isFirstTime &&
-                "menuSlideOut 0.2s"
-            }}
-          >
-            <div className={itemTitleClass}>めにゅー</div>
+        {/*<MediaQuery query="(max-width: 429px)">
+        <div
+          className={
+            this.state.isOpen
+              ? this.props.classes.openMobile
+              : this.props.classes.closedMobile
+          }
+        >
+          <div className={itemTitleClass}>めにゅー</div>
+          {this.state.isOpen && (
             <div>
-              {this.state.isOpen &&
-                items.map((item, i) => {
-                  return (
-                    <Item
-                      update={this.props.update}
-                      name={item.name}
-                      link={item.link}
-                      key={i}
-                    />
-                  );
-                })}
+              {items.map((item, i) => {
+                return (
+                  <Item
+                    update={this.props.update}
+                    name={item.name}
+                    link={item.link}
+                    key={i}
+                  />
+                );
+              })}
             </div>
+          )}
+        </div>
+        </MediaQuery>*/}
+        {/*<MediaQuery query="(min-width: 430px)">*/}
+        <div
+          className={className}
+          style={{
+            animation:
+              !this.state.isOpen &&
+              !this.state.isFirstTime &&
+              "menuSlideOut 0.2s"
+          }}
+        >
+          <div className={itemTitleClass}>めにゅー</div>
+          <div>
+            {this.state.isOpen &&
+              items.map((item, i) => {
+                return (
+                  <Item
+                    update={this.props.update}
+                    name={item.name}
+                    link={item.link}
+                    key={i}
+                  />
+                );
+              })}
           </div>
-        </MediaQuery>
+        </div>
+        {/*</MediaQuery>*/}
       </React.Fragment>
     );
   }

@@ -3,14 +3,9 @@ import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Hammer from "react-hammerjs"; //スワイプ検出
 
-import {
-  modalBG,
-  base,
-  font,
-  menubar2,
-} from "../utils/colors.js";
+import { modalBG, base, font, menubar2 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
-//import { footer } from "./style/modal.module.scss";
+import { footer } from "./style/modal.module.scss";
 
 const s = {
   image: {

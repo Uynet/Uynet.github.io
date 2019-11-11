@@ -41,6 +41,7 @@ const s = {
     bottom: "0px"
   },
   title: {
+    position: "relative",
     animation: "workTitleIn cubic-bezier(0,1,0,1) 1.3s forwards",
     fontFamily: "honoka",
     zIndex: 200000000000000000,
@@ -241,11 +242,15 @@ class Work extends React.Component {
 
           <Clip
             img={imgurls[0]}
-            ext={imgurls[0].split("."[1])}
+            ext={imgurls[0].split(".")[1]}
             className={this.props.classes.card}
+            titleClass={this.props.classes.title}
+            name={name}
+            index={this.props.id}
             onClick={this.handleClick}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
+            onHover={this.state.onHover}
             style={{
               height: "20vw"
             }}
@@ -325,8 +330,8 @@ const Clip = props => {
               left: 0,
               width: "100%",
               height: "100%",
-              preload: "none",
-              borderRadius: 8
+              borderRadius: 8,
+              zIndex: 1
             }}
             src={img}
             autoPlay
