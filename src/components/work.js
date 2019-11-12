@@ -104,6 +104,7 @@ const customStylesSp = {
     border: "none",
     width: "100%",
     height: "100%",
+    animation: "modalOpen cubic-bezier(1,0,0,1) 0.5s forwards",
     backgroundColor: "rgba(0, 0 , 0, 0)",
     background: modalBG,
     WebkitOverflowScrolling: "touch",

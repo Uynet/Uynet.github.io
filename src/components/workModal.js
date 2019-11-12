@@ -211,7 +211,7 @@ class WorkModal extends React.Component {
                       position: "absolute",
                       left: 0,
                       right: 0,
-                      top: 8,
+                      top: 12,
                       margin: "auto"
                     }}
                     onClick={() => this.props.close()}
