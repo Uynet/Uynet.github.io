@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+ <head>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="ja" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta charset = "UTF-8"/>
+    
+    <title>Canvas</title>
+    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+  </head>
+  <body>
+      
+      <div class = "container">
+      <script type="text/javascript" src ="main.js"></script>
+    <canvas id="cv" width="440" height="440"></canvas>
+      <form name="fshape">
+            <select name="shape">
+                <option value="BOX">BOX</option>
+                <option value="BALL">BALL</option>
+            </select>
+      </form>
+        <form name="fsize">
+          size:<input type = "text" name = "size" value = "20"><br>
+        </form>
+        
+        <!--  
+        <form name="ftext">
+          text:<input type = "text" name = "text" value = "OBJECT_ID"><br>
+        </form>
+      
+        <form name="ffontsize">
+          fontSize:<input type = "text" name = "ffontsize" value = "10"><br>
+        </form>
+        -->
+      <div class="card-block">
+        <h5>Canvastest</h5>
+
+          オブジェクト指向の練習<br>
+          メニューから物体を編集できます。
+    </div>
+      
+      <div class="card-block">
+      操作方法:<br>
+      クリック...物体を追加<br>
+      ←→↑↓ うごかす
+      </div>
+      <hr>
+      <a href = "../../">戻る</a><br>
+      </div>
+  </body>
+</html>
