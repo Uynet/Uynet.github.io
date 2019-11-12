@@ -11,11 +11,13 @@
   background-color: "rgba(0, 0 , 0, 0.50)";
 }
 .footer {
+  position: relative;
+  border-radius: 20px;
   background: #302040;
-  color: #fff;
+  color: $base;
   text-align: center;
-  margin-top: 14px;
-  font-size: 25px;
+  margin-top: 44px;
+  font-size: 16px;
   height: 40px;
 }
 .linkClass {

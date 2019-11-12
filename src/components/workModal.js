@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Hammer from "react-hammerjs"; //スワイプ検出
 
+import MediaQuery from "react-responsive";
 import { modalBG, base, font, menubar2 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
 import { footer } from "./style/modal.module.scss";
@@ -120,6 +121,7 @@ class WorkModal extends React.Component {
   calcOpacity(dx) {
     return Math.min(Math.max(0, 1 - Math.abs(dx) / 50), 1);
   }
+
   render() {
     const { name, imgurls, links, tags, description, date } = this.props.work;
     const LargeClipImgurl = imgurls[this.state.imgLoc];
@@ -191,13 +193,34 @@ class WorkModal extends React.Component {
                   );
                 })}
               </div>
+              <MediaQuery query="(max-width: 429px)">
+                <div className={footer}>
+                  {/*
+                  <FontAwesomeIcon
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      margin: "auto"
+                    }}
+                    icon={["fas", "times"]}
+                    onClick={() => this.props.close()}
+                  /> */}
+                  <span
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      right: 0,
+                      top: 8,
+                      margin: "auto"
+                    }}
+                    onClick={() => this.props.close()}
+                  >
+                    ←スワイプで閉じる→
+                  </span>
+                </div>
+              </MediaQuery>
             </div>
-            {/*<FontAwesomeIcon icon={["fas", "less-than"]} />{" "}
-            <FontAwesomeIcon icon={["fas", "greater-than"]} />
-              <FontAwesomeIcon
-                icon={["fas", "times"]}
-                onClick={() => this.props.close()}
-              />*/}
           </div>
         </Hammer>
       </React.Fragment>
@@ -217,8 +240,8 @@ const centerize = {
   height: "auto",
   maxWidth: "100%",
   maxHeight: "100%",
-  minWidth: "100%",
-  minHeight: "100%"
+  minWidth: "100%"
+  //minHeight: "100%"
 };
 
 const LargeClip = props => {
@@ -228,7 +251,7 @@ const LargeClip = props => {
       style={{
         position: "relative",
         width: "100%",
-        height: "50vh",
+        height: "60vh",
         background: "#000"
       }}
     >
