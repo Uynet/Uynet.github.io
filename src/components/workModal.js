@@ -381,10 +381,10 @@ const SmallClip = props => {
         display: "inline-block",
         cursor: "pointer",
         margin: "16px 8px",
-        width: "20vw",
-        height: "20vw",
-        maxWidth: 100,
-        maxHeight: 100,
+        width: "15vmin",
+        height: "15vmin",
+        maxWidth: 70,
+        maxHeight: 70,
         minWidth: 20,
         minHeight: 20
       }}
