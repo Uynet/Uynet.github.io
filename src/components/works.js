@@ -146,17 +146,13 @@ const customStylesSp = {
 
 const customStyles = {
   overlay: {
-    //backdropFilter: "blur(4px)",
     position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
     zIndex: 40,
-    backgroundColor: "rgba(0, 0 , 0, 0.40)",
-    "&:hover": {
-      backgroundColor: "rgba(0, 0 , 0, 0.10)"
-    }
+    backgroundColor: "rgba(0, 0 , 0, 0.40)"
   },
   content: {
     zIndex: 41,
@@ -250,8 +246,30 @@ class Smapho extends React.Component {
 class Works extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { modalIsOpen: true, displayingWork: null };
+    this.state = {
+      modalIsOpen: true,
+      displayingWork: null,
+      products: [],
+      tips: [],
+      sounds: [],
+      allWorks: []
+    };
   }
+  componentDidMount() {
+    this.genWorks();
+  }
+  goNext = () => {
+    const len = this.state.allWorks.length;
+    let index = this.state.allWorks.indexOf(this.state.displayingWork);
+    this.setState({ displayingWork: this.state.allWorks[(index + 1) % len] });
+  };
+  goPrev = () => {
+    const len = this.state.allWorks.length;
+    let index = this.state.allWorks.indexOf(this.state.displayingWork);
+    this.setState({
+      displayingWork: this.state.allWorks[(len + index - 1) % len]
+    });
+  };
   handleClick = work => {
     this.openModal(work);
   };
@@ -262,7 +280,7 @@ class Works extends React.Component {
   closeModal = () => {
     this.setState({ modalIsOpen: false, displayingWork: null });
   };
-  render() {
+  genWorks = () => {
     const products = [
       genWork(
         "サイハテドロップ",
@@ -400,7 +418,7 @@ class Works extends React.Component {
         "2019/11"
       ),
       genWork(
-        "Sparke",
+        "Sparkle",
         ["resource/img/tips/sparkle.gif"],
         [
           {
@@ -542,6 +560,15 @@ class Works extends React.Component {
         "2017/02"
       )
     ];
+    this.setState({
+      products: products,
+      tips: tips,
+      sounds: sounds,
+      allWorks: [...products, ...tips, ...sounds]
+    });
+    console.log(this.state);
+  };
+  render() {
     return (
       <React.Fragment>
         <BGEffect />
@@ -564,7 +591,7 @@ class Works extends React.Component {
         <div className={this.props.classes.space}></div>
 
         <div className={this.props.classes.category}>
-          <div className={this.props.classes.categoryString}>Product</div>
+          <div className={this.props.classes.categoryString}>Products</div>
           <div className={this.props.classes.underLine2}></div>
           <div className={this.props.classes.desc}>主な制作物</div>
         </div>
@@ -582,6 +609,8 @@ class Works extends React.Component {
             >
               <WorkModal
                 work={this.state.displayingWork}
+                goNext={this.goNext}
+                goPrev={this.goPrev}
                 close={this.closeModal}
               ></WorkModal>
             </Modal>
@@ -599,6 +628,8 @@ class Works extends React.Component {
             >
               <WorkModal
                 work={this.state.displayingWork}
+                goNext={this.goNext}
+                goPrev={this.goPrev}
                 close={this.closeModal}
               ></WorkModal>
             </Modal>
@@ -609,14 +640,14 @@ class Works extends React.Component {
           <PC
             handleClick={this.handleClick}
             frameClass={this.props.classes.frame}
-            products={products}
+            products={this.state.products}
           />
         </MediaQuery>
         <MediaQuery query="(max-width: 429px)">
           <Smapho
             handleClick={this.handleClick}
             frameClass={this.props.classes.frame}
-            products={products}
+            products={this.state.products}
           />
         </MediaQuery>
         <div className={this.props.classes.category}>
@@ -628,7 +659,7 @@ class Works extends React.Component {
           <PC
             handleClick={this.handleClick}
             frameClass={this.props.classes.frame}
-            products={tips}
+            products={this.state.tips}
           />
         </MediaQuery>
 
@@ -636,7 +667,7 @@ class Works extends React.Component {
           <Smapho
             handleClick={this.handleClick}
             frameClass={this.props.classes.frame}
-            products={tips}
+            products={this.state.tips}
           />
         </MediaQuery>
 
@@ -649,7 +680,7 @@ class Works extends React.Component {
           <PC
             handleClick={this.handleClick}
             frameClass={this.props.classes.frame}
-            products={sounds}
+            products={this.state.sounds}
           />
         </MediaQuery>
 
@@ -657,7 +688,7 @@ class Works extends React.Component {
           <Smapho
             handleClick={this.handleClick}
             frameClass={this.props.classes.frame}
-            products={sounds}
+            products={this.state.sounds}
           />
         </MediaQuery>
 

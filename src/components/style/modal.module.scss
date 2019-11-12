@@ -21,6 +21,30 @@
   font-size: 16px;
   height: 40px;
 }
+.goPrevPC {
+  cursor: pointer;
+  position: fixed;
+  color: $base;
+  top: 50%;
+  left: 32px;
+  z-index: 99999;
+  font-size: 35px;
+  &:hover {
+    color: $accent;
+  }
+}
+.goNextPC {
+  cursor: pointer;
+  position: fixed;
+  color: $base;
+  top: 50%;
+  right: 32px;
+  z-index: 99999;
+  font-size: 35px;
+  &:hover {
+    color: $accent;
+  }
+}
 .deleteIcon {
   position: fixed;
   color: $base;

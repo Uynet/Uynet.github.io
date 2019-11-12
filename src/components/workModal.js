@@ -6,7 +6,12 @@ import Hammer from "react-hammerjs"; //スワイプ検出
 import MediaQuery from "react-responsive";
 import { main, modalBG, base, menubar2 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
-import { footer, deleteIcon } from "./style/modal.module.scss";
+import {
+  footer,
+  deleteIcon,
+  goNextPC,
+  goPrevPC
+} from "./style/modal.module.scss";
 
 const s = {
   image: {
@@ -118,19 +123,13 @@ class WorkModal extends React.Component {
     this.setState({
       deltaX: e.deltaX
     });
-    console.log(this.state.deltaX);
   };
   onPanStart = () => {
     //
-    console.log(this.state.deltaX);
   };
   onPanEnd = () => {
-    if (Math.abs(this.state.deltaX) < 79) {
-      //this.setState({ deltaX: 0 });
-      console.log(this.state.deltaX);
-    } else {
-      this.props.close();
-    }
+    if (this.state.deltaX > 80) this.props.goNext();
+    else if (this.state.deltaX < -80) this.props.goPrev();
   };
   calcOpacity(dx) {
     return Math.min(Math.max(0, 1 - Math.abs(dx) / 80), 1);
@@ -147,9 +146,20 @@ class WorkModal extends React.Component {
           onPanEnd={this.onPanEnd}
         >
           <div className={this.props.classes.modal}>
-            <div className={deleteIcon} onClick={() => this.props.close()}>
-              {<FontAwesomeIcon icon={["fas", "times"]} />}
-            </div>
+            {/*PC版で表示される、モーダル移動アイコン*/}
+            <MediaQuery query="(min-width: 430px)">
+              <div className={goNextPC} onClick={this.props.goNext}>
+                {<FontAwesomeIcon icon={["fas", "greater-than"]} />}
+              </div>
+              <div className={goPrevPC} onClick={this.props.goPrev}>
+                {<FontAwesomeIcon icon={["fas", "less-than"]} />}
+              </div>
+            </MediaQuery>
+            <MediaQuery query="(max-width: 429px)">
+              <div className={deleteIcon} onClick={this.props.close}>
+                {<FontAwesomeIcon icon={["fas", "times"]} />}
+              </div>
+            </MediaQuery>
             <div
               style={{ width: "100%", height: 40, background: "#302040" }}
             ></div>
@@ -214,17 +224,22 @@ class WorkModal extends React.Component {
                 })}
               </div>
               <MediaQuery query="(max-width: 429px)">
-                <div className={footer} onClick={() => this.props.close()}>
+                <div className={footer}>
                   {
-                    <FontAwesomeIcon
+                    <div
                       style={{
                         position: "absolute",
-                        top: 0,
+                        left: 0,
+                        right: 0,
+                        top: 12,
                         bottom: 0,
                         margin: "auto"
                       }}
-                      icon={["fas", "times"]}
-                    />
+                    >
+                      <FontAwesomeIcon icon={["fas", "less-than"]} />
+                      {"     左右スワイプで切り替え     "}
+                      <FontAwesomeIcon icon={["fas", "greater-than"]} />
+                    </div>
                   }
                 </div>
               </MediaQuery>
