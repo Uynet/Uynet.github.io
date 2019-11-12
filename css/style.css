@@ -40,7 +40,6 @@ a {
 a:hover {
   color: #f2b473; }
 
-/*# sourceMappingURL=style.scss.map */
 .postList {
   text-align: center;
   width: 60%;
@@ -318,4 +317,10 @@ a:hover {
     opacity: 0; }
   100% {
     height: 20px;
+    opacity: 1; } }
+
+@keyframes modalOpen {
+  0% {
+    opacity: 0; }
+  100% {
     opacity: 1; } }
