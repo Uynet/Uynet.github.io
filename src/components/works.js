@@ -135,7 +135,6 @@ class PC extends React.Component {
 
 class Smapho extends React.Component {
   render() {
-    console.log(this.props.products);
     return (
       <div className={this.props.frameClass}>
         <div
@@ -170,9 +169,9 @@ class Works extends React.Component {
         "サイハテドロップ",
         [
           "resource/img/kawasemi2.png",
-          "resource/img/kawasemi.png",
-          "resource/img/kawasemi3.png",
-          "resource/img/boss.mp4"
+          "resource/img/kawasemi4.png",
+          "resource/img/boss.mp4",
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/430954734&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
         ],
         [
           { name: "ゲームURL", url: "http://kawasemi.uynet.trap.show" },
@@ -190,6 +189,7 @@ class Works extends React.Component {
         [
           "resource/img/ninja.png",
           "resource/img/ninja2.png",
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/433185450&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
           "https://www.youtube.com/embed/ekiIBCfWgZs"
         ],
 
@@ -197,7 +197,7 @@ class Works extends React.Component {
           { name: "作品記事", url: "https://trap.jp/post/480/" },
           {
             name: "大学ニュース記事",
-            url: "https://github.com/Uynet/palletclub_client"
+            url: "https://www.titech.ac.jp/news/2018/043127.html"
           },
           {
             name: "[IOS]",
@@ -238,13 +238,13 @@ class Works extends React.Component {
       ),
       genWork(
         "CPCTF Visualizer",
-        ["resource/img/visualizer.png"],
+        ["resource/img/visualizer.png", "resource/img/visualizer2.png"],
         [
           { name: "作品解説記事", url: "https://trap.jp/post/697/" },
-          { name: "当日レプリカ", url: "http://visualizer.uynet.trap.show/" }
+          { name: "当日の再現", url: "http://visualizer.uynet.trap.show/" }
         ],
         ["webGL"],
-        "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。よくあるサイバーダークに対抗して、ポップでクールな雰囲気を目指した。勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する。元ネタはOZ(サマーウォーズ)",
+        "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。よくあるサイバーダークに対抗して、ポップでクールな雰囲気を目指し、勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する。現在はイベント終了しているが、当日の様子を再現したものを見れるようにしてある。元ネタはOZ(サマーウォーズ)",
         "2019/2~2019/4"
       ),
       genWork(
@@ -254,11 +254,21 @@ class Works extends React.Component {
         ["Web", "Design"],
         "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
         "2019/11"
+      ),
+      genWork(
+        "Immortal Flower",
+        [
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318619255&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        ],
+        [],
+        ["Sound"],
+        "サークルで作っている音ゲーに提供したもの。自分の曲の中で一番伸びたもの",
+        "2019/6"
       )
     ];
     const tips = [
       genWork(
-        "canvasで雷エフェクト",
+        "fillRectの雷",
         ["resource/img/tips/thunder.gif"],
         [
           {
@@ -272,11 +282,11 @@ class Works extends React.Component {
           }
         ],
         ["Effect"],
-        "NEORTを知ったので遊んだ。fillRectだけで雷エフェクトをつくる。こういう作画をゲームで使いたい",
+        "NEORTを知ったので遊んだ。別にfillRectである必要はなくて、単に一番簡単だったからです",
         "2019/11"
       ),
       genWork(
-        "particle芸",
+        "立体感のあるparticle",
         ["resource/img/tips/sparkle.gif"],
         [
           {
@@ -298,7 +308,7 @@ class Works extends React.Component {
         ["resource/img/tips/yure.mp4"],
         [{ name: "リンク", url: "http://yure.uynet.trap.show" }],
         ["CG"],
-        "一時期流行ったアレを作るやつ。思いついてすぐ流行りに乗りたかったのでかなり作りが雑。",
+        "一時期流行ったアレを作るやつ。思いついてすぐ流行りに乗りたかったのでかなり作りが雑。DraggableなUIをcanvasで実装するのが地味に面倒だった。CSSアニメーションで揺らす機能付き",
         "2019/09"
       ),
 
@@ -307,7 +317,7 @@ class Works extends React.Component {
         ["resource/img/tips/quad.mp4"],
         [{ name: "動くもの", url: "http://quartenarytree.uynet.trap.show/" }],
         [""],
-        "衝突判定がしたかったので前々からやりたかった四分木空間分割を実装したが、見た目がよかったので分割だけして判定までやらずに満足してしまった。",
+        "衝突判定がしたかったので前々からやりたかった四分木空間分割を実装したが、分割だけして判定までやらずに満足してしまった。それぞれの物体に対して自分を完全に包含する四分木小空間が割り当てられ、空間の大きいほど赤く示している。",
         "2019/07"
       ),
       genWork(
@@ -315,7 +325,7 @@ class Works extends React.Component {
         ["resource/img/tips/cartoon1.gif", "resource/img/tips/cartoon2.mp4"],
         [{ name: "shadertoy", url: "https://www.shadertoy.com/view/3sB3zd" }],
         ["CG"],
-        "漫画的なモーションブラーをゲームで使いたくて研究中。これは完全に距離感吸うだけのレンダリングで、速度の逆方向に伸ばしたりノイズをかけたりすることによって表現している。",
+        "漫画的なモーションブラーをゲームで使いたくて研究中。これは完全に距離関数だけのレンダリングで、速度の逆方向に伸ばしたりノイズをかけたりすることによって表現している。",
         "2019/02"
       ),
       genWork(
@@ -329,9 +339,9 @@ class Works extends React.Component {
       genWork(
         "スマホ全天球VRするやつ",
         ["resource/img/artc.png"],
-        [],
+        [{ name: "リンク", url: "http://artc.uynet.trap.show" }],
         ["CG"],
-        "スマホの重力センサと全天球画像を使ってVRをするアプリ。もともとは文系講義の作品課題で、初めて使うwebGLで悪戦苦闘しながら作った。残念ながら現在はリンク切れ",
+        "スマホの重力センサと全天球画像を使ってVRっぽいことをするアプリ。もともとは文系講義の作品課題で、初めて使うwebGLで悪戦苦闘しながら作った。浮かんでいるキューブをタップするとシーンが遷移する",
         "2018/06"
       ),
       genWork(
@@ -357,7 +367,11 @@ class Works extends React.Component {
       ),
       genWork(
         "Polar Snow Fantasy",
-        ["resource/img/po.png", "resource/img/po2.png"],
+        [
+          "resource/img/po.png",
+          "resource/img/po2.png",
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/264092767&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        ],
         [
           {
             name: "作品解説記事",

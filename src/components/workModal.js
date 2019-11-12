@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Hammer from "react-hammerjs"; //スワイプ検出
 
 import MediaQuery from "react-responsive";
-import { modalBG, base, font, menubar2 } from "../utils/colors.js";
+import { main, modalBG, base, menubar2 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
-import { footer } from "./style/modal.module.scss";
+import { footer, deleteIcon } from "./style/modal.module.scss";
 
 const s = {
   image: {
@@ -29,6 +29,20 @@ const s = {
     right: 0,
     margin: "auto",
     color: menubar2,
+    background: base,
+    borderRadius: "50%",
+    border: "solid 2px" + base,
+    fontSize: 35,
+    zIndex: 1
+  },
+  pleyIconSound: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    margin: "auto",
+    color: main,
     background: base,
     borderRadius: "50%",
     border: "solid 2px" + base,
@@ -58,7 +72,6 @@ const s = {
   },
   description: {
     background: modalBG,
-    color: font,
     color: base,
     marginLeft: 10,
     marginTop: 18
@@ -105,25 +118,26 @@ class WorkModal extends React.Component {
     this.setState({
       deltaX: e.deltaX
     });
+    console.log(this.state.deltaX);
   };
   onPanStart = () => {
     //
+    console.log(this.state.deltaX);
   };
   onPanEnd = () => {
-    if (Math.abs(this.state.deltaX) < 49) {
-      this.setState({
-        deltaX: 0
-      });
+    if (Math.abs(this.state.deltaX) < 79) {
+      //this.setState({ deltaX: 0 });
+      console.log(this.state.deltaX);
     } else {
       this.props.close();
     }
   };
   calcOpacity(dx) {
-    return Math.min(Math.max(0, 1 - Math.abs(dx) / 50), 1);
+    return Math.min(Math.max(0, 1 - Math.abs(dx) / 80), 1);
   }
 
   render() {
-    const { name, imgurls, links, tags, description, date } = this.props.work;
+    const { name, imgurls, links, description, date } = this.props.work;
     const LargeClipImgurl = imgurls[this.state.imgLoc];
     return (
       <React.Fragment>
@@ -132,13 +146,13 @@ class WorkModal extends React.Component {
           onPan={this.onPan}
           onPanEnd={this.onPanEnd}
         >
-          <div
-            className={this.props.classes.modal}
-            style={{
-              transform: "translate(" + this.state.deltaX + "px)",
-              opacity: this.calcOpacity(this.state.deltaX)
-            }}
-          >
+          <div className={this.props.classes.modal}>
+            <div className={deleteIcon} onClick={() => this.props.close()}>
+              {<FontAwesomeIcon icon={["fas", "times"]} />}
+            </div>
+            <div
+              style={{ width: "100%", height: 40, background: "#302040" }}
+            ></div>
             <LargeClip
               style={{
                 display: "inline-block"
@@ -183,7 +197,13 @@ class WorkModal extends React.Component {
               <div className={this.props.classes.links}>
                 {links.map((link, i) => {
                   return (
-                    <a href={link.url} className={linkClass} key={i}>
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener"
+                      className={linkClass}
+                      key={i}
+                    >
                       {link.name}
                       <FontAwesomeIcon
                         style={{ fontSize: 10 }}
@@ -194,30 +214,18 @@ class WorkModal extends React.Component {
                 })}
               </div>
               <MediaQuery query="(max-width: 429px)">
-                <div className={footer}>
-                  {/*
-                  <FontAwesomeIcon
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      bottom: 0,
-                      margin: "auto"
-                    }}
-                    icon={["fas", "times"]}
-                    onClick={() => this.props.close()}
-                  /> */}
-                  <span
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      right: 0,
-                      top: 12,
-                      margin: "auto"
-                    }}
-                    onClick={() => this.props.close()}
-                  >
-                    ←スワイプで閉じる→
-                  </span>
+                <div className={footer} onClick={() => this.props.close()}>
+                  {
+                    <FontAwesomeIcon
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        bottom: 0,
+                        margin: "auto"
+                      }}
+                      icon={["fas", "times"]}
+                    />
+                  }
                 </div>
               </MediaQuery>
             </div>
@@ -246,7 +254,7 @@ const centerize = {
 
 const LargeClip = props => {
   const { img, ext } = props;
-  https: return (
+  return (
     <div
       style={{
         position: "relative",
@@ -256,16 +264,27 @@ const LargeClip = props => {
       }}
     >
       {ext === "mp4" ? (
-        // 再生アイコンのついたサムネイルを押してから表示されるので、自動再生の方がUX的に良いかなと思った
         <video controls style={centerize} src={img} preload="true" />
       ) : ext === "png" || ext === "gif" ? (
-        <img src={img} style={centerize} />
-      ) : (
+        <img src={img} style={centerize} alt="loading" />
+      ) : ext === "youtube" ? (
         <iframe
-          style={centerize}
+          title="youtube"
+          height="100%"
+          width="100%"
           src={img}
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          alt="loading"
+        ></iframe>
+      ) : (
+        <iframe
+          title="soundcloud"
+          height="100%"
+          width="100%"
+          src={img}
+          frameBorder="0"
+          alt="loading"
         ></iframe>
       )}
     </div>
@@ -277,6 +296,7 @@ const SmallClip = props => {
   // isDisplaying:拡大表示選択している画像のサムネであるかどうか:
   const { img, ext, index, isDisplaying, handleClick, classes } = props;
   const youtubeID = img.split("embed/")[1]; //may be undefined
+  console.log(ext);
   return (
     <div
       style={{
@@ -300,20 +320,29 @@ const SmallClip = props => {
             className={classes.pleyIcon}
             icon={["fas", "play-circle"]}
           />
-          <video
+          <div
             style={{
-              objectFit: "cover",
-              position: "absolute",
-              top: 0,
-              left: 0,
+              borderRadius: 8,
               width: "100%",
               height: "100%",
-              preload: "none",
-              borderRadius: 8,
               boxShadow: isDisplaying && "0 0 0 2px" + menubar2
             }}
-            src={img}
-          />
+          >
+            <video
+              style={{
+                objectFit: "cover",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                borderRadius: 8,
+                background: modalBG,
+                boxShadow: isDisplaying && "0 0 0 2px" + menubar2
+              }}
+              src={img}
+            />
+          </div>
         </>
       ) : // 画像
       ext === "png" || ext === "gif" ? (
@@ -328,7 +357,7 @@ const SmallClip = props => {
             boxShadow: isDisplaying && "0 0 0 2px" + menubar2
           }}
         />
-      ) : (
+      ) : ext === "youtube" ? (
         <>
           <FontAwesomeIcon
             className={classes.pleyIcon}
@@ -351,6 +380,21 @@ const SmallClip = props => {
             }}
           />
         </>
+      ) : (
+        <div
+          style={{
+            borderRadius: 8,
+            width: "100%",
+            height: "100%",
+            background: modalBG,
+            boxShadow: isDisplaying && "0 0 0 2px" + menubar2
+          }}
+        >
+          <FontAwesomeIcon
+            className={classes.pleyIconSound}
+            icon={["fas", "play-circle"]}
+          />
+        </div>
       )}
     </div>
   );

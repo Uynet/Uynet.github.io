@@ -29,7 +29,6 @@ class Item extends React.Component {
   };
   onClick = e => {
     this.props.update(this.props.name.toLowerCase());
-    console.log(this.props.name.toLowerCase());
   };
   render() {
     const color = this.state.onHover
