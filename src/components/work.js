@@ -83,74 +83,6 @@ const s = {
     overflow: "hidden"
   }
 };
-const customStylesSp = {
-  overlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 40,
-    backgroundColor: "rgba(0, 0 , 0, 0)"
-  },
-  content: {
-    zIndex: 41,
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    margin: "auto",
-    overflow: "auto",
-    border: "none",
-    width: "100%",
-    height: "100%",
-    animation: "modalOpen cubic-bezier(1,0,0,1) 0.5s forwards",
-    backgroundColor: "rgba(0, 0 , 0, 0)",
-    background: modalBG,
-    WebkitOverflowScrolling: "touch",
-    padding: 0,
-    borderRadius: 0
-  },
-  ReactModal__BodyOpen: {
-    position: "fixed"
-  }
-};
-
-const customStyles = {
-  overlay: {
-    //backdropFilter: "blur(4px)",
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 40,
-    backgroundColor: "rgba(0, 0 , 0, 0.40)",
-    "&:hover": {
-      backgroundColor: "rgba(0, 0 , 0, 0.10)"
-    }
-  },
-  content: {
-    zIndex: 41,
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    margin: "auto",
-    background: modalBG,
-    overflow: "auto",
-    width: "80%",
-    maxWidth: "100vh",
-    minWidth: 250,
-    height: "88%",
-    WebkitOverflowScrolling: "touch",
-    padding: 0,
-    borderRadius: 16,
-    border: "none"
-  }
-};
 
 class Work extends React.Component {
   constructor(props) {
@@ -181,20 +113,6 @@ class Work extends React.Component {
       <React.Fragment>
         {/* PC */}
         <MediaQuery query="(min-width: 430px)">
-          {/* クリックすると表示される内容 */}
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            onAfterOpen={this.afterOpenModal}
-            onRequestClose={this.closeModal}
-            style={customStyles}
-            overLayClassName={overLay}
-            bodyOpenClassName={this.props.classes.modalbody}
-          >
-            <WorkModal
-              work={this.props.work}
-              close={this.closeModal}
-            ></WorkModal>
-          </Modal>
           <Clip
             img={imgurls[0]}
             ext={imgurls[0].split(".")[1]}
@@ -202,46 +120,18 @@ class Work extends React.Component {
             titleClass={this.props.classes.title}
             name={name}
             index={this.props.id}
-            onClick={this.handleClick}
+            onClick={e => this.props.handleClick(this.props.work)}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             onHover={this.state.onHover}
             style={{
               height: "20vw"
             }}
-          >
-            {/*
-          <div
-            onClick={this.handleClick}
-            className={this.props.classes.card}
-            onMouseEnter={this.onMouseEnter}
-            onMouseLeave={this.onMouseLeave}
-            style={{
-              backgroundImage: "url(" + imgurls[0] + ")",
-              animationDelay: 1.3 + this.props.id / 10 + "s",
-              height: "20vw"
-            }}
-          >
-          */}
-          </Clip>
+          ></Clip>
         </MediaQuery>
 
         {/* スマホ */}
         <MediaQuery query="(max-width: 429px)">
-          {/* クリックすると表示される内容 */}
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            onAfterOpen={this.afterOpenModal}
-            onRequestClose={this.closeModal}
-            style={customStylesSp}
-            bodyOpenClassName={this.props.classes.modalbody}
-          >
-            <WorkModal
-              work={this.props.work}
-              close={this.closeModal}
-            ></WorkModal>
-          </Modal>
-
           <Clip
             img={imgurls[0]}
             ext={imgurls[0].split(".")[1]}
@@ -249,7 +139,7 @@ class Work extends React.Component {
             titleClass={this.props.classes.title}
             name={name}
             index={this.props.id}
-            onClick={this.handleClick}
+            onClick={e => this.props.handleClick(this.props.work)}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             onHover={this.state.onHover}

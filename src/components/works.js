@@ -1,9 +1,19 @@
 import React from "react";
 import BGEffect from "./BGEffect";
 import { withStyles } from "@material-ui/core/styles";
-import { accent, main, font, menubar, menubar2 } from "../utils/colors.js";
+import {
+  modalBG,
+  accent,
+  main,
+  font,
+  menubar,
+  menubar2
+} from "../utils/colors.js";
+import { overLay } from "./style/home.module.scss";
 import Work from "./work.js";
 import MediaQuery from "react-responsive";
+import Modal from "react-modal";
+import WorkModal from "./workModal";
 
 const s = {
   space: { height: 200 },
@@ -100,6 +110,74 @@ const s = {
     margin: 5
   }
 };
+const customStylesSp = {
+  overlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 40,
+    backgroundColor: "rgba(0, 0 , 0, 0)"
+  },
+  content: {
+    zIndex: 41,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    margin: "auto",
+    overflow: "auto",
+    border: "none",
+    width: "100%",
+    height: "100%",
+    animation: "modalOpen cubic-bezier(1,0,0,1) 0.5s forwards",
+    backgroundColor: "rgba(0, 0 , 0, 0)",
+    background: modalBG,
+    WebkitOverflowScrolling: "touch",
+    padding: 0,
+    borderRadius: 0
+  },
+  ReactModal__BodyOpen: {
+    position: "fixed"
+  }
+};
+
+const customStyles = {
+  overlay: {
+    //backdropFilter: "blur(4px)",
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 40,
+    backgroundColor: "rgba(0, 0 , 0, 0.40)",
+    "&:hover": {
+      backgroundColor: "rgba(0, 0 , 0, 0.10)"
+    }
+  },
+  content: {
+    zIndex: 41,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    margin: "auto",
+    background: modalBG,
+    overflow: "auto",
+    width: "80%",
+    maxWidth: "100vh",
+    minWidth: 250,
+    height: "88%",
+    WebkitOverflowScrolling: "touch",
+    padding: 0,
+    borderRadius: 16,
+    border: "none"
+  }
+};
 
 const genWork = (name, imgurls, links, tags, description, date) => {
   return {
@@ -125,7 +203,14 @@ class PC extends React.Component {
           }}
         >
           {this.props.products.map((work, i) => {
-            return <Work id={i} key={i} work={work} />;
+            return (
+              <Work
+                handleClick={this.props.handleClick}
+                id={i}
+                key={i}
+                work={work}
+              />
+            );
           })}
         </div>
       </div>
@@ -147,7 +232,14 @@ class Smapho extends React.Component {
           }}
         >
           {this.props.products.map((work, i) => {
-            return <Work id={i} key={i} work={work} />;
+            return (
+              <Work
+                handleClick={this.props.handleClick}
+                id={i}
+                key={i}
+                work={work}
+              />
+            );
           })}
         </div>
       </div>
@@ -158,10 +250,17 @@ class Smapho extends React.Component {
 class Works extends React.Component {
   constructor(props) {
     super(props);
-    this.ref = React.createRef();
+    this.state = { modalIsOpen: true, displayingWork: null };
   }
-  handleClick = e => {
-    this.ref.current.toggleOpen();
+  handleClick = work => {
+    this.openModal(work);
+  };
+  openModal = work => {
+    this.setState({ modalIsOpen: true, displayingWork: work });
+  };
+  afterOpenModal = () => {};
+  closeModal = () => {
+    this.setState({ modalIsOpen: false, displayingWork: null });
   };
   render() {
     const products = [
@@ -471,11 +570,54 @@ class Works extends React.Component {
         </div>
 
         <MediaQuery query="(min-width: 430px)">
-          <PC frameClass={this.props.classes.frame} products={products} />
+          {/* クリックすると表示される内容 PC*/}
+          {this.state.displayingWork !== null && (
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onAfterOpen={this.afterOpenModal}
+              onRequestClose={this.closeModal}
+              style={customStyles}
+              overLayClassName={overLay}
+              bodyOpenClassName={this.props.classes.modalbody}
+            >
+              <WorkModal
+                work={this.state.displayingWork}
+                close={this.closeModal}
+              ></WorkModal>
+            </Modal>
+          )}
+        </MediaQuery>
+        <MediaQuery query="(max-width: 429px)">
+          {/* クリックすると表示される内容 SP*/}
+          {this.state.displayingWork !== null && (
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onAfterOpen={this.afterOpenModal}
+              onRequestClose={this.closeModal}
+              style={customStylesSp}
+              bodyOpenClassName={this.props.classes.modalbody}
+            >
+              <WorkModal
+                work={this.state.displayingWork}
+                close={this.closeModal}
+              ></WorkModal>
+            </Modal>
+          )}
         </MediaQuery>
 
+        <MediaQuery query="(min-width: 430px)">
+          <PC
+            handleClick={this.handleClick}
+            frameClass={this.props.classes.frame}
+            products={products}
+          />
+        </MediaQuery>
         <MediaQuery query="(max-width: 429px)">
-          <Smapho frameClass={this.props.classes.frame} products={products} />
+          <Smapho
+            handleClick={this.handleClick}
+            frameClass={this.props.classes.frame}
+            products={products}
+          />
         </MediaQuery>
         <div className={this.props.classes.category}>
           <div className={this.props.classes.categoryString}>Tips</div>
@@ -483,11 +625,19 @@ class Works extends React.Component {
           <div className={this.props.classes.desc}>諸々</div>
         </div>
         <MediaQuery query="(min-width: 430px)">
-          <PC frameClass={this.props.classes.frame} products={tips} />
+          <PC
+            handleClick={this.handleClick}
+            frameClass={this.props.classes.frame}
+            products={tips}
+          />
         </MediaQuery>
 
         <MediaQuery query="(max-width: 429px)">
-          <Smapho frameClass={this.props.classes.frame} products={tips} />
+          <Smapho
+            handleClick={this.handleClick}
+            frameClass={this.props.classes.frame}
+            products={tips}
+          />
         </MediaQuery>
 
         <div className={this.props.classes.category}>
@@ -496,11 +646,19 @@ class Works extends React.Component {
           <div className={this.props.classes.desc}>音楽</div>
         </div>
         <MediaQuery query="(min-width: 430px)">
-          <PC frameClass={this.props.classes.frame} products={sounds} />
+          <PC
+            handleClick={this.handleClick}
+            frameClass={this.props.classes.frame}
+            products={sounds}
+          />
         </MediaQuery>
 
         <MediaQuery query="(max-width: 429px)">
-          <Smapho frameClass={this.props.classes.frame} products={sounds} />
+          <Smapho
+            handleClick={this.handleClick}
+            frameClass={this.props.classes.frame}
+            products={sounds}
+          />
         </MediaQuery>
 
         <div style={{ textAlign: "center", padding: 50 }}>
