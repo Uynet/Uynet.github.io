@@ -211,8 +211,27 @@ class Works extends React.Component {
           }
         ],
         ["Game", "Graphic", "Sound"],
-        "大学サークルのチームで約1年半かけて制作したスマホプラットフォーマーアクション。「背景をフリックする」をコンセプトに主人公である忍者を操作し、 テクニカルに忍術を駆使し数々の困難が待ち受ける城を攻略する。全6曲の音楽、効果音のすべてと一部のグラフィックデザイン、敵AI二体のプログラムに貢献しスタイリッシュな和の世界観を彩った。2018年のGoogleIndieGameFesでTop10に入賞し、大学記事に掲載される(自分は写ってない)。IOS,Androidで配信中(240円)",
+        "大学サークルのチームで約1年半かけて制作したスマホプラットフォーマーアクション。「背景をフリックする」をコンセプトに主人公である忍者を操作し、 テクニカルに忍術を駆使し数々の困難が待ち受ける城を攻略する。全6曲の音楽、効果音のすべてと一部のグラフィックデザイン、敵AI二体のプログラムに貢献しスタイリッシュな和の世界観を彩った。2018年のGoogleIndieGameFesでTop10に入賞し、大学記事に掲載される。IOS,Androidで配信中(240円)",
         "2016/6~2017/12"
+      ),
+      genWork(
+        "CPCTF Visualizer",
+        ["resource/img/visualizer.png", "resource/img/visualizer2.png"],
+        [
+          { name: "作品解説記事", url: "https://trap.jp/post/697/" },
+          { name: "当日の再現", url: "http://visualizer.uynet.trap.show/" }
+        ],
+        ["webGL"],
+        "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。よくあるサイバーダークに対抗して、ポップでクールな雰囲気を目指し、勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する。現在はイベント終了しているが、当日の様子を再現したものを見れるようにしてある。元ネタはOZ(サマーウォーズ)",
+        "2019/2~2019/4"
+      ),
+      genWork(
+        "ゆいブログ",
+        ["resource/img/portfolio.png", "resource/img/web.png"],
+        [],
+        ["Web", "Design"],
+        "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
+        "2019/11"
       ),
       genWork(
         "ぱれっと倶楽部(制作中)",
@@ -237,33 +256,29 @@ class Works extends React.Component {
         "2019/10~"
       ),
       genWork(
-        "CPCTF Visualizer",
-        ["resource/img/visualizer.png", "resource/img/visualizer2.png"],
+        "Polar Snow Fantasy",
         [
-          { name: "作品解説記事", url: "https://trap.jp/post/697/" },
-          { name: "当日の再現", url: "http://visualizer.uynet.trap.show/" }
+          "resource/img/po.png",
+          "resource/img/po2.png",
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/264092767&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
         ],
-        ["webGL"],
-        "traP恒例新入生歓迎イベントの一つ、オンラインCTF大会のヴィジュアライザ。よくあるサイバーダークに対抗して、ポップでクールな雰囲気を目指し、勉強と技術展示も兼ねてThreeJSでなくwebGLでレンダラを制作した。得点が入るとかっこいいエフェクトが発生する。現在はイベント終了しているが、当日の様子を再現したものを見れるようにしてある。元ネタはOZ(サマーウォーズ)",
-        "2019/2~2019/4"
-      ),
-      genWork(
-        "ゆいブログ",
-        ["resource/img/portfolio.png", "resource/img/web.png"],
-        [],
+        [
+          {
+            name: "作品解説記事",
+            url: "https://trap.jp/post/35/"
+          },
+          {
+            name: "動画",
+            url: "https://www.nicovideo.jp/watch/sm28103282"
+          },
+          {
+            name: "対戦BGM(そこそこ好評)",
+            url: "https://soundcloud.com/saihate-1/pobattle4"
+          }
+        ],
         ["Web", "Design"],
-        "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
-        "2019/11"
-      ),
-      genWork(
-        "Immortal Flower",
-        [
-          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318619255&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-        ],
-        [{ name: "Flythm", url: "https://flythm.trap.games" }],
-        ["Sound"],
-        "サークルで作っているブラウザ音ゲー「Flythm」に提供したもの。自分の曲の中で一番伸びたもの",
-        "2019/6"
+        "「雪合戦」をコンセプトにしたアクションSTG。足元の雪を使って弾を撃つ。企画および全8曲と一部のグラフィック、ステージ制作を担当したがコードは一行も書いてない。",
+        "2015/10~2016/04"
       )
     ];
     const tips = [
@@ -365,30 +380,67 @@ class Works extends React.Component {
         "結構お気に入りのパーティクルエフェクト",
         "2016/08"
       ),
+    ];
+    const sounds = [
       genWork(
-        "Polar Snow Fantasy",
+        "Immortal Flower",
         [
-          "resource/img/po.png",
-          "resource/img/po2.png",
-          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/264092767&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318619255&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
         ],
+        [{ name: "Flythm", url: "https://flythm.trap.games" }],
+        ["Sound"],
+        "サークルで作っているブラウザ音ゲー「Flythm」に提供した作品。自分の曲の中で一番伸びたもの",
+        "2017/2"
+      ),
+      genWork(
+        "yuki white",
         [
-          {
-            name: "作品解説記事",
-            url: "https://trap.jp/post/35/"
-          },
-          {
-            name: "動画",
-            url: "https://www.nicovideo.jp/watch/sm28103282"
-          },
-          {
-            name: "対戦BGM(そこそこ好評)",
-            url: "https://soundcloud.com/saihate-1/pobattle4"
-          }
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/561866667&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
         ],
-        ["Web", "Design"],
-        "「雪合戦」をコンセプトにしたアクションSTG。足元の雪を使って弾を撃つ。企画および全8曲と一部のグラフィック、ステージ制作を担当したがコードは一行も書いてない。",
-        "2015/10~2016/04"
+        [],
+        ["Sound"],
+        "冬をイメージしたきれいなピアノポップです",
+        "2019/1"
+      ),
+      genWork(
+        "Immortal Qualia",
+        [
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/657708683&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        ],
+        [],
+        ["Sound"],
+        "Immortal Flowerのリメイク的なやつ。SDVX公募に応募して落選した。かなり本気をだしたつもりだけどちょっとやりすぎ感があった",
+        "2019/6"
+      ),
+      genWork(
+        "さいはて洞窟",
+        [
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/430954734&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        ],
+        [{ name: "ゲームURL", url: "kawasemi.uynet.trap.show" }],
+        ["Sound"],
+        "元気なchiptune",
+        "2018/03"
+      ),
+      genWork(
+        "u_u..zZ",
+        [
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633579576&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        ],
+        [{ name: "作業してくる", url: "http://sitekuru.net" }],
+        ["Sound"],
+        "普段あまり作らないタイプののんびりしたボサノバ。cagpieさんの作業用BGM企画「作業してくる」に参加させていただいたものです",
+        "2017/11"
+      ),
+      genWork(
+        "月影",
+        [
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/315878423&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        ],
+        [],
+        ["Sound"],
+        "NinjaFlickerのステージBGM。海外のindieみたいな洋楽っぽいDubを作ろうとしたが、うるさくてゲーム音楽っぽくはなくなってしまった。読みは「げつえい」です",
+        "2017/02"
       )
     ];
     return (
@@ -437,6 +489,20 @@ class Works extends React.Component {
         <MediaQuery query="(max-width: 429px)">
           <Smapho frameClass={this.props.classes.frame} products={tips} />
         </MediaQuery>
+
+        <div className={this.props.classes.category}>
+          <div className={this.props.classes.categoryString}>Sounds</div>
+          <div className={this.props.classes.underLine2}></div>
+          <div className={this.props.classes.desc}>音楽</div>
+        </div>
+        <MediaQuery query="(min-width: 430px)">
+          <PC frameClass={this.props.classes.frame} products={sounds} />
+        </MediaQuery>
+
+        <MediaQuery query="(max-width: 429px)">
+          <Smapho frameClass={this.props.classes.frame} products={sounds} />
+        </MediaQuery>
+
         <div style={{ textAlign: "center", padding: 50 }}>
           <a href="https://twitter.com/i/moments/981932201557114881">
             もっとみる

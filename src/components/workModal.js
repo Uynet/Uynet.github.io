@@ -277,7 +277,7 @@ const LargeClip = props => {
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           alt="loading"
         ></iframe>
-      ) : (
+      ) : ext === "soundcloud" ? (
         <iframe
           title="soundcloud"
           height="100%"
@@ -286,6 +286,8 @@ const LargeClip = props => {
           frameBorder="0"
           alt="loading"
         ></iframe>
+      ) : (
+        <div>バグ</div>
       )}
     </div>
   );
@@ -296,7 +298,6 @@ const SmallClip = props => {
   // isDisplaying:拡大表示選択している画像のサムネであるかどうか:
   const { img, ext, index, isDisplaying, handleClick, classes } = props;
   const youtubeID = img.split("embed/")[1]; //may be undefined
-  console.log(ext);
   return (
     <div
       style={{

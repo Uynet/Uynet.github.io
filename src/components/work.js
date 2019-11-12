@@ -306,7 +306,6 @@ const Clip = props => {
         position: "relative",
         display: "inline-block",
         cursor: "pointer",
-        margin: "16px 8px",
         minHeight: "30vh",
         width: w,
         height: h
