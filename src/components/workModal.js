@@ -14,6 +14,16 @@ import {
 } from "./style/modal.module.scss";
 
 const s = {
+  header: {
+    color: base,
+    fontSize: 16,
+    paddingTop: 12,
+    paddingLeft: 12,
+    fontFamily: "honoka",
+    width: "100%",
+    height: 30,
+    background: "#302040"
+  },
   image: {
     textAlign: "centere",
     margin: "auto",
@@ -196,9 +206,8 @@ class WorkModal extends React.Component {
                 {<FontAwesomeIcon icon={["fas", "times"]} />}
               </div>
             </MediaQuery>
-            <div
-              style={{ width: "100%", height: 40, background: "#302040" }}
-            ></div>
+            <div className={this.props.classes.header}>{name}</div>
+
             <LargeClip
               style={{
                 display: "inline-block"
@@ -276,7 +285,7 @@ class WorkModal extends React.Component {
                         style={this.genStyleRight(this.state.deltaX)}
                         icon={["fas", "less-than"]}
                       />
-                      <span style={{ color: "#201030" }}>
+                      <span style={{ color: "#a05080" }}>
                         {"     左右スワイプで切り替え     "}
                       </span>
                       <FontAwesomeIcon
