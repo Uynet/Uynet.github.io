@@ -1,9 +1,10 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { base, itemColor, modalBG } from "../utils/colors.js";
+import { main, base, itemColor, modalBG } from "../utils/colors.js";
 import WorkModal from "./workModal";
 import { overLay } from "./style/home.module.scss";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "react-modal";
 import MediaQuery from "react-responsive";
 
@@ -261,6 +262,21 @@ class Work extends React.Component {
     );
   }
 }
+const centerize = {
+  position: "absolute",
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  margin: "auto",
+  width: "auto",
+  height: "auto",
+  maxWidth: "100%",
+  maxHeight: "100%",
+  minWidth: "100%"
+  //minHeight: "100%"
+};
+
 const Clip = props => {
   // index:画像index
   // isDisplaying:拡大表示選択している画像のサムネであるかどうか:
@@ -278,6 +294,7 @@ const Clip = props => {
   } = props;
   const w = "100%";
   const h = "20vmax";
+
   return (
     <div
       onClick={onClick}
@@ -337,7 +354,7 @@ const Clip = props => {
             src={img}
           />
         </>
-      ) : (
+      ) : ext === "png" || ext === "gif" ? (
         // 画像
         <div
           style={{
@@ -349,6 +366,27 @@ const Clip = props => {
             backgroundPosition: "center center"
           }}
         />
+      ) : (
+        <>
+          <FontAwesomeIcon
+            style={{
+              color: main,
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              margin: "auto",
+              width: "auto",
+              height: "auto",
+              maxWidth: "100%",
+              maxHeight: "30%",
+              minWidth: "30%"
+              //minHeight: "100%"
+            }}
+            icon={["fab", "soundcloud"]}
+          />
+        </>
       )}
     </div>
   );
