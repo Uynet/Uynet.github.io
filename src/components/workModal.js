@@ -140,8 +140,16 @@ class WorkModal extends React.Component {
   onPanEnd = () => {
     const dx = this.state.deltaX;
     this.setState({ deltaX: 0 });
-    if (dx > threshold) this.props.goNext();
-    else if (dx < -threshold) this.props.goPrev();
+    if (dx > threshold) this.goNext();
+    else if (dx < -threshold) this.goPrev();
+  };
+  goNext = () => {
+    this.setState({ imgLoc: 0, onHover: false, deltaX: 0 });
+    this.props.goNext();
+  };
+  goPrev = () => {
+    this.setState({ imgLoc: 0, onHover: false, deltaX: 0 });
+    this.props.goPrev();
   };
   calcOpacity(dx) {
     return Math.min(Math.max(0, 1 - dx / 80), 1);
@@ -194,10 +202,10 @@ class WorkModal extends React.Component {
           <div className={this.props.classes.modal}>
             {/*PC版で表示される、モーダル移動アイコン*/}
             <MediaQuery query="(min-width: 430px)">
-              <div className={goNextPC} onClick={this.props.goNext}>
+              <div className={goNextPC} onClick={this.goNext}>
                 {<FontAwesomeIcon icon={["fas", "greater-than"]} />}
               </div>
-              <div className={goPrevPC} onClick={this.props.goPrev}>
+              <div className={goPrevPC} onClick={this.goPrev}>
                 {<FontAwesomeIcon icon={["fas", "less-than"]} />}
               </div>
             </MediaQuery>
