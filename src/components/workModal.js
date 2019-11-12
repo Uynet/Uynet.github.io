@@ -99,6 +99,7 @@ const s = {
     color: base
   }
 };
+const threshold = 80;
 
 class WorkModal extends React.Component {
   constructor(props) {
@@ -120,19 +121,54 @@ class WorkModal extends React.Component {
     this.setState({ onHover: false });
   };
   onPan = e => {
+    const dx = Math.abs(e.deltaY) > 50 ? 0 : e.deltaX;
     this.setState({
-      deltaX: e.deltaX
+      deltaX: dx
     });
   };
-  onPanStart = () => {
-    //
-  };
+  onPanStart = () => {};
   onPanEnd = () => {
-    if (this.state.deltaX > 80) this.props.goNext();
-    else if (this.state.deltaX < -80) this.props.goPrev();
+    const dx = this.state.deltaX;
+    this.setState({ deltaX: 0 });
+    if (dx > threshold) this.props.goNext();
+    else if (dx < -threshold) this.props.goPrev();
   };
   calcOpacity(dx) {
-    return Math.min(Math.max(0, 1 - Math.abs(dx) / 80), 1);
+    return Math.min(Math.max(0, 1 - dx / 80), 1);
+  }
+  interpol(dx) {
+    const a = Math.min(1, Math.max(0, dx / threshold));
+    const r1 = 32;
+    const g1 = 16;
+    const b1 = 48;
+    const r2 = 240;
+    const g2 = 180;
+    const b2 = 80;
+    const r = r1 + (r2 - r1) * a;
+    const g = g1 + (g2 - g1) * a;
+    const b = b1 + (b2 - b1) * a;
+    const c = "rgb(" + r + "," + g + "," + b + ")";
+    return c;
+  }
+  genStyleLeft(dx) {
+    const c = this.interpol(dx);
+    const ease = x => {
+      return Math.atan(x / 1000) * threshold;
+    };
+    return {
+      transform: "translateX(" + Math.max(0, ease(dx)) + "px)",
+      color: c
+    };
+  }
+  genStyleRight(dx) {
+    const c = this.interpol(-dx);
+    const ease = x => {
+      return Math.atan(x / 1000) * threshold;
+    };
+    return {
+      transform: "translateX(" + Math.min(0, -ease(-dx)) + "px)",
+      color: c
+    };
   }
 
   render() {
@@ -236,9 +272,17 @@ class WorkModal extends React.Component {
                         margin: "auto"
                       }}
                     >
-                      <FontAwesomeIcon icon={["fas", "less-than"]} />
-                      {"     左右スワイプで切り替え     "}
-                      <FontAwesomeIcon icon={["fas", "greater-than"]} />
+                      <FontAwesomeIcon
+                        style={this.genStyleRight(this.state.deltaX)}
+                        icon={["fas", "less-than"]}
+                      />
+                      <span style={{ color: "#201030" }}>
+                        {"     左右スワイプで切り替え     "}
+                      </span>
+                      <FontAwesomeIcon
+                        style={this.genStyleLeft(this.state.deltaX)}
+                        icon={["fas", "greater-than"]}
+                      />
                     </div>
                   }
                 </div>
