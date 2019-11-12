@@ -47,7 +47,7 @@ const s = {
     background: base,
     borderRadius: "50%",
     border: "solid 2px" + base,
-    fontSize: 35,
+    fontSize: 25,
     zIndex: 1
   },
   pleyIconSound: {
@@ -455,13 +455,13 @@ const SmallClip = props => {
             borderRadius: 8,
             width: "100%",
             height: "100%",
-            background: modalBG,
+            background: base,
             boxShadow: isDisplaying && "0 0 0 2px" + menubar2
           }}
         >
           <FontAwesomeIcon
             className={classes.pleyIconSound}
-            icon={["fas", "play-circle"]}
+            icon={["fab", "soundcloud"]}
           />
         </div>
       )}
