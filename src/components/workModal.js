@@ -257,7 +257,7 @@ const LargeClip = props => {
     >
       {ext === "mp4" ? (
         // 再生アイコンのついたサムネイルを押してから表示されるので、自動再生の方がUX的に良いかなと思った
-        <video controls style={centerize} src={img} autoPlay preload="true" />
+        <video controls style={centerize} src={img} preload="true" />
       ) : ext === "png" || ext === "gif" ? (
         <img src={img} style={centerize} />
       ) : (

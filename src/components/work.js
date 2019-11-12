@@ -335,7 +335,6 @@ const Clip = props => {
               zIndex: 1
             }}
             src={img}
-            autoPlay
           />
         </>
       ) : (
