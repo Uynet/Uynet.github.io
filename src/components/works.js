@@ -283,7 +283,7 @@ class Works extends React.Component {
     ];
     const tips = [
       genWork(
-        "fillRectの雷",
+        "Thunder",
         ["resource/img/tips/thunder.gif"],
         [
           {
@@ -297,11 +297,11 @@ class Works extends React.Component {
           }
         ],
         ["Effect"],
-        "NEORTを知ったので遊んだ。別にfillRectである必要はなくて、単に一番簡単だったからです",
+        "NEORTを知ったので遊んだ。canvasが使えたので全部fillRectだけど、別にその必要はなくて単に一番簡単だったからです。アニメ作画のテクをいくつか使っています。",
         "2019/11"
       ),
       genWork(
-        "立体感のあるparticle",
+        "Sparke",
         ["resource/img/tips/sparkle.gif"],
         [
           {
@@ -315,7 +315,7 @@ class Works extends React.Component {
           }
         ],
         ["Effect"],
-        "NEORTを知ったので遊んだ。ゲームでよく使ってるパーティクル芸で、2Dだけど立体感を出すテク。詳しくは解説記事読んでください",
+        "NEORTを知ったので遊んだ。ゲームでよく使ってるパーティクル芸で、2Dだけど大きい粒子を遠くに飛ばすことにより立体感を出すテク。",
         "2019/11"
       ),
       genWork(
@@ -340,7 +340,7 @@ class Works extends React.Component {
         ["resource/img/tips/cartoon1.gif", "resource/img/tips/cartoon2.mp4"],
         [{ name: "shadertoy", url: "https://www.shadertoy.com/view/3sB3zd" }],
         ["CG"],
-        "漫画的なモーションブラーをゲームで使いたくて研究中。これは完全に距離関数だけのレンダリングで、速度の逆方向に伸ばしたりノイズをかけたりすることによって表現している。",
+        "漫画的なモーションブラーをゲームで使いたくてシェーダを研究中。これは距離関数だけのレンダリングで、速度のぶんだけ逆方向に伸ばしたりノイズをかけたりすることによって表現している。",
         "2019/02"
       ),
       genWork(
@@ -379,7 +379,7 @@ class Works extends React.Component {
         ["canvas"],
         "結構お気に入りのパーティクルエフェクト",
         "2016/08"
-      ),
+      )
     ];
     const sounds = [
       genWork(
