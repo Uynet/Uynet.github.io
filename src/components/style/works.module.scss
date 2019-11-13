@@ -79,21 +79,18 @@
   font-family: honoka;
   margin: 5px;
 }
+.grid {
+  padding: 4%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 @media screen and (max-width: 429px) {
   .grid {
     padding: 4%;
     display: grid;
     gap: 10px;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-}
-@media screen and (min-width: 430px) {
-  .grid {
-    padding: 4%;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
   }
 }

@@ -177,13 +177,13 @@ const Clip = props => {
       onMouseLeave={e => onMouseLeave()}
       //className={className}
       style={{
-        opacity: isFirstTime ? 0 : 1,
+        opacity: 0,
         backgroundSize: "cover",
         backgroundPosition: "center center",
         border: "solid 3px #f8f0f0",
         borderRadius: 12,
-        animation: isFirstTime && "fadeIn ease 1.0s forwards",
-        animationDelay: isFirstTime && 1.3 + index / 10 + "s",
+        animation: "fadeIn ease 1.0s forwards",
+        animationDelay: 1.3 + index / 10 + "s",
         position: modalIsOpen ? "absolute" : "relative",
         top: modalIsOpen && "-100vh",
         display: "inline-block",
@@ -193,12 +193,12 @@ const Clip = props => {
         height: h
       }}
     >
-      {onHover && (
-        <>
+      {onHover &&
+        (ext === "soundcloud" ? (
           <div className={titleClass}>{name}</div>
-          {/*<div className={this.props.classes.tag}>GAME</div>*/}
-        </>
-      )}
+        ) : (
+          <div className={titleClass}>{name}</div>
+        ))}
       {ext === "mp4" ? (
         // 動画
         <>
@@ -248,6 +248,33 @@ const Clip = props => {
             }}
             icon={["fab", "soundcloud"]}
           />
+          <div
+            style={{
+              position: "absolute",
+              fontFamily: "Nico Moji",
+              top: "60%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              fontSize: 25,
+              color: main
+            }}
+          >
+            LOADING
+          </div>
+          <iframe
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 2
+            }}
+            title="soundcloud"
+            height="100%"
+            width="100%"
+            src={img}
+            frameBorder="0"
+            alt="loading"
+          ></iframe>
         </>
       )}
     </div>

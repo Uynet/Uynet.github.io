@@ -397,14 +397,14 @@ class Works extends React.Component {
         "2019/1"
       ),
       genWork(
-        "Immortal Qualia",
+        "Stardust",
         [
-          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/657708683&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/559328304&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
         ],
-        [],
+        [[{ name: "Flythm", url: "https://flythm.trap.games" }]],
         ["Sound"],
-        "Immortal Flowerのリメイク的なやつ。SDVX公募に応募して落選した。かなり本気をだしたつもりだけどちょっとやりすぎ感があった",
-        "2019/6"
+        "Flythmに提供した楽曲。実は制作期間5日と短い。",
+        "2018/04"
       ),
       genWork(
         "さいはて洞窟",
@@ -413,7 +413,7 @@ class Works extends React.Component {
         ],
         [{ name: "ゲームURL", url: "kawasemi.uynet.trap.show" }],
         ["Sound"],
-        "元気なchiptune",
+        "サイハテドロップの元気なchiptune",
         "2018/03"
       ),
       genWork(
@@ -435,8 +435,19 @@ class Works extends React.Component {
         ["Sound"],
         "NinjaFlickerのステージBGM。海外のindieみたいな洋楽っぽいDubを作ろうとしたが、うるさくてゲーム音楽っぽくはなくなってしまった。読みは「げつえい」です",
         "2017/02"
+      ),
+      genWork(
+        "Immortal Qualia",
+        [
+          "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/657708683&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        ],
+        [],
+        ["Sound"],
+        "Immortal Flowerのリメイク的なやつ。SDVX公募に応募して落選した。かなり本気をだしたつもりだけどちょっとやりすぎ感があった",
+        "2019/6"
       )
     ];
+
     this.setState({
       products: products,
       tips: tips,

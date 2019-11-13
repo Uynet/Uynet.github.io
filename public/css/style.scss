@@ -358,12 +358,15 @@ a:hover {
     opacity: 1;
   }
 }
-
-@keyframes modalOpen {
+@keyframes openSoundWork {
   0% {
+    top: 100%;
+    height: 0px;
     opacity: 0;
   }
   100% {
+    height: 20%;
+    top: 80%;
     opacity: 1;
   }
 }
