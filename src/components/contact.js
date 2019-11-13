@@ -109,10 +109,6 @@ const s = {
   }
 };
 
-const genWork = (name, imgurl, link) => {
-  return { name: name, imgurl: imgurl, link: link };
-};
-
 class Contact extends React.Component {
   constructor(props) {
     super(props);

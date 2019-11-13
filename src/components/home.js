@@ -8,6 +8,7 @@ import {
 //import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BGEffect from "./BGEffect.js";
+/*
 import {
   //screenOverLay,
   animateSlideDown,
@@ -16,8 +17,11 @@ import {
   animateSlideLeft
 } from "./style/effects.module.scss";
 
+*/
+
 const s = {};
 
+/*
 function genStyle(color, delay) {
   delay += "s";
   return {
@@ -26,6 +30,7 @@ function genStyle(color, delay) {
     animationDuration: "2.5s"
   };
 }
+*/
 
 const genLink = (name, url) => {
   return { name: name, url: url };
@@ -34,7 +39,8 @@ const genLink = (name, url) => {
 class Home extends React.Component {
   render() {
     //const colors = [hilight, accent, main, base];
-    const colors = ["#ea9090"];
+    // const colors = ["#ea9090"];
+    /*
     const animate = [
       animateSlideDown,
       animateSlideLeft,
@@ -43,6 +49,7 @@ class Home extends React.Component {
     ];
     let sec = 0.0;
     let v = 0.3;
+   */
 
     const links = [
       genLink("github", "http://github.com/Uynet"),
@@ -81,7 +88,11 @@ class Home extends React.Component {
         })*/}
 
         <div className={logo}>ゆいブログ</div>
-        <img className="chara" src="/resource/img/bg.png"></img>
+        <img
+          className="chara"
+          src="/resource/img/bg.png"
+          alt={"٩( 'ω' )و"}
+        ></img>
         <div className={linksClass} align="center">
           {links.map((link, i) => {
             return (

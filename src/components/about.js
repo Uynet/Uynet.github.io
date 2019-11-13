@@ -27,7 +27,11 @@ class About extends React.Component {
           <div className={about.sub}>creator</div>
           <div className={about.underLine}></div>
         </div>
-        <img src="/resource/img/icon.png" className={about.icon}></img>
+        <img
+          src="/resource/img/icon.png"
+          alt={"(ﾉ)･ω･(ヾ)"}
+          className={about.icon}
+        ></img>
         <div className={about.space}></div>
         <div className={about.bio}>{bio}</div>
 

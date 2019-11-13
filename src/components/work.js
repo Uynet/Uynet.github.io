@@ -1,9 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { main, base, itemColor, modalBG } from "../utils/colors.js";
-import WorkModal from "./workModal";
-import { overLay } from "./style/home.module.scss";
-
+import { main, base, itemColor } from "../utils/colors.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "react-modal";
 import MediaQuery from "react-responsive";
@@ -19,7 +16,7 @@ const s = {
     cursor: "pointer",
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    border: "solid 3px" + "#f8f0f0",
+    border: "solid 3px #f8f0f0",
     borderRadius: 12
   },
   image: { width: "100%" },
@@ -153,21 +150,6 @@ class Work extends React.Component {
     );
   }
 }
-const centerize = {
-  position: "absolute",
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  margin: "auto",
-  width: "auto",
-  height: "auto",
-  maxWidth: "100%",
-  maxHeight: "100%",
-  minWidth: "100%"
-  //minHeight: "100%"
-};
-
 const Clip = props => {
   // index:画像index
   // isDisplaying:拡大表示選択している画像のサムネであるかどうか:
@@ -177,7 +159,7 @@ const Clip = props => {
     onClick,
     onMouseEnter,
     onMouseLeave,
-    className,
+    //className,
     name,
     onHover,
     titleClass,
@@ -196,10 +178,9 @@ const Clip = props => {
       //className={className}
       style={{
         opacity: isFirstTime ? 0 : 1,
-        display: "inline-block",
         backgroundSize: "cover",
         backgroundPosition: "center center",
-        border: "solid 3px" + "#f8f0f0",
+        border: "solid 3px #f8f0f0",
         borderRadius: 12,
         animation: isFirstTime && "fadeIn ease 1.0s forwards",
         animationDelay: isFirstTime && 1.3 + index / 10 + "s",

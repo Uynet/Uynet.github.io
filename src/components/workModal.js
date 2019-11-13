@@ -184,7 +184,7 @@ class WorkModal extends React.Component {
                       <a
                         href={link.url}
                         target="_blank"
-                        rel="noopener"
+                        rel="noopener noreferrer"
                         className={linkClass}
                         key={i}
                       >

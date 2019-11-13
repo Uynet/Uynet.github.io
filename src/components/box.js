@@ -14,7 +14,6 @@ const s = {
   },
   card: { padding: "20px 0px" },
   title: {
-    color: font,
     color: main,
     fontSize: 20,
     fontWeight: "bold"
@@ -27,7 +26,6 @@ class Box extends React.Component {
     return "2.0s";
   };
   render() {
-    const tags = ["ゲーム制作", "webデザイン", "作曲"];
     return (
       <React.Fragment>
         <div
