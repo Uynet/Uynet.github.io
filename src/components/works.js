@@ -35,7 +35,7 @@ const customStylesSp = {
     height: "100%",
     animation: "modalOpen cubic-bezier(1,0,0,1) 0.5s forwards",
     overflowY: "auto",
-    //overscrollBehavior: "none",
+    overscrollBehavior: "none",
     background: modalBG,
     WebkitOverflowScrolling: "touch",
     padding: 0,
@@ -70,10 +70,10 @@ const customStyles = {
     maxWidth: "100vh",
     minWidth: 250,
     height: "88%",
-    WebkitOverflowScrolling: "touch",
+    //WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 16,
-    //overscrollBehavior: "none",
+    overscrollBehavior: "none",
     border: "none"
   }
 };
@@ -518,46 +518,42 @@ class Works extends React.Component {
             </Modal>
           )}
         </MediaQuery>
-        {!this.state.modalIsOpen && (
-          <>
-            <div className={worksClass.category}>
-              <div className={worksClass.categoryString}>Products</div>
-              <div className={worksClass.underLine2}></div>
-              <div className={worksClass.desc}>主な制作物</div>
-            </div>
-            <Products
-              modalIsOpen={this.state.modalIsOpen}
-              isFirstTime={this.state.isFirstTime}
-              handleClick={this.handleClick}
-              frameClass={frameClass}
-              products={this.state.products}
-            />
-            <div className={worksClass.category}>
-              <div className={worksClass.categoryString}>Tips</div>
-              <div className={worksClass.underLine2}></div>
-              <div className={worksClass.desc}>諸々</div>
-            </div>
-            <Products
-              modalIsOpen={this.state.modalIsOpen}
-              isFirstTime={this.state.isFirstTime}
-              handleClick={this.handleClick}
-              frameClass={frameClass}
-              products={this.state.tips}
-            />
-            <div className={worksClass.category}>
-              <div className={worksClass.categoryString}>Sounds</div>
-              <div className={worksClass.underLine2}></div>
-              <div className={worksClass.desc}>音楽</div>
-            </div>
-            <Products
-              modalIsOpen={this.state.modalIsOpen}
-              isFirstTime={this.state.isFirstTime}
-              handleClick={this.handleClick}
-              frameClass={frameClass}
-              products={this.state.sounds}
-            />
-          </>
-        )}
+        <div className={worksClass.category}>
+          <div className={worksClass.categoryString}>Products</div>
+          <div className={worksClass.underLine2}></div>
+          <div className={worksClass.desc}>主な制作物</div>
+        </div>
+        <Products
+          modalIsOpen={this.state.modalIsOpen}
+          isFirstTime={this.state.isFirstTime}
+          handleClick={this.handleClick}
+          frameClass={frameClass}
+          products={this.state.products}
+        />
+        <div className={worksClass.category}>
+          <div className={worksClass.categoryString}>Tips</div>
+          <div className={worksClass.underLine2}></div>
+          <div className={worksClass.desc}>諸々</div>
+        </div>
+        <Products
+          modalIsOpen={this.state.modalIsOpen}
+          isFirstTime={this.state.isFirstTime}
+          handleClick={this.handleClick}
+          frameClass={frameClass}
+          products={this.state.tips}
+        />
+        <div className={worksClass.category}>
+          <div className={worksClass.categoryString}>Sounds</div>
+          <div className={worksClass.underLine2}></div>
+          <div className={worksClass.desc}>音楽</div>
+        </div>
+        <Products
+          modalIsOpen={this.state.modalIsOpen}
+          isFirstTime={this.state.isFirstTime}
+          handleClick={this.handleClick}
+          frameClass={frameClass}
+          products={this.state.sounds}
+        />
         <div style={{ textAlign: "center", padding: 50 }}>
           <a href="https://twitter.com/i/moments/981932201557114881">
             もっとみる
