@@ -20,7 +20,6 @@ const s = {
     paddingTop: 12,
     paddingLeft: 12,
     fontFamily: "honoka",
-    width: "100%",
     height: 30,
     background: "#302040"
   },
@@ -96,7 +95,7 @@ const s = {
     marginTop: 14
   },
   date: {
-    fontSize: 2,
+    fontSize: 12,
     // fontFamily: "honoka",
     //background: menubar,
     color: base
@@ -131,7 +130,7 @@ class WorkModal extends React.Component {
     this.setState({ onHover: false });
   };
   onPan = e => {
-    const dx = Math.abs(e.deltaY) > 50 ? 0 : e.deltaX;
+    const dx = Math.abs(e.deltaY) > 100 ? 0 : e.deltaX;
     this.setState({
       deltaX: dx
     });

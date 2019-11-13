@@ -35,6 +35,9 @@ body {
   margin: 0;
   /*-webkit-animation: fadeIn 2s ease 0s 1 normal;*/
 }
+body.no-scroll {
+  overflow: hidden;
+}
 button,
 input,
 select,

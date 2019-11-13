@@ -118,7 +118,7 @@ const customStylesSp = {
     right: 0,
     bottom: 0,
     zIndex: 40,
-    backgroundColor: "rgba(0, 0 , 0, 0)"
+    backgroundColor: modalBG
   },
   content: {
     zIndex: 41,
@@ -133,6 +133,9 @@ const customStylesSp = {
     width: "100%",
     height: "100%",
     animation: "modalOpen cubic-bezier(1,0,0,1) 0.5s forwards",
+    overflowY: "auto",
+    overscrollBehavior: "contain",
+
     backgroundColor: "rgba(0, 0 , 0, 0)",
     background: modalBG,
     WebkitOverflowScrolling: "touch",
@@ -624,6 +627,7 @@ class Works extends React.Component {
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.closeModal}
               style={customStylesSp}
+              overLayClassName={overLay}
               bodyOpenClassName={this.props.classes.modalbody}
             >
               <WorkModal
