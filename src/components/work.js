@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { main, base, itemColor } from "../utils/colors.js";
+import { main, base, itemColor, modalBG } from "../utils/colors.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "react-modal";
 import MediaQuery from "react-responsive";
@@ -193,12 +193,28 @@ const Clip = props => {
         height: h
       }}
     >
-      {onHover &&
-        (ext === "soundcloud" ? (
-          <div className={titleClass}>{name}</div>
-        ) : (
-          <div className={titleClass}>{name}</div>
-        ))}
+      {ext === "soundcloud" && (
+        <div
+          onClick={onClick}
+          style={{
+            cursor: "pointer",
+            position: "absolute",
+            fontFamily: "honoka",
+            zIndex: 50,
+            bottom: "0px",
+            width: "100%",
+            height: "20%",
+            background: modalBG,
+            color: base,
+            textAlign: "center",
+            borderRadius: "0px 0px 12px 12px",
+            paddingTop: 16
+          }}
+        >
+          {name}
+        </div>
+      )}
+      {onHover && <div className={titleClass}>{name}</div>}
       {ext === "mp4" ? (
         // 動画
         <>
@@ -269,7 +285,7 @@ const Clip = props => {
               zIndex: 2
             }}
             title="soundcloud"
-            height="100%"
+            height="80%"
             width="100%"
             src={img}
             frameBorder="0"
