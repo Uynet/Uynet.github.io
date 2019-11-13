@@ -3,6 +3,7 @@ import BGEffect from "./BGEffect";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { accent, main, font, menubar, menubar2 } from "../utils/colors.js";
+import MediaQuery from "react-responsive";
 // import Work from "./work.js";
 
 const s = {
@@ -39,6 +40,13 @@ const s = {
     zIndex: 2,
     fontFamily: "gkktt",
     fontSize: 80,
+    color: accent
+  },
+  titleStringSp: {
+    zIndex: 2,
+    fontFamily: "gkktt",
+    fontSize: 70,
+    maxWidth: "100%",
     color: accent
   },
   underLine: {
@@ -130,7 +138,12 @@ class Contact extends React.Component {
           style={{ animationDelay: "0.6s", background: menubar }}
         ></div>
         <div className={this.props.classes.title}>
-          <div className={this.props.classes.titleString}>Contact</div>
+          <MediaQuery query="(max-width: 429px)">
+            <div className={this.props.classes.titleStringSp}>Contact</div>
+          </MediaQuery>
+          <MediaQuery query="(min-width: 430px)">
+            <div className={this.props.classes.titleString}>Contact</div>
+          </MediaQuery>
           <div className={this.props.classes.underLine}></div>
         </div>
         <div className={this.props.classes.space}></div>

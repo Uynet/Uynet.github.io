@@ -23,15 +23,10 @@ const s = {
 };
 
 class Box extends React.Component {
-  constructor(props) {
-    super(props);
-    this.ref = React.createRef();
-  }
   getDelay = () => {
     return "2.0s";
   };
   render() {
-    const { title, content } = this.props.box;
     const tags = ["ゲーム制作", "webデザイン", "作曲"];
     return (
       <React.Fragment>
