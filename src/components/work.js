@@ -177,15 +177,14 @@ const Clip = props => {
       onMouseLeave={e => onMouseLeave()}
       //className={className}
       style={{
-        opacity: 0,
+        opacity: isFirstTime ? 0 : 1,
         backgroundSize: "cover",
         backgroundPosition: "center center",
         border: "solid 3px #f8f0f0",
         borderRadius: 12,
-        animation: "fadeIn ease 1.0s forwards",
-        animationDelay: 1.3 + index / 10 + "s",
-        position: modalIsOpen ? "absolute" : "relative",
-        top: modalIsOpen && "-100vh",
+        animation: isFirstTime && "fadeIn ease 1.0s forwards",
+        animationDelay: isFirstTime ? 1.3 + index / 10 + "s" : "0s",
+        position: "relative",
         display: "inline-block",
         cursor: "pointer",
         minHeight: "30vh",

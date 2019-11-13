@@ -19,8 +19,7 @@ const customStylesSp = {
     right: 0,
     bottom: 0,
     zIndex: 40,
-    // background: modalBG,
-    background: "rgba(0, 0 , 0, 0)"
+    background: modalBG
   },
   content: {
     zIndex: 41,
@@ -33,7 +32,7 @@ const customStylesSp = {
     overflow: "auto",
     border: "none",
     width: "100%",
-    height: "10%",
+    height: "100%",
     animation: "modalOpen cubic-bezier(1,0,0,1) 0.5s forwards",
     overflowY: "auto",
     //overscrollBehavior: "none",
@@ -519,50 +518,51 @@ class Works extends React.Component {
             </Modal>
           )}
         </MediaQuery>
-
-        <div className={worksClass.category}>
-          <div className={worksClass.categoryString}>Products</div>
-          <div className={worksClass.underLine2}></div>
-          <div className={worksClass.desc}>主な制作物</div>
-        </div>
-        <Products
-          modalIsOpen={this.state.modalIsOpen}
-          isFirstTime={this.state.isFirstTime}
-          handleClick={this.handleClick}
-          frameClass={frameClass}
-          products={this.state.products}
-        />
-        <div className={worksClass.category}>
-          <div className={worksClass.categoryString}>Tips</div>
-          <div className={worksClass.underLine2}></div>
-          <div className={worksClass.desc}>諸々</div>
-        </div>
-        <Products
-          modalIsOpen={this.state.modalIsOpen}
-          isFirstTime={this.state.isFirstTime}
-          handleClick={this.handleClick}
-          frameClass={frameClass}
-          products={this.state.tips}
-        />
-        <div className={worksClass.category}>
-          <div className={worksClass.categoryString}>Sounds</div>
-          <div className={worksClass.underLine2}></div>
-          <div className={worksClass.desc}>音楽</div>
-        </div>
-        <Products
-          modalIsOpen={this.state.modalIsOpen}
-          isFirstTime={this.state.isFirstTime}
-          handleClick={this.handleClick}
-          frameClass={frameClass}
-          products={this.state.sounds}
-        />
-
+        {!this.state.modalIsOpen && (
+          <>
+            <div className={worksClass.category}>
+              <div className={worksClass.categoryString}>Products</div>
+              <div className={worksClass.underLine2}></div>
+              <div className={worksClass.desc}>主な制作物</div>
+            </div>
+            <Products
+              modalIsOpen={this.state.modalIsOpen}
+              isFirstTime={this.state.isFirstTime}
+              handleClick={this.handleClick}
+              frameClass={frameClass}
+              products={this.state.products}
+            />
+            <div className={worksClass.category}>
+              <div className={worksClass.categoryString}>Tips</div>
+              <div className={worksClass.underLine2}></div>
+              <div className={worksClass.desc}>諸々</div>
+            </div>
+            <Products
+              modalIsOpen={this.state.modalIsOpen}
+              isFirstTime={this.state.isFirstTime}
+              handleClick={this.handleClick}
+              frameClass={frameClass}
+              products={this.state.tips}
+            />
+            <div className={worksClass.category}>
+              <div className={worksClass.categoryString}>Sounds</div>
+              <div className={worksClass.underLine2}></div>
+              <div className={worksClass.desc}>音楽</div>
+            </div>
+            <Products
+              modalIsOpen={this.state.modalIsOpen}
+              isFirstTime={this.state.isFirstTime}
+              handleClick={this.handleClick}
+              frameClass={frameClass}
+              products={this.state.sounds}
+            />
+          </>
+        )}
         <div style={{ textAlign: "center", padding: 50 }}>
           <a href="https://twitter.com/i/moments/981932201557114881">
             もっとみる
           </a>
         </div>
-
         <div className={worksClass.footerSpace}></div>
       </React.Fragment>
     );
