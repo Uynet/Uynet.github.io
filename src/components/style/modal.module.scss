@@ -1,17 +1,17 @@
 @import "public/css/variables";
 
 .overlay {
-  position: "fixed";
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 40;
-  filter: "blur 2px";
-  background-color: "rgba(0, 0 , 0, 0.50)";
+  filter: blur 2px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .footer {
-  font-family: "honoka";
+  font-family: honoka;
   position: relative;
   border-radius: 20px;
   background: #302040;
@@ -59,4 +59,94 @@
   &:hover {
     color: $accent;
   }
+}
+
+.header {
+  color: $base;
+  font-size: 16px;
+  padding-top: 12px;
+  padding-left: 12px;
+  font-family: honoka;
+  height: 30px;
+  background: #302040;
+}
+.image {
+  text-align: centere;
+  margin: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.8) inset;
+}
+.pleyIcon {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  color: $menubar2;
+  background: $base;
+  border-radius: 50%;
+  border: solid 2px + $base;
+  font-size: 25px;
+  z-index: 1;
+}
+.pleyIconSound {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  color: $main;
+  background: $base;
+  border-radius: 50%;
+  border: solid 2px + $base;
+  font-size: 35px;
+  z-index: 1;
+}
+.video {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center center;
+  outline: none;
+  height: 50vmax;
+  //boxShadow: 0px 0px 40px 10px rgba(;0;0;0.8) inset
+}
+.card {
+  padding: 20px;
+  background: $modalBG;
+}
+.modal {
+  position: relative;
+  background: $modalBG;
+  height: 100%;
+}
+.description {
+  background: $modalBG;
+  color: $base;
+  margin-left: 10px;
+  margin-top: 18px;
+}
+.links {
+  margin-left: 10px;
+  margin-top: 14px;
+}
+.date {
+  font-size: 12px;
+  color: $base;
+}
+.title {
+  font-size: 40px;
+  font-weight: bold;
+  color: $base;
 }

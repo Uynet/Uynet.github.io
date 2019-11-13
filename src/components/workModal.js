@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Hammer from "react-hammerjs"; //スワイプ検出
 
 import MediaQuery from "react-responsive";
-import { main, modalBG, base, menubar2 } from "../utils/colors.js";
+import { modalBG, base, menubar2 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
 import {
   footer,
@@ -12,102 +12,9 @@ import {
   goNextPC,
   goPrevPC
 } from "./style/modal.module.scss";
+import modal from "./style/modal.module.scss";
 
-const s = {
-  header: {
-    color: base,
-    fontSize: 16,
-    paddingTop: 12,
-    paddingLeft: 12,
-    fontFamily: "honoka",
-    height: 30,
-    background: "#302040"
-  },
-  image: {
-    textAlign: "centere",
-    margin: "auto",
-    position: "relative",
-    top: 0,
-    left: 0,
-    width: "100%",
-    cursor: "pointer",
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
-    boxShadow: "0px 0px 40px 10px rgba(0,0,0,0.8) inset"
-  },
-  pleyIcon: {
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    margin: "auto",
-    color: menubar2,
-    background: base,
-    borderRadius: "50%",
-    border: "solid 2px" + base,
-    fontSize: 25,
-    zIndex: 1
-  },
-  pleyIconSound: {
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    margin: "auto",
-    color: main,
-    background: base,
-    borderRadius: "50%",
-    border: "solid 2px" + base,
-    fontSize: 35,
-    zIndex: 1
-  },
-  video: {
-    position: "relative",
-    top: 0,
-    left: 0,
-    width: "100%",
-    cursor: "pointer",
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
-    outline: "none",
-    height: "50vmax"
-    //boxShadow: "0px 0px 40px 10px rgba(,0,0,0.8) inset"
-  },
-  card: {
-    padding: 20,
-    background: modalBG
-  },
-  modal: {
-    position: "relative",
-    background: modalBG,
-    height: "100%"
-  },
-  description: {
-    background: modalBG,
-    color: base,
-    marginLeft: 10,
-    marginTop: 18
-  },
-  links: {
-    marginLeft: 10,
-    marginTop: 14
-  },
-  date: {
-    fontSize: 12,
-    // fontFamily: "honoka",
-    //background: menubar,
-    color: base
-  },
-  title: {
-    fontSize: 40,
-    // fontFamily: "honoka",
-    //background: menubar,
-    fontWeight: "bold",
-    color: base
-  }
-};
+const s = {};
 const threshold = 80;
 
 class WorkModal extends React.Component {
@@ -198,7 +105,7 @@ class WorkModal extends React.Component {
           onPan={this.onPan}
           onPanEnd={this.onPanEnd}
         >
-          <div className={this.props.classes.modal}>
+          <div className={modal.modal}>
             {/*PC版で表示される、モーダル移動アイコン*/}
             <MediaQuery query="(min-width: 430px)">
               <div className={goNextPC} onClick={this.goNext}>
@@ -213,17 +120,17 @@ class WorkModal extends React.Component {
                 {<FontAwesomeIcon icon={["fas", "times"]} />}
               </div>
             </MediaQuery>
-            <div className={this.props.classes.header}>{name}</div>
+            <div className={modal.header}>{name}</div>
 
             <LargeClip
               style={{
                 display: "inline-block"
               }}
-              className={this.props.classes.LargeClip}
+              className={modal.LargeClip}
               ext={LargeClipImgurl.split(".")[1]}
               img={LargeClipImgurl}
-              imgClass={this.props.classes.image}
-              videoClass={this.props.classes.video}
+              imgClass={modal.image}
+              videoClass={modal.video}
             />
             {//画像が複数なら切り替え用サムネイルを出す
             imgurls.length >= 2 && (
@@ -238,7 +145,7 @@ class WorkModal extends React.Component {
                 {imgurls.map((img, i) => {
                   return (
                     <SmallClip
-                      classes={this.props.classes}
+                      classes={modal}
                       key={i}
                       index={i}
                       isDisplaying={i === this.state.imgLoc}
@@ -250,13 +157,11 @@ class WorkModal extends React.Component {
                 })}
               </div>
             )}
-            <div className={this.props.classes.card}>
-              <div className={this.props.classes.title}>{name}</div>
-              <div className={this.props.classes.date}>{date}</div>
-              <div className={this.props.classes.description}>
-                {description}
-              </div>
-              <div className={this.props.classes.links}>
+            <div className={modal.card}>
+              <div className={modal.title}>{name}</div>
+              <div className={modal.date}>{date}</div>
+              <div className={modal.description}>{description}</div>
+              <div className={modal.links}>
                 {links.map((link, i) => {
                   return (
                     <a

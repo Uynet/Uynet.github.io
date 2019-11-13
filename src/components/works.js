@@ -174,7 +174,8 @@ const customStyles = {
     WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 16,
-    border: "none"
+    border: "none",
+    overscrollBehavior: "contain"
   }
 };
 
