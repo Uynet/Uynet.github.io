@@ -21,28 +21,58 @@
   font-size: 16px;
   height: 40px;
 }
-.goPrevPC {
-  cursor: pointer;
-  position: fixed;
-  color: $base;
-  top: 50%;
-  left: 32px;
-  z-index: 99999;
-  font-size: 35px;
-  &:hover {
-    color: $accent;
+// スマホ
+@media screen and (max-width: 429px) {
+  .goPrev {
+    cursor: pointer;
+    position: fixed;
+    color: $base;
+    top: 50%;
+    left: 8px;
+    z-index: 99999;
+    font-size: 35px;
+    &:hover {
+      color: $accent;
+    }
+  }
+  .goNext {
+    cursor: pointer;
+    position: fixed;
+    color: $base;
+    top: 50%;
+    right: 8px;
+    z-index: 99999;
+    font-size: 35px;
+    &:hover {
+      color: $accent;
+    }
   }
 }
-.goNextPC {
-  cursor: pointer;
-  position: fixed;
-  color: $base;
-  top: 50%;
-  right: 32px;
-  z-index: 99999;
-  font-size: 35px;
-  &:hover {
-    color: $accent;
+// PC
+@media screen and (min-width: 430px) {
+  .goPrev {
+    cursor: pointer;
+    position: fixed;
+    color: $base;
+    top: 50%;
+    left: 32px;
+    z-index: 99999;
+    font-size: 35px;
+    &:hover {
+      color: $accent;
+    }
+  }
+  .goNext {
+    cursor: pointer;
+    position: fixed;
+    color: $base;
+    top: 50%;
+    right: 32px;
+    z-index: 99999;
+    font-size: 35px;
+    &:hover {
+      color: $accent;
+    }
   }
 }
 .deleteIcon {

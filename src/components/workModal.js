@@ -6,16 +6,14 @@ import Hammer from "react-hammerjs"; //スワイプ検出
 import MediaQuery from "react-responsive";
 import { modalBG, base, menubar2 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
-import {
-  footer,
-  deleteIcon,
-  goNextPC,
-  goPrevPC
-} from "./style/modal.module.scss";
+import { footer, deleteIcon, goNext, goPrev } from "./style/modal.module.scss";
 import modal from "./style/modal.module.scss";
 
 const s = {};
 const threshold = 80;
+const ease = x => {
+  return Math.atan(x / 1000) * threshold;
+};
 
 class WorkModal extends React.Component {
   constructor(props) {
@@ -76,21 +74,15 @@ class WorkModal extends React.Component {
   }
   genStyleLeft(dx) {
     const c = this.interpol(dx);
-    const ease = x => {
-      return Math.atan(x / 1000) * threshold;
-    };
     return {
-      transform: "translateX(" + Math.max(0, ease(dx)) + "px)",
+      transform: "translateX(" + Math.min(0, -ease(dx)) + "px)",
       color: c
     };
   }
   genStyleRight(dx) {
     const c = this.interpol(-dx);
-    const ease = x => {
-      return Math.atan(x / 1000) * threshold;
-    };
     return {
-      transform: "translateX(" + Math.min(0, -ease(-dx)) + "px)",
+      transform: "translateX(" + Math.max(0, ease(-dx)) + "px)",
       color: c
     };
   }
@@ -100,21 +92,43 @@ class WorkModal extends React.Component {
     const LargeClipImgurl = imgurls[this.state.imgLoc];
     return (
       <React.Fragment>
+        {/*PC版 モーダル移動アイコン*/}
+        <MediaQuery query="(min-width: 430px)">
+          <div className={goNext} onClick={this.goNext}>
+            {<FontAwesomeIcon icon={["fas", "greater-than"]} />}
+          </div>
+          <div className={goPrev} onClick={this.goPrev}>
+            {<FontAwesomeIcon icon={["fas", "less-than"]} />}
+          </div>
+        </MediaQuery>
+        {/*スマホ版 モーダル移動アイコン*/}
+        <MediaQuery query="(max-width: 429px)">
+          <div
+            className={goNext}
+            onClick={this.goNext}
+            style={{ opacity: -this.state.deltaX / threshold }}
+          >
+            {<FontAwesomeIcon icon={["fas", "greater-than"]} />}
+          </div>
+          <div
+            className={goPrev}
+            onClick={this.goPrev}
+            style={{ opacity: this.state.deltaX / threshold }}
+          >
+            {<FontAwesomeIcon icon={["fas", "less-than"]} />}
+          </div>
+        </MediaQuery>
         <Hammer
           onPanStart={this.onPanStart}
           onPan={this.onPan}
           onPanEnd={this.onPanEnd}
         >
-          <div className={modal.modal}>
-            {/*PC版で表示される、モーダル移動アイコン*/}
-            <MediaQuery query="(min-width: 430px)">
-              <div className={goNextPC} onClick={this.goNext}>
-                {<FontAwesomeIcon icon={["fas", "greater-than"]} />}
-              </div>
-              <div className={goPrevPC} onClick={this.goPrev}>
-                {<FontAwesomeIcon icon={["fas", "less-than"]} />}
-              </div>
-            </MediaQuery>
+          <div
+            className={modal.modal}
+            style={{
+              transform: "translateX(" + ease(this.state.deltaX) * 3 + "px)"
+            }}
+          >
             <MediaQuery query="(max-width: 429px)">
               <div className={deleteIcon} onClick={this.props.close}>
                 {<FontAwesomeIcon icon={["fas", "times"]} />}
@@ -194,14 +208,14 @@ class WorkModal extends React.Component {
                       }}
                     >
                       <FontAwesomeIcon
-                        style={this.genStyleRight(this.state.deltaX)}
+                        style={this.genStyleLeft(this.state.deltaX)}
                         icon={["fas", "less-than"]}
                       />
-                      <span style={{ color: "#a05080" }}>
+                      <span style={{ color: "#804060" }}>
                         {"     左右スワイプで切り替え     "}
                       </span>
                       <FontAwesomeIcon
-                        style={this.genStyleLeft(this.state.deltaX)}
+                        style={this.genStyleRight(this.state.deltaX)}
                         icon={["fas", "greater-than"]}
                       />
                     </div>
