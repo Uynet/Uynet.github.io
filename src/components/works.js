@@ -19,10 +19,10 @@ const s = {
   space: { height: 200 },
   footerSpace: { height: 60 },
   frame: {
-    // background: "#fff",
     textAlign: "center",
     opacity: 0,
     color: font,
+    overflow: "hidden",
     animation: "fadeIn  ease 0.6s forwards"
   },
   header: {
@@ -134,8 +134,7 @@ const customStylesSp = {
     height: "100%",
     animation: "modalOpen cubic-bezier(1,0,0,1) 0.5s forwards",
     overflowY: "auto",
-    overscrollBehavior: "none",
-
+    //overscrollBehavior: "none",
     backgroundColor: "rgba(0, 0 , 0, 0)",
     background: modalBG,
     WebkitOverflowScrolling: "touch",
@@ -174,7 +173,7 @@ const customStyles = {
     WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 16,
-    overscrollBehavior: "none",
+    //overscrollBehavior: "none",
     border: "none"
   }
 };
@@ -251,7 +250,7 @@ class Works extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalIsOpen: true,
+      modalIsOpen: false,
       displayingWork: null,
       products: [],
       tips: [],
@@ -279,10 +278,12 @@ class Works extends React.Component {
   };
   openModal = work => {
     this.setState({ modalIsOpen: true, displayingWork: work });
+    window.document.body.classList.toggle("no-scroll");
   };
   afterOpenModal = () => {};
   closeModal = () => {
     this.setState({ modalIsOpen: false, displayingWork: null });
+    window.document.body.classList.toggle("no-scroll");
   };
   genWorks = () => {
     const products = [
@@ -351,7 +352,7 @@ class Works extends React.Component {
         ["resource/img/portfolio.png", "resource/img/web.png"],
         [{ name: "github", url: "http://github.com/Uynet/Uynet.github.io" }],
         ["Web", "Design"],
-        "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
+        "ポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
         "2019/11"
       ),
       genWork(
@@ -573,6 +574,7 @@ class Works extends React.Component {
     console.log(this.state);
   };
   render() {
+    const frameClass = this.props.classes.frame;
     return (
       <React.Fragment>
         <BGEffect />
@@ -644,7 +646,7 @@ class Works extends React.Component {
         <MediaQuery query="(min-width: 430px)">
           <PC
             handleClick={this.handleClick}
-            frameClass={this.props.classes.frame}
+            frameClass={frameClass}
             products={this.state.products}
           />
         </MediaQuery>

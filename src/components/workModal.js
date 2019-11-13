@@ -35,6 +35,7 @@ class WorkModal extends React.Component {
     this.setState({ onHover: false });
   };
   onPan = e => {
+    const dx = e.deltaX;
     this.setState({
       deltaX: dx
     });

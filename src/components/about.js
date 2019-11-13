@@ -5,7 +5,7 @@ import Box from "./box.js";
 import about from "./style/about.module.scss";
 import HeaderEffect from "./headerEffect";
 
-const bio = "主に創作をしています。作曲、デザイン、ゲーム制作などが得意です";
+const bio = "主に創作をしています。作曲、デザイン、ゲーム制作などが好きです";
 const s = {};
 
 class About extends React.Component {

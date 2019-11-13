@@ -94,6 +94,11 @@ class Box extends React.Component {
                       </a>
                     </td>
                   </tr>
+                  <tr>
+                    <td>ピクシブ株式会社</td>
+                    <td></td>
+                    <td>選考インターン参加</td>
+                  </tr>
                 </table>
               </div>
 
