@@ -1,0 +1,180 @@
+@import "public/css/variables";
+
+.space {
+  height: 200px;
+}
+.footerSpace {
+  height: 60px;
+}
+.frame {
+  text-align: center;
+  opacity: 0;
+  color: $fontColor;
+  overflow: hidden;
+  animation: fadeIn ease 0.6s forwards;
+}
+.header {
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 0px;
+  background: $main;
+  animation: swipeY cubic-bezier(0, 1, 0, 1) 2.6s forwards;
+}
+.title {
+  z-index: 2;
+  position: relative;
+  width: 244px;
+  text-align: center;
+  top: 64px;
+  left: 32px;
+}
+.titleString {
+  z-index: 2;
+  font-family: gkktt;
+  font-size: 80px;
+  color: $accent;
+}
+.underLine {
+  z-index: 2;
+  height: 8px;
+  border-radius: 3px;
+  background: $menubar2;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  animation: swipeX cubic-bezier(0.99, 0.01, 0, 1) 1.6s forwards;
+}
+.underLine2 {
+  z-index: 2px;
+  height: 4px;
+  border-radius: 4px;
+  background: $main;
+  width: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  animation: swipeX cubic-bezier(0.99, 0.01, 0, 1) 1.6s 1.3s forwards;
+}
+.category {
+  width: 100px;
+  height: 50px;
+  opacity: 0;
+  margin: auto;
+  margin-top: 40px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn ease 0.6s 1s forwards;
+}
+.categoryString {
+  color: $main;
+  font-weight: bold;
+  font-family: honoka;
+  font-size: 20px;
+}
+.desc {
+  color: $fontColor;
+  font-family: honoka;
+  margin: 5px;
+}
+@media screen and (max-width: 429px) {
+}
+@keyframes swipeY {
+  0% {
+    top: 0%;
+    height: 0px;
+  }
+  100% {
+    top: 0%;
+    height: 250px;
+  }
+}
+@keyframes swipeX {
+  0% {
+    width: 0%;
+  }
+  100% {
+    left: 0%;
+    width: 100%;
+  }
+}
+@keyframes swipeXcat {
+  0% {
+    width: 0%;
+  }
+  100% {
+    left: 0%;
+    width: 100px;
+  }
+}
+@keyframes sidelineInR {
+  0% {
+    background: $sideline;
+    right: 100%;
+  }
+  100% {
+    background: $sideline;
+    right: -10px;
+  }
+}
+@keyframes sidelineInL {
+  0% {
+    background: $sideline;
+    left: 100%;
+  }
+  100% {
+    left: -10px;
+    background: $sideline;
+  }
+}
+@keyframes BGIn {
+  0% {
+    width: 0vw;
+    height: 0vw;
+  }
+  100% {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+@keyframes BGIn2 {
+  0% {
+    width: 0vw;
+    height: 0vw;
+  }
+  100% {
+    width: 99vw;
+    height: 99vw;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes workTitleIn {
+  0% {
+    height: 0px;
+    opacity: 0;
+  }
+  100% {
+    height: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes modalOpen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

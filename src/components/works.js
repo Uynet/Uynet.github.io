@@ -14,6 +14,7 @@ import Work from "./work.js";
 import MediaQuery from "react-responsive";
 import Modal from "react-modal";
 import WorkModal from "./workModal";
+import worksClass from "./style/works.module.scss";
 
 const s = {
   space: { height: 200 },
@@ -118,7 +119,8 @@ const customStylesSp = {
     right: 0,
     bottom: 0,
     zIndex: 40,
-    backgroundColor: modalBG
+    background: modalBG
+    //background: "rgba(0, 0 , 0, 0)"
   },
   content: {
     zIndex: 41,
@@ -135,7 +137,6 @@ const customStylesSp = {
     animation: "modalOpen cubic-bezier(1,0,0,1) 0.5s forwards",
     overflowY: "auto",
     //overscrollBehavior: "none",
-    backgroundColor: "rgba(0, 0 , 0, 0)",
     background: modalBG,
     WebkitOverflowScrolling: "touch",
     padding: 0,
@@ -188,6 +189,7 @@ const genWork = (name, imgurls, links, tags, description, date) => {
     date: date
   };
 };
+
 class PC extends React.Component {
   render() {
     return (
@@ -233,6 +235,8 @@ class Smapho extends React.Component {
           {this.props.products.map((work, i) => {
             return (
               <Work
+                modalIsOpen={this.props.modalIsOpen}
+                isFirstTime={this.props.isFirstTime}
                 handleClick={this.props.handleClick}
                 id={i}
                 key={i}
@@ -250,6 +254,7 @@ class Works extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isFirstTime: true,
       modalIsOpen: false,
       displayingWork: null,
       products: [],
@@ -277,13 +282,17 @@ class Works extends React.Component {
     this.openModal(work);
   };
   openModal = work => {
-    this.setState({ modalIsOpen: true, displayingWork: work });
-    window.document.body.classList.toggle("no-scroll");
+    this.setState({
+      modalIsOpen: true,
+      displayingWork: work,
+      isFirstTime: false
+    });
+    //window.document.body.classList.toggle("no-scroll");
   };
   afterOpenModal = () => {};
   closeModal = () => {
     this.setState({ modalIsOpen: false, displayingWork: null });
-    window.document.body.classList.toggle("no-scroll");
+    //window.document.body.classList.toggle("no-scroll");
   };
   genWorks = () => {
     const products = [
@@ -303,7 +312,7 @@ class Works extends React.Component {
           }
         ],
         ["Game", "Program", "Graphic", "Sound"],
-        "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。動産環境はPC(Chromeのみ)。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。",
+        "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。動産環境はPC(Chromeのみ)。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。コンテンツが少なくゲームデザインが完成していない部分が課題。",
         "2018/1~"
       ),
       genWork(
@@ -374,7 +383,7 @@ class Works extends React.Component {
           }
         ],
         ["Web"],
-        "色彩設計が好きなので配色投稿サービスを作っています。開発メンバーは二人で、自分はフロントエンド、APIサーバ、認証周りなどほとんどを書いてもう一人がインフラ周りを担当。技術スタック的にはReact,Express,MongoDB,Nginxなど",
+        "色彩設計が好きなので配色投稿サービスを作っています。開発メンバーは二人で、自分はフロントエンド、APIサーバ、認証周りなどほとんどを書いてもう一人がインフラ周りを担当。技術スタック的にはReact,Express,MongoDB,Nginxなど。もうそろそろベータ版がリリースができそう",
         "2019/10~"
       ),
       genWork(
@@ -399,7 +408,7 @@ class Works extends React.Component {
           }
         ],
         ["Web", "Design"],
-        "「雪合戦」をコンセプトにしたアクションSTG。足元の雪を使って弾を撃つ。企画および全8曲と一部のグラフィック、ステージ制作を担当したがコードは一行も書いてない。",
+        "「雪合戦」をコンセプトにしたアクションSTG。足元の雪を使って弾を撃つ。コードは書いてないが企画および全8曲と一部のグラフィック、ステージ制作を担当した。",
         "2015/10~2016/04"
       )
     ];
@@ -574,32 +583,33 @@ class Works extends React.Component {
     console.log(this.state);
   };
   render() {
-    const frameClass = this.props.classes.frame;
+    const frameClass = worksClass.frame;
+    console.log(worksClass.header);
     return (
       <React.Fragment>
         <BGEffect />
         <div
-          className={this.props.classes.header}
+          className={worksClass.header}
           style={{ animationDelay: "0.4s", background: main }}
         ></div>
         <div
-          className={this.props.classes.header}
+          className={worksClass.header}
           style={{ animationDelay: "0.5s", background: "#FF3090" }}
         ></div>
         <div
-          className={this.props.classes.header}
+          className={worksClass.header}
           style={{ animationDelay: "0.6s", background: menubar }}
         ></div>
-        <div className={this.props.classes.title}>
-          <div className={this.props.classes.titleString}>Works</div>
-          <div className={this.props.classes.underLine}></div>
+        <div className={worksClass.title}>
+          <div className={worksClass.titleString}>Works</div>
+          <div className={worksClass.underLine}></div>
         </div>
-        <div className={this.props.classes.space}></div>
+        <div className={worksClass.space}></div>
 
-        <div className={this.props.classes.category}>
-          <div className={this.props.classes.categoryString}>Products</div>
-          <div className={this.props.classes.underLine2}></div>
-          <div className={this.props.classes.desc}>主な制作物</div>
+        <div className={worksClass.category}>
+          <div className={worksClass.categoryString}>Products</div>
+          <div className={worksClass.underLine2}></div>
+          <div className={worksClass.desc}>主な制作物</div>
         </div>
 
         <MediaQuery query="(min-width: 430px)">
@@ -611,7 +621,7 @@ class Works extends React.Component {
               onRequestClose={this.closeModal}
               style={customStyles}
               overLayClassName={overLay}
-              bodyOpenClassName={this.props.classes.modalbody}
+              bodyOpenClassName={worksClass.modalbody}
             >
               <WorkModal
                 work={this.state.displayingWork}
@@ -631,7 +641,7 @@ class Works extends React.Component {
               onRequestClose={this.closeModal}
               style={customStylesSp}
               overLayClassName={overLay}
-              bodyOpenClassName={this.props.classes.modalbody}
+              bodyOpenClassName={worksClass.modalbody}
             >
               <WorkModal
                 work={this.state.displayingWork}
@@ -652,49 +662,55 @@ class Works extends React.Component {
         </MediaQuery>
         <MediaQuery query="(max-width: 429px)">
           <Smapho
+            modalIsOpen={this.state.modalIsOpen}
+            isFirstTime={this.state.isFirstTime}
             handleClick={this.handleClick}
-            frameClass={this.props.classes.frame}
+            frameClass={worksClass.frame}
             products={this.state.products}
           />
         </MediaQuery>
-        <div className={this.props.classes.category}>
-          <div className={this.props.classes.categoryString}>Tips</div>
-          <div className={this.props.classes.underLine2}></div>
-          <div className={this.props.classes.desc}>諸々</div>
+        <div className={worksClass.category}>
+          <div className={worksClass.categoryString}>Tips</div>
+          <div className={worksClass.underLine2}></div>
+          <div className={worksClass.desc}>諸々</div>
         </div>
         <MediaQuery query="(min-width: 430px)">
           <PC
             handleClick={this.handleClick}
-            frameClass={this.props.classes.frame}
+            frameClass={worksClass.frame}
             products={this.state.tips}
           />
         </MediaQuery>
 
         <MediaQuery query="(max-width: 429px)">
           <Smapho
+            modalIsOpen={this.state.modalIsOpen}
+            isFirstTime={this.state.isFirstTime}
             handleClick={this.handleClick}
-            frameClass={this.props.classes.frame}
+            frameClass={worksClass.frame}
             products={this.state.tips}
           />
         </MediaQuery>
 
-        <div className={this.props.classes.category}>
-          <div className={this.props.classes.categoryString}>Sounds</div>
-          <div className={this.props.classes.underLine2}></div>
-          <div className={this.props.classes.desc}>音楽</div>
+        <div className={worksClass.category}>
+          <div className={worksClass.categoryString}>Sounds</div>
+          <div className={worksClass.underLine2}></div>
+          <div className={worksClass.desc}>音楽</div>
         </div>
         <MediaQuery query="(min-width: 430px)">
           <PC
             handleClick={this.handleClick}
-            frameClass={this.props.classes.frame}
+            frameClass={worksClass.frame}
             products={this.state.sounds}
           />
         </MediaQuery>
 
         <MediaQuery query="(max-width: 429px)">
           <Smapho
+            modalIsOpen={this.state.modalIsOpen}
+            isFirstTime={this.state.isFirstTime}
             handleClick={this.handleClick}
-            frameClass={this.props.classes.frame}
+            frameClass={worksClass.frame}
             products={this.state.sounds}
           />
         </MediaQuery>
@@ -705,7 +721,7 @@ class Works extends React.Component {
           </a>
         </div>
 
-        <div className={this.props.classes.footerSpace}></div>
+        <div className={worksClass.footerSpace}></div>
       </React.Fragment>
     );
   }

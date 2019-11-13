@@ -180,19 +180,22 @@ class WorkModal extends React.Component {
               <div className={modal.links}>
                 {links.map((link, i) => {
                   return (
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener"
-                      className={linkClass}
-                      key={i}
-                    >
-                      {link.name}
-                      <FontAwesomeIcon
-                        style={{ fontSize: 10 }}
-                        icon={["fas", "external-link-alt"]}
-                      ></FontAwesomeIcon>
-                    </a>
+                    <>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener"
+                        className={linkClass}
+                        key={i}
+                      >
+                        {link.name}
+                        <FontAwesomeIcon
+                          style={{ fontSize: 10 }}
+                          icon={["fas", "external-link-alt"]}
+                        ></FontAwesomeIcon>
+                      </a>
+                      <br></br>
+                    </>
                   );
                 })}
               </div>
