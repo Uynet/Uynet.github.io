@@ -349,7 +349,7 @@ class Works extends React.Component {
       genWork(
         "ゆいブログ",
         ["resource/img/portfolio.png", "resource/img/web.png"],
-        [],
+        [{ name: "github", url: "http://github.com/Uynet/Uynet.github.io" }],
         ["Web", "Design"],
         "最高のポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
         "2019/11"

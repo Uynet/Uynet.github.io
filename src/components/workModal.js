@@ -35,7 +35,6 @@ class WorkModal extends React.Component {
     this.setState({ onHover: false });
   };
   onPan = e => {
-    const dx = Math.abs(e.deltaY) > 100 ? 0 : e.deltaX;
     this.setState({
       deltaX: dx
     });
@@ -44,8 +43,8 @@ class WorkModal extends React.Component {
   onPanEnd = () => {
     const dx = this.state.deltaX;
     this.setState({ deltaX: 0 });
-    if (dx > threshold) this.goNext();
-    else if (dx < -threshold) this.goPrev();
+    if (dx > threshold) this.goPrev();
+    else if (dx < -threshold) this.goNext();
   };
   goNext = () => {
     this.setState({ imgLoc: 0, onHover: false, deltaX: 0 });
