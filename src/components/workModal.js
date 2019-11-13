@@ -73,6 +73,7 @@ class WorkModal extends React.Component {
     return c;
   }
   genStyleLeft(dx) {
+    dx = 0;
     const c = this.interpol(dx);
     return {
       transform: "translateX(" + Math.min(0, -ease(dx)) + "px)",
@@ -80,6 +81,7 @@ class WorkModal extends React.Component {
     };
   }
   genStyleRight(dx) {
+    dx = 0;
     const c = this.interpol(-dx);
     return {
       transform: "translateX(" + Math.max(0, ease(-dx)) + "px)",

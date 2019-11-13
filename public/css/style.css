@@ -11,7 +11,8 @@ img {
 
 html {
   font-family: sans-serif;
-  height: 100%; }
+  height: 100%;
+  overscroll-behavior: "none"; }
 
 body {
   overflow-x: hidden;
@@ -271,40 +272,6 @@ a:hover {
   animation-duration: 0.8s;
   animation-delay: 0s;
   animation-fill-mode: both; }
-
-@keyframes iconPop {
-  0% {
-    width: 0px;
-    height: 0px;
-    opacity: 1; }
-  10% {
-    width: 100px;
-    height: 100px;
-    opacity: 1; }
-  40% {
-    width: 90px;
-    height: 90px;
-    opacity: 1; }
-  60% {
-    width: 100px;
-    height: 100px;
-    opacity: 1; }
-  80% {
-    width: 98px;
-    height: 98px;
-    opacity: 1; }
-  100% {
-    width: 100px;
-    height: 100px;
-    opacity: 1; } }
-
-@keyframes myname {
-  0% {
-    transform: translateX(-20%);
-    opacity: 0; }
-  100% {
-    transform: translateX(0%);
-    opacity: 1; } }
 
 @keyframes fadeIn {
   0% {

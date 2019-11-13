@@ -134,7 +134,7 @@ const customStylesSp = {
     height: "100%",
     animation: "modalOpen cubic-bezier(1,0,0,1) 0.5s forwards",
     overflowY: "auto",
-    overscrollBehavior: "contain",
+    overscrollBehavior: "none",
 
     backgroundColor: "rgba(0, 0 , 0, 0)",
     background: modalBG,
@@ -174,8 +174,8 @@ const customStyles = {
     WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 16,
-    border: "none",
-    overscrollBehavior: "contain"
+    overscrollBehavior: "none",
+    border: "none"
   }
 };
 
