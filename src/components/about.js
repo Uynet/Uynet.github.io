@@ -5,7 +5,6 @@ import Box from "./box.js";
 import about from "./style/about.module.scss";
 import HeaderEffect from "./headerEffect";
 
-const bio = "主に創作をしています。作曲、デザイン、ゲーム制作などが好きです";
 const s = {};
 
 class About extends React.Component {
@@ -23,19 +22,26 @@ class About extends React.Component {
         <HeaderEffect color="#30FFE0" className={about.header} />
         <div className={about.title}>
           <div className={about.titleString}>About</div>
-          <div className={about.myname}>uynet</div>
-          <div className={about.sub}>creator</div>
           <div className={about.underLine}></div>
         </div>
-        <img
-          src="/resource/img/icon.png"
-          alt={"(ﾉ)･ω･(ヾ)"}
-          className={about.icon}
-        ></img>
-        <div className={about.space}></div>
-        <div className={about.bio}>{bio}</div>
 
-        <Box />
+        <div style={{ textAlign: "center" }}>
+          <div style={{ display: "inline-block", position: "absolute" }}>
+            <img
+              src="/resource/img/icon.png"
+              alt={"(ﾉ)･ω･(ヾ)"}
+              className={about.icon}
+            ></img>
+            <div className={about.myname}>uynet</div>
+            <div className={about.sub}>creator</div>
+          </div>
+        </div>
+
+        <div className={about.space}></div>
+
+        <div style={{ textAlign: "center" }}>
+          <Box />
+        </div>
         <div className={about.footerSpace}></div>
       </React.Fragment>
     );

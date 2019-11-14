@@ -40,95 +40,51 @@
   margin: auto;
   animation: swipeX cubic-bezier(0.99, 0.01, 0, 1) 1.6s forwards;
 }
-@media screen and (min-width: 430px) {
-  .bio {
-    color: $fontColor;
-    padding: 30px 10%;
-    font-size: 15px;
-    opacity: 0;
-    animation: fadeIn ease 0.6s 1.7s forwards;
-  }
-  .myname {
-    color: $myname;
-    font-size: 40px;
-    font-family: gkktt;
-    position: absolute;
-    top: 210px;
-    left: 180px;
-    opacity: 0;
-    animation: myname ease 0.9s 1.4s forwards;
-  }
-  .sub {
-    color: $fontColor;
-    font-size: 20px;
-    font-family: Nico Moji;
-    position: absolute;
-    top: 200px;
-    left: 190px;
-    opacity: 0;
-    animation: myname ease 0.9s 1.4s forwards;
-  }
-  .icon {
-    position: absolute;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    top: 270px;
-    left: 140px;
-    // right: 0;
-    width: 0px;
-    height: 0px;
-    z-index: 5;
-    opacity: 0;
-    margin: auto;
-    animation: iconPop ease 0.4s 1.1s forwards;
-    border: solid 5px;
-    border-color: $base;
-  }
+.bio {
+  color: $fontColor;
+  padding: 30px 0%;
+  font-size: 15px;
+  opacity: 0;
+  animation: fadeIn ease 0.6s 1.7s forwards;
 }
-@media screen and (max-width: 429px) {
-  .bio {
-    color: $fontColor;
-    padding: 30px 10%;
-    font-size: 15px;
-    opacity: 0;
-    animation: fadeIn ease 0.6s 1.7s forwards;
-  }
-  .myname {
-    color: $myname;
-    font-size: 40px;
-    font-family: gkktt;
-    position: absolute;
-    top: 210px;
-    left: 65%;
-    opacity: 0;
-    animation: myname ease 0.9s 1.4s forwards;
-  }
-  .sub {
-    color: $fontColor;
-    font-size: 20px;
-    font-family: Nico Moji;
-    position: absolute;
-    top: 200px;
-    left: 65%;
-    opacity: 0;
-    animation: myname ease 0.9s 1.4s forwards;
-  }
-  .icon {
-    position: absolute;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    top: 270px;
-    left: 30%;
-    // right: 0;
-    width: 0px;
-    height: 0px;
-    z-index: 5;
-    opacity: 0;
-    margin: auto;
-    animation: iconPop ease 0.4s 1.1s forwards;
-    border: solid 5px;
-    border-color: $base;
-  }
+.myname {
+  color: $myname;
+  font-size: 40px;
+  font-family: gkktt;
+  left: 150px;
+  position: absolute;
+  top: 210px;
+  left: 50%;
+  opacity: 0;
+  animation: myname ease 0.9s 1.4s forwards;
+}
+.sub {
+  color: $fontColor;
+  font-size: 20px;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  font-family: Nico Moji;
+  //top: 200px;
+  //left: 190px;
+  opacity: 0;
+  animation: myname ease 0.9s 1.4s forwards;
+}
+.icon {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  top: 200px;
+  left: -80px;
+  width: 0px;
+  height: 0px;
+  z-index: 5;
+  opacity: 0;
+  margin: auto;
+  animation: iconPop ease 0.4s 1.1s forwards, iconMove ease 1.4s 1.6s forwards;
+
+  border: solid 5px;
+  border-color: $base;
 }
 
 @keyframes iconPop {
