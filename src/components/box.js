@@ -26,6 +26,7 @@ class Box extends React.Component {
     return "2.0s";
   };
   render() {
+    // const tags = ["ゲーム制作", "webデザイン", "作曲"];
     return (
       <React.Fragment>
         <div

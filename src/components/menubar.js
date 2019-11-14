@@ -124,7 +124,7 @@ class Menubar extends React.Component {
         >
           <div className={itemTitleClass}>めにゅー</div>
           <div>
-            {this.state.isOpen &&
+            {(this.state.isOpen || this.state.isFirstTime) &&
               items.map((item, i) => {
                 return (
                   <Item
