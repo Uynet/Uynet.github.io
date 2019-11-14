@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { accent, main, font, menubar, menubar2 } from "../utils/colors.js";
 import MediaQuery from "react-responsive";
-// import Work from "./work.js";
+import contact from "./style/contact.module.scss";
 
 const s = {
   space: { height: 200 },
@@ -147,12 +147,48 @@ class Contact extends React.Component {
         <div className={this.props.classes.category}>
           <div className={this.props.classes.categoryString}>連絡先</div>
           <div className={this.props.classes.underLine2}></div>
-          <div className={this.props.classes.desc}>
-            highsate
-            <FontAwesomeIcon icon={["fas", "at"]} />
-            gmail.com
+        </div>
+        <div className={contact.content}>
+          何かありましたらメールもしくはTwitterまでご連絡ください
+          <div style={{ margin: "5% 0px" }}>
+            <table style={{ margin: "auto", left: 0, right: 0 }}>
+              <tbody>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      className={contact.mailIcon}
+                      icon={["fas", "envelope"]}
+                    />
+                  </td>
+                  <td></td>
+                  <td className={contact.mailAdress}>
+                    highsate
+                    <FontAwesomeIcon icon={["fas", "at"]} />
+                    gmail.com
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      className={contact.twitterIcon}
+                      icon={["fab", "twitter"]}
+                    />
+                  </td>
+                  <td></td>
+                  <td className={contact.twitterAccount}>
+                    <a href="http://twitter.com/uynet">
+                      <FontAwesomeIcon icon={["fas", "at"]} />
+                      uynet
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div className={this.props.classes.desc}>twitter.com/uynet</div>
         </div>
 
         <div className={this.props.classes.footerSpace}></div>

@@ -1,0 +1,123 @@
+@import "public/css/variables";
+
+.content {
+  color: $fontColor;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn ease 0.5s 1.3s forwards;
+}
+.mailIcon {
+  opacity: 0;
+  font-size: 30px;
+  color: $mailIconColor;
+  animation: mailIconIn ease 0.4s 1.6s forwards;
+}
+.mailAdress {
+  opacity: 0;
+  animation: mailAdressIn ease 0.4s 1.7s forwards;
+}
+.twitterIcon {
+  opacity: 0;
+  font-size: 30px;
+  color: $twitterIconColor;
+  animation: twitterIconIn ease 0.4s 1.8s forwards;
+}
+.twitterAccount {
+  opacity: 0;
+  float: left;
+  animation: twitterAccountIn ease 0.4s 1.9s forwards;
+}
+
+.space {
+  height: 240px;
+}
+.footerSpace {
+  height: 60px;
+}
+.header {
+  position: absolute;
+  z-index: 2px;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 0px;
+  background: $main;
+  animation: swipeY cubic-bezier(0, 1, 0, 1) 2.6s 0.4s forwards;
+}
+.title {
+  z-index: 2;
+  position: relative;
+  width: 244px;
+  text-align: center;
+  top: 64px;
+  left: 32px;
+}
+.titleString {
+  z-index: 2;
+  font-family: gkktt;
+  font-size: 80px;
+  color: $accent;
+}
+.underLine {
+  z-index: 2;
+  height: 8px;
+  border-radius: 4px;
+  background: $menubar2;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  animation: swipeX cubic-bezier(0.99, 0.01, 0, 1) 1.6s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes twitterIconIn {
+  0% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes twitterAccountIn {
+  0% {
+    transform: translateX(-35px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes mailIconIn {
+  0% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes mailAdressIn {
+  0% {
+    transform: translateX(-35px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
