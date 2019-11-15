@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Hammer from "react-hammerjs"; //スワイプ検出
 
 import MediaQuery from "react-responsive";
-import { modalBG, base, menubar2 } from "../utils/colors.js";
+import { menubar, accent, modalBG, base, menubar2 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
 import { footer, deleteIcon, goNext, goPrev } from "./style/modal.module.scss";
 import modal from "./style/modal.module.scss";
@@ -90,7 +90,14 @@ class WorkModal extends React.Component {
   }
 
   render() {
-    const { name, imgurls, links, description, date } = this.props.work;
+    const {
+      name,
+      imgurls,
+      links,
+      description,
+      date,
+      category
+    } = this.props.work;
     const LargeClipImgurl = imgurls[this.state.imgLoc];
     return (
       <React.Fragment>
@@ -120,6 +127,59 @@ class WorkModal extends React.Component {
             {<FontAwesomeIcon icon={["fas", "less-than"]} />}
           </div>
         </MediaQuery>
+        <MediaQuery query="(max-width: 429px)">
+          <div className={deleteIcon} onClick={this.props.close}>
+            <div style={{ position: "relative" }}>
+              {
+                <FontAwesomeIcon
+                  style={{
+                    display: "inline",
+                    position: "absolute",
+                    top: 6,
+                    left: 0,
+                    right: 0,
+                    margin: "auto"
+                  }}
+                  icon={["fas", "times"]}
+                />
+              }
+            </div>
+          </div>
+          <div className={footer}>
+            {
+              <div
+                style={{
+                  width: "100vw"
+                }}
+              >
+                <FontAwesomeIcon
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    bottom: 0,
+                    margin: "auto",
+                    color: base,
+                    left: "5%"
+                  }}
+                  onClick={this.goPrev}
+                  icon={["fas", "less-than"]}
+                />
+                <FontAwesomeIcon
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    bottom: 0,
+                    margin: "auto",
+                    color: base,
+                    right: "5%"
+                  }}
+                  onClick={this.goNext}
+                  icon={["fas", "greater-than"]}
+                />
+              </div>
+            }
+          </div>
+        </MediaQuery>
         <Hammer
           onPanStart={this.onPanStart}
           onPan={this.onPan}
@@ -131,13 +191,6 @@ class WorkModal extends React.Component {
               transform: "translateX(" + ease(this.state.deltaX) * 3 + "px)"
             }}
           >
-            <MediaQuery query="(max-width: 429px)">
-              <div className={deleteIcon} onClick={this.props.close}>
-                {<FontAwesomeIcon icon={["fas", "times"]} />}
-              </div>
-            </MediaQuery>
-            <div className={modal.header}>{name}</div>
-
             <LargeClip
               style={{
                 display: "inline-block"
@@ -180,13 +233,12 @@ class WorkModal extends React.Component {
               <div className={modal.links}>
                 {links.map((link, i) => {
                   return (
-                    <>
+                    <React.Fragment key={i}>
                       <a
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={linkClass}
-                        key={i}
                       >
                         {link.name}
                         <FontAwesomeIcon
@@ -195,38 +247,11 @@ class WorkModal extends React.Component {
                         ></FontAwesomeIcon>
                       </a>
                       <br></br>
-                    </>
+                    </React.Fragment>
                   );
                 })}
               </div>
-              <MediaQuery query="(max-width: 429px)">
-                <div className={footer}>
-                  {
-                    <div
-                      style={{
-                        position: "absolute",
-                        left: 0,
-                        right: 0,
-                        top: 12,
-                        bottom: 0,
-                        margin: "auto"
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        style={this.genStyleLeft(this.state.deltaX)}
-                        icon={["fas", "less-than"]}
-                      />
-                      <span style={{ color: "#804060" }}>
-                        {"     左右スワイプで切り替え     "}
-                      </span>
-                      <FontAwesomeIcon
-                        style={this.genStyleRight(this.state.deltaX)}
-                        icon={["fas", "greater-than"]}
-                      />
-                    </div>
-                  }
-                </div>
-              </MediaQuery>
+              <div style={{ height: 32 }} />
             </div>
           </div>
         </Hammer>

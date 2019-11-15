@@ -37,7 +37,7 @@ const customStylesSp = {
     overflowY: "auto",
     overscrollBehavior: "none",
     background: modalBG,
-    WebkitOverflowScrolling: "touch",
+    //WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 0
   },
@@ -78,8 +78,9 @@ const customStyles = {
   }
 };
 
-const genWork = (name, imgurls, links, tags, description, date) => {
+const genWork = (category, name, imgurls, links, tags, description, date) => {
   return {
+    category: category,
     name: name,
     imgurls: imgurls,
     links: links,
@@ -149,16 +150,17 @@ class Works extends React.Component {
       displayingWork: work,
       isFirstTime: false
     });
-    //window.document.body.classList.toggle("no-scroll");
+    window.document.body.classList.toggle("no-scroll");
   };
   afterOpenModal = () => {};
   closeModal = () => {
     this.setState({ modalIsOpen: false, displayingWork: null });
-    //window.document.body.classList.toggle("no-scroll");
+    window.document.body.classList.toggle("no-scroll");
   };
   genWorks = () => {
     const products = [
       genWork(
+        "Produts",
         "サイハテドロップ",
         [
           "resource/img/kawasemi2.png",
@@ -178,6 +180,7 @@ class Works extends React.Component {
         "2018/1~"
       ),
       genWork(
+        "Produts",
         "NinjaFlicker",
         [
           "resource/img/ninja.png",
@@ -208,6 +211,7 @@ class Works extends React.Component {
         "2016/6~2017/12"
       ),
       genWork(
+        "Produts",
         "CPCTF Visualizer",
         ["resource/img/visualizer.png", "resource/img/visualizer2.png"],
         [
@@ -219,6 +223,7 @@ class Works extends React.Component {
         "2019/2~2019/4"
       ),
       genWork(
+        "Produts",
         "ゆいブログ",
         ["resource/img/portfolio.png", "resource/img/web.png"],
         [{ name: "github", url: "http://github.com/Uynet/Uynet.github.io" }],
@@ -227,6 +232,7 @@ class Works extends React.Component {
         "2019/11"
       ),
       genWork(
+        "Produts",
         "ぱれっと倶楽部(制作中)",
         [
           "resource/img/pallet.png",
@@ -249,6 +255,7 @@ class Works extends React.Component {
         "2019/10~"
       ),
       genWork(
+        "Produts",
         "Polar Snow Fantasy",
         [
           "resource/img/po.png",
@@ -276,6 +283,7 @@ class Works extends React.Component {
     ];
     const tips = [
       genWork(
+        "Tips",
         "Thunder",
         ["resource/img/tips/thunder.gif"],
         [
@@ -294,6 +302,7 @@ class Works extends React.Component {
         "2019/11"
       ),
       genWork(
+        "Tips",
         "Sparkle",
         ["resource/img/tips/sparkle.gif"],
         [
@@ -312,6 +321,7 @@ class Works extends React.Component {
         "2019/11"
       ),
       genWork(
+        "Tips",
         "ゆれ画像メーカー",
         ["resource/img/tips/yure.mp4"],
         [{ name: "リンク", url: "http://yure.uynet.trap.show" }],
@@ -321,6 +331,7 @@ class Works extends React.Component {
       ),
 
       genWork(
+        "Tips",
         "四分木空間分割",
         ["resource/img/tips/quad.mp4"],
         [{ name: "動くもの", url: "http://quartenarytree.uynet.trap.show/" }],
@@ -329,6 +340,7 @@ class Works extends React.Component {
         "2019/07"
       ),
       genWork(
+        "Tips",
         "cartoon blur",
         ["resource/img/tips/cartoon1.gif", "resource/img/tips/cartoon2.mp4"],
         [{ name: "shadertoy", url: "https://www.shadertoy.com/view/3sB3zd" }],
@@ -337,6 +349,7 @@ class Works extends React.Component {
         "2019/02"
       ),
       genWork(
+        "Tips",
         "shelAnime",
         ["resource/img/tips/shellAnime.mp4"],
         [{ name: "gitHub", url: "github.com/Uynet/shelAnime" }],
@@ -345,6 +358,7 @@ class Works extends React.Component {
         "2019/01"
       ),
       genWork(
+        "Tips",
         "スマホ全天球VRするやつ",
         ["resource/img/artc.png"],
         [{ name: "リンク", url: "http://artc.uynet.trap.show" }],
@@ -353,6 +367,7 @@ class Works extends React.Component {
         "2018/06"
       ),
       genWork(
+        "Tips",
         "Raymarch",
         ["resource/img/raitracing.png"],
         [],
@@ -361,6 +376,7 @@ class Works extends React.Component {
         "2018/04"
       ),
       genWork(
+        "Tips",
         "花火",
         ["resource/img/tips/hanabi.mp4"],
         [
@@ -376,6 +392,7 @@ class Works extends React.Component {
     ];
     const sounds = [
       genWork(
+        "Sounds",
         "Immortal Flower",
         [
           "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318619255&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
@@ -386,6 +403,7 @@ class Works extends React.Component {
         "2017/2"
       ),
       genWork(
+        "Sounds",
         "yuki white",
         [
           "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/561866667&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
@@ -396,6 +414,7 @@ class Works extends React.Component {
         "2019/1"
       ),
       genWork(
+        "Sounds",
         "Stardust",
         [
           "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/559328304&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
@@ -406,6 +425,7 @@ class Works extends React.Component {
         "2018/04"
       ),
       genWork(
+        "Sounds",
         "さいはて洞窟",
         [
           "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/430954734&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
@@ -416,6 +436,7 @@ class Works extends React.Component {
         "2018/03"
       ),
       genWork(
+        "Sounds",
         "u_u..zZ",
         [
           "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633579576&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
@@ -426,6 +447,7 @@ class Works extends React.Component {
         "2017/11"
       ),
       genWork(
+        "Sounds",
         "月影",
         [
           "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/315878423&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
@@ -436,6 +458,7 @@ class Works extends React.Component {
         "2017/02"
       ),
       genWork(
+        "Sounds",
         "Immortal Qualia",
         [
           "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/657708683&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
