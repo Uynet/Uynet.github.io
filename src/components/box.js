@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import Tag from "./tag.js";
-import { main, font } from "../utils/colors.js";
+import { modalBG, main, font, accent } from "../utils/colors.js";
 import about from "./style/about.module.scss";
 
 const bio =
@@ -28,9 +28,14 @@ const s = {
     fontWeight: "bold"
   },
   content: {
+    //background: modalBG,
+    border: "dotted 3px " + accent,
     fontFamily: "honoka",
+    borderRadius: 12,
     fontSize: 15,
-    paddingLeft: 15
+    paddingLeft: 15,
+    paddingTop: 8,
+    paddingBottom: 8
   }
 };
 
@@ -132,13 +137,19 @@ class Box extends React.Component {
                   <br />
                   HTML/CSS/SCSS/React
                   <br />
-                  PIXI.JS/webGL/OpenGL/GLSL/Unity/
+                  PIXI.JS/webGL/OpenGL/GLSL/
                   <br />
                   Java/C++ vim
                   <br />
-                  {/*tags.map((tag, i) => {
-                    return <Tag key={i} name={tag} />;
-                  })*/}
+                </div>
+              </div>
+              <div className={this.props.classes.card}>
+                <div className={this.props.classes.title}>リンク</div>
+                <div className={this.props.classes.content}>
+                  <a href="https://www.pixiv.net/fanbox/creator/4180713">
+                    PIXIV FANBOX
+                  </a>
+                  <br />
                 </div>
               </div>
             </div>
