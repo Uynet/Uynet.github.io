@@ -408,7 +408,7 @@ class Works extends React.Component {
 
         [{ name: "Flythm", url: "https://flythm.trap.games" }],
         ["Sound"],
-        "Flythmに提供した星をイメージした楽曲。実は制作期間5日と短い。",
+        "Flythmに提供した星をイメージした楽曲。",
         "2018/04"
       ),
       genWork(

@@ -2,12 +2,21 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import Tag from "./tag.js";
-import { menubar, modalBG, main, font, accent, base } from "../utils/colors.js";
+import {
+  itemColor,
+  menubar,
+  menubar2,
+  modalBG,
+  main,
+  font,
+  accent,
+  base
+} from "../utils/colors.js";
 import about from "./style/about.module.scss";
 import Award from "./award.js";
 
 const bio =
-  "主にプログラミングで創作をしています。作曲、デザイン、ゲーム制作などが好きです。エンジニアというよりクリエータに近いかもしれません。";
+  "主にプログラミングで創作をしています。作曲、デザイン、ゲーム制作などが好きで、エンジニアというよりクリエータに近いです。3D技術やゲーム関連などに興味があります";
 const s = {
   frame: {
     // background: "#fff",
@@ -32,7 +41,7 @@ const s = {
     lineHeight: 1.4,
     //background: modalBG,
     //border: "dotted 3px " + accent,
-    fontFamily: "honoka",
+    //fontFamily: "honoka",
     borderRadius: 12,
     fontSize: 15,
     paddingLeft: 15
@@ -101,7 +110,7 @@ class Box extends React.Component {
                   image={"resource/img/dena.png"}
                   name={"DeNAサマーインターン2018/優勝"}
                   description={
-                    "ゲームエンジニアリングコースに参加し、3日間でゲーム開発を行いクオリティの高さを競った。"
+                    "3日間でゲーム開発を行いクオリティを競うゲームエンジニアリングコースのインターンで優勝"
                   }
                   link={"https://twitter.com/uynet/status/1034010674475585537"}
                 />
@@ -119,16 +128,71 @@ class Box extends React.Component {
                   <div>ピクシブ株式会社 選考インターン参加</div>
                 </div>
               </div>
+              など
             </div>
 
             <div className={this.props.classes.card}>
               <div className={this.props.classes.title}>できること</div>
               <div className={this.props.classes.content}>
-                ゲーム制作
-                <br />
-                webデザイン
-                <br />
-                作曲
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "auto 1fr",
+                    gridGap: 10
+                  }}
+                >
+                  <div
+                    style={{
+                      fontWeight: "bold",
+                      color: itemColor
+                    }}
+                  >
+                    ゲーム制作
+                  </div>
+                  <div>
+                    音楽だけやっていたころから含めると8年くらいゲーム制作に関わっています。表現やUXが得意ですが実はアーキテクチャを考えるのも好きです。
+                  </div>
+                  <div
+                    style={{
+                      fontWeight: "bold",
+                      color: itemColor
+                    }}
+                  >
+                    作曲
+                  </div>
+                  <div>
+                    Cubase10を使っています。9年くらいやっていて、ピアノが弾けます。作品は
+                    worksを参照
+                  </div>
+                  <div
+                    style={{
+                      fontWeight: "bold",
+                      color: itemColor
+                    }}
+                  >
+                    デザイン
+                  </div>
+                  <div>少なくともこんな感じのサイトが作れます。色が好き</div>
+                  <div
+                    style={{
+                      fontWeight: "bold",
+                      color: itemColor
+                    }}
+                  >
+                    3DCG(技術)
+                  </div>
+                  <div>
+                    レンダリングが研究分野で、グラフィックスパイプラインやシェーダの技術的な基礎知識があります。最近xR関連のバイトを始めました
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={this.props.classes.card}>
+              <div className={this.props.classes.title}>
+                言語/フレームワーク
+              </div>
+              <div className={this.props.classes.content}>
                 <br />
                 JavaScript/TypeScript/NodeJS/
                 <br />
@@ -136,9 +200,13 @@ class Box extends React.Component {
                 <br />
                 PIXI.JS/webGL/OpenGL/GLSL/
                 <br />
-                Java/C++ vim
+                Java/C++
                 <br />
               </div>
+            </div>
+            <div className={this.props.classes.card}>
+              <div className={this.props.classes.title}>エディタ</div>
+              <div className={this.props.classes.content}>vim / VSCODE</div>
             </div>
             <div className={this.props.classes.card}>
               <div className={this.props.classes.title}>リンク</div>
