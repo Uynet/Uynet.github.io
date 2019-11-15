@@ -246,6 +246,34 @@ class Box extends React.Component {
               </div>
             </div>
           </div>
+          <hr
+            style={{
+              border: "none",
+              margin: 20,
+              borderTop: "dashed 2px " + menubar2
+            }}
+          />
+          <div
+            style={{
+              fontWeight: "bold",
+              color: menubar2,
+              fontSize: 38,
+              margin: 10,
+              textAlign: "center",
+              fontFamily: "Nico Moji"
+            }}
+          >
+            RECRUIT
+          </div>
+          <div
+            style={{
+              textAlign: "center",
+              lineHeight: 1
+              //fontFamily: "honoka",
+            }}
+          >
+            就活中です。興味を持っていただいた方はcontactからご連絡くださると嬉しいです
+          </div>
         </div>
       </React.Fragment>
     );
