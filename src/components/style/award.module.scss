@@ -1,0 +1,42 @@
+@import "public/css/variables";
+
+.content {
+  color: $fontColor;
+  margin: 0px 5%;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn ease 0.5s 1.3s forwards;
+}
+.award {
+  border-radius: 12px;
+  position: relative;
+  padding: 4px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  background: $modalBG;
+}
+.image {
+  border-radius: 12px 12px 0px 0px;
+  object-fit: cover;
+  min-height: 150px;
+  background-size: cover;
+  background-position: center center;
+}
+.description {
+  border-radius: 12px;
+  padding: 8px;
+  position: relative;
+  z-index: 3;
+  color: $base;
+}
+.name {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px 12px 0px 0px;
+  line-height: 1.4;
+  padding: 8px;
+  position: relative;
+  z-index: 3;
+  color: $base;
+  float: bottom;
+  font-size: 25px;
+}

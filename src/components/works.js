@@ -565,7 +565,11 @@ class Works extends React.Component {
           products={this.state.sounds}
         />
         <div style={{ textAlign: "center", padding: 50 }}>
-          <a href="https://twitter.com/i/moments/981932201557114881">
+          <a
+            href="https://twitter.com/i/moments/981932201557114881"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             もっとみる
           </a>
         </div>

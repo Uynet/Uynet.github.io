@@ -180,7 +180,11 @@ class Contact extends React.Component {
                   </td>
                   <td></td>
                   <td className={contact.twitterAccount}>
-                    <a href="http://twitter.com/uynet">
+                    <a
+                      href="http://twitter.com/uynet"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FontAwesomeIcon icon={["fas", "at"]} />
                       uynet
                     </a>
