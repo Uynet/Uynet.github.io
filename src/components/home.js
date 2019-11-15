@@ -5,52 +5,33 @@ import {
   links as linksClass,
   link as linkClass
 } from "./style/home.module.scss";
-//import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BGEffect from "./BGEffect.js";
-/*
-import {
-  //screenOverLay,
-  animateSlideDown,
-  animateSlideRight,
-  animateSlideUp,
-  animateSlideLeft
-} from "./style/effects.module.scss";
-
-*/
-
-const s = {};
-
-/*
-function genStyle(color, delay) {
-  delay += "s";
-  return {
-    background: color,
-    animationDelay: delay,
-    animationDuration: "2.5s"
-  };
-}
-*/
+import { itemColor, main } from "../utils/colors.js";
+const s = {
+  logoSubText: {
+    color: main,
+    fontSize: 16,
+    position: "absolute",
+    top: "60%",
+    left: "3%",
+    margin: "auto",
+    fontFamily: "honoka"
+  }
+};
 
 const genLink = (name, url) => {
   return { name: name, url: url };
 };
 
 class Home extends React.Component {
+  componentDidMount() {
+    document.body.classList.add("no-scroll");
+  }
+  componentWillUnmount() {
+    document.body.classList.remove("no-scroll");
+  }
   render() {
-    //const colors = [hilight, accent, main, base];
-    // const colors = ["#ea9090"];
-    /*
-    const animate = [
-      animateSlideDown,
-      animateSlideLeft,
-      animateSlideUp,
-      animateSlideRight
-    ];
-    let sec = 0.0;
-    let v = 0.3;
-   */
-
     const links = [
       genLink("github", "http://github.com/Uynet"),
       genLink("twitter", "http://twitter.com/uynet"),
@@ -60,32 +41,6 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <BGEffect />
-
-        {/*colors.map((c, i) => {
-          sec += v;
-          return (
-            <div
-              key={i}
-              className={classNames(screenOverLay, animate[0])}
-              style={genStyle(c, sec)}
-            >
-              <div
-                style={{
-                  top: "50%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  position: "absolute",
-                  margin: "auto",
-                  color: "#fff",
-                  fontFamily: "Nico Moji",
-                  fontSize: 40
-                }}
-              >
-                LOADING...
-              </div>
-            </div>
-          );
-        })*/}
 
         <div className={logo}>ゆいブログ</div>
         <img

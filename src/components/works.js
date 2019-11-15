@@ -228,7 +228,7 @@ class Works extends React.Component {
         ["resource/img/portfolio.png", "resource/img/web.png"],
         [{ name: "github", url: "http://github.com/Uynet/Uynet.github.io" }],
         ["Web", "Design"],
-        "このサイト。三代目で、初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
+        "このサイト。配色とアニメーションが好きなのでカラフルでよく動くサイトにしました。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
         "2019/11"
       ),
       genWork(
@@ -408,7 +408,7 @@ class Works extends React.Component {
 
         [{ name: "Flythm", url: "https://flythm.trap.games" }],
         ["Sound"],
-        "Flythmに提供した楽曲。実は制作期間5日と短い。",
+        "Flythmに提供した星をイメージした楽曲。実は制作期間5日と短い。",
         "2018/04"
       ),
       genWork(
