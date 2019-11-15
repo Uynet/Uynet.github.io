@@ -7,6 +7,7 @@ import Contact from "./contact.js";
 import Blog from "./blog.js";
 import Menubar from "./menubar.js";
 import Hamberger from "./hambarger.js";
+import LoadAll from "./loadAll.js";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -26,14 +27,17 @@ class App extends React.Component {
       path === "/#/works" ||
       path === "/#/contact" ||
       path === "/#/blog";
-    this.state = { path: path };
+    this.state = { path: path, onLoading: true };
     this.menubar = React.createRef();
     this.hambar = React.createRef();
-    console.log(k);
     if (!k) {
       window.location.assign("/");
     }
   }
+  onLoadCompleted = () => {
+    console.log("conm");
+    this.setState({ onLoading: false });
+  };
   toggleMenubar = path => {
     this.menubar.current.toggleOpen();
     this.hambar.current.toggleOpen();
@@ -48,8 +52,6 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Hamberger ref={this.hambar} onClick={this.toggleMenubar} />
-        <Menubar ref={this.menubar} update={this.toggleMenubar} />
         {/*
           <Router>
             <Switch>
@@ -60,11 +62,19 @@ class App extends React.Component {
             </Switch>
           </Router>
         */}
-        {this.state.path === "/#/" && <Home />}
-        {this.state.path === "/#/about" && <About />}
-        {this.state.path === "/#/works" && <Works />}
-        {this.state.path === "/#/contact" && <Contact />}
-        {this.state.path === "/#/blog" && <Blog />}
+        {this.state.onLoading ? (
+          <LoadAll onLoadCompleted={this.onLoadCompleted} />
+        ) : (
+          <>
+            <Hamberger ref={this.hambar} onClick={this.toggleMenubar} />
+            <Menubar ref={this.menubar} update={this.toggleMenubar} />
+            {this.state.path === "/#/" && <Home />}
+            {this.state.path === "/#/about" && <About />}
+            {this.state.path === "/#/works" && <Works />}
+            {this.state.path === "/#/contact" && <Contact />}
+            {this.state.path === "/#/blog" && <Blog />}
+          </>
+        )}
       </React.Fragment>
     );
   }

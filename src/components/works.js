@@ -37,7 +37,7 @@ const customStylesSp = {
     overflowY: "auto",
     overscrollBehavior: "none",
     background: modalBG,
-    //WebkitOverflowScrolling: "touch",
+    WebkitOverflowScrolling: "auto",
     padding: 0,
     borderRadius: 0
   },
@@ -70,7 +70,7 @@ const customStyles = {
     maxWidth: "100vh",
     minWidth: 250,
     height: "88%",
-    //WebkitOverflowScrolling: "touch",
+    WebkitOverflowScrolling: "auto",
     padding: 0,
     borderRadius: 16,
     overscrollBehavior: "none",
@@ -150,12 +150,12 @@ class Works extends React.Component {
       displayingWork: work,
       isFirstTime: false
     });
-    window.document.body.classList.toggle("no-scroll");
+    //window.document.body.classList.toggle("no-scroll");
   };
   afterOpenModal = () => {};
   closeModal = () => {
     this.setState({ modalIsOpen: false, displayingWork: null });
-    window.document.body.classList.toggle("no-scroll");
+    //window.document.body.classList.toggle("no-scroll");
   };
   genWorks = () => {
     const products = [

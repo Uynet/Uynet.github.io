@@ -149,7 +149,7 @@ class Contact extends React.Component {
           <div className={this.props.classes.underLine2}></div>
         </div>
         <div className={contact.content}>
-          何かありましたらメールもしくはTwitterまでご連絡ください
+          何かありましたらメールもしくはTwitterまで
           <div style={{ margin: "5% 0px" }}>
             <table style={{ margin: "auto", left: 0, right: 0 }}>
               <tbody>
