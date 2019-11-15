@@ -8,6 +8,7 @@ import { menubar, accent, modalBG, base, menubar2 } from "../utils/colors.js";
 import { linkClass } from "./style/modal.module.scss";
 import { footer, deleteIcon, goNext, goPrev } from "./style/modal.module.scss";
 import modal from "./style/modal.module.scss";
+import { textAlign } from "@material-ui/system";
 
 const s = {};
 const threshold = 80;
@@ -149,7 +150,8 @@ class WorkModal extends React.Component {
             {
               <div
                 style={{
-                  width: "100vw"
+                  width: "100vw",
+                  textAlign: "center"
                 }}
               >
                 <FontAwesomeIcon
