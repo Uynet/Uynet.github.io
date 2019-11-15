@@ -63,7 +63,12 @@ class App extends React.Component {
           </Router>
         */}
         {this.state.onLoading ? (
-          <LoadAll onLoadCompleted={this.onLoadCompleted} />
+          <LoadAll
+            style={{
+              overflow: "hidden"
+            }}
+            onLoadCompleted={this.onLoadCompleted}
+          />
         ) : (
           <>
             <Hamberger ref={this.hambar} onClick={this.toggleMenubar} />

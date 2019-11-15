@@ -44,6 +44,7 @@ function genStyle(color, delay) {
   delay += "s";
   return {
     opacity: 1.0,
+    overflow: "hidden",
     zIndex: 200,
     background: color,
     animationDelay: delay,
@@ -58,18 +59,21 @@ class LoadAll extends React.Component {
     this.state = { index: 0 };
   }
   componentDidMount = () => {
+    document.body.classList.add("no-scroll");
     setTimeout(this.loadNext, 500);
   };
   onLoadingAnimationEnd = () => {
+    document.body.classList.remove("no-scroll");
     setTimeout(this.props.onLoadCompleted, 0);
   };
   loadNext = () => {
+    document.body.classList.add("no-scroll"); //homeがremoveしてしまうのでここにも
     this.setState({ index: this.state.index + 1 });
     if (this.state.index < 5)
       setTimeout(this.loadNext, loadtime[this.state.index - 1]);
   };
   render() {
-    const colors = ["#609080", menubar2, font];
+    const colors = ["#909040", menubar2, font];
     //const colors = [];
     const animate = [
       animateSlideDown,
@@ -86,6 +90,7 @@ class LoadAll extends React.Component {
         <div
           className={classNames(screenOverLay, animate[0])}
           style={{
+            overflow: "hidden",
             opacity: 1,
             zIndex: 1,
             background: main,

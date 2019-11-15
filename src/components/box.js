@@ -5,17 +5,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { main, font } from "../utils/colors.js";
 import about from "./style/about.module.scss";
 
-const bio = "主に創作をしています。作曲、デザイン、ゲーム制作などが好きです";
+const bio =
+  "主にプログラミングで創作をしています。作曲、デザイン、ゲーム制作などが好きです。エンジニアというよりクリエータに近いかもしれません。";
 const s = {
   frame: {
     // background: "#fff",
     margin: "0px 10%",
     textAlign: "left",
     display: "inline-block",
+    poasition: "relative",
     color: font
   },
   card: {
     opacity: 0,
+    width: "80vw",
     padding: "20px 0px",
     animation: "fadeIn  ease 0.6s forwards"
   },
@@ -119,13 +122,20 @@ class Box extends React.Component {
               <div className={this.props.classes.card}>
                 <div className={this.props.classes.title}>できること</div>
                 <div className={this.props.classes.content}>
-                  ゲーム制作<br></br>
-                  webデザイン<br></br>
-                  作曲<br></br>
-                  JavaScript<br></br>
-                  React<br></br>
-                  webGL<br></br>
-                  vim<br></br>
+                  ゲーム制作
+                  <br />
+                  webデザイン
+                  <br />
+                  作曲
+                  <br />
+                  JavaScript/TypeScript/NodeJS/
+                  <br />
+                  HTML/CSS/SCSS/React
+                  <br />
+                  PIXI.JS/webGL/OpenGL/GLSL/Unity/
+                  <br />
+                  Java/C++ vim
+                  <br />
                   {/*tags.map((tag, i) => {
                     return <Tag key={i} name={tag} />;
                   })*/}
