@@ -8,6 +8,7 @@ import Contact from "./contact.js";
 import {
   modalBG,
   menubar2,
+  BGCircle,
   menubar,
   hilight,
   itemColor,
@@ -50,7 +51,7 @@ function genStyle(color, delay) {
   };
 }
 
-const loadtime = [500, 500, 3000, 1000, 0];
+const loadtime = [1, 1, 5000, 1, 0];
 class LoadAll extends React.Component {
   constructor(props) {
     super(props);
@@ -68,7 +69,7 @@ class LoadAll extends React.Component {
       setTimeout(this.loadNext, loadtime[this.state.index - 1]);
   };
   render() {
-    const colors = [itemColor, menubar2, font];
+    const colors = ["#609080", menubar2, font];
     //const colors = [];
     const animate = [
       animateSlideDown,
