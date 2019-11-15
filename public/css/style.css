@@ -25,7 +25,8 @@ body {
   /*-webkit-animation: fadeIn 2s ease 0s 1 normal;*/ }
 
 body.no-scroll {
-  overflow: hidden; }
+  overflow: hidden;
+  touch-action: none; }
 
 body.no-scrollLoading {
   position: fixed;

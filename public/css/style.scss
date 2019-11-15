@@ -39,6 +39,7 @@ body {
 body.no-scroll {
   //position: fixed;
   overflow: hidden;
+  touch-action: none;
 }
 body.no-scrollLoading {
   position: fixed;

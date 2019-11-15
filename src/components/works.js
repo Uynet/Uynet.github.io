@@ -465,7 +465,9 @@ class Works extends React.Component {
     });
   };
   render() {
-    const frameClass = worksClass.frame;
+    const frameClass = this.state.modalIsOpen
+      ? worksClass.frameFixed
+      : worksClass.frame;
     return (
       <React.Fragment>
         <BGEffect />
