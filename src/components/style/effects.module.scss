@@ -61,9 +61,14 @@
     height: 0vh;
     width: 100vw;
   }
-  100% {
+  50% {
     top: 0vh;
     height: 100vh;
+    width: 100vw;
+  }
+  100% {
+    top: 0vh;
+    height: 0vh;
     width: 100vw;
   }
 }
@@ -72,8 +77,14 @@
     width: 0vw;
     height: 100vw;
   }
-  100% {
+  50% {
+    left: 0%;
     width: 100vw;
+    height: 100vw;
+  }
+  100% {
+    left: 100%;
+    width: 0vw;
     height: 100vw;
   }
 }

@@ -5,7 +5,17 @@ import Home from "./home.js";
 import About from "./about.js";
 import Works from "./works.js";
 import Contact from "./contact.js";
-import { hilight, accent, main, base } from "../utils/colors.js";
+import {
+  modalBG,
+  menubar2,
+  menubar,
+  hilight,
+  itemColor,
+  font,
+  accent,
+  main,
+  base
+} from "../utils/colors.js";
 //import Blog from "./blog.js";
 import {
   screenOverLay,
@@ -22,6 +32,7 @@ const s = {
     transform: "translateX(-50%)",
     position: "absolute",
     margin: "auto",
+    zIndex: 500,
     color: "#fff",
     fontFamily: "Nico Moji",
     fontSize: 40
@@ -31,10 +42,11 @@ const s = {
 function genStyle(color, delay) {
   delay += "s";
   return {
-    opacity: 0.5,
+    opacity: 1.0,
+    zIndex: 200,
     background: color,
     animationDelay: delay,
-    animationDuration: "5.0s"
+    animationDuration: "2.0s"
   };
 }
 
@@ -56,7 +68,7 @@ class LoadAll extends React.Component {
       setTimeout(this.loadNext, loadtime[this.state.index - 1]);
   };
   render() {
-    const colors = [main];
+    const colors = [itemColor, menubar2, font];
     //const colors = [];
     const animate = [
       animateSlideDown,
@@ -65,29 +77,40 @@ class LoadAll extends React.Component {
       animateSlideRight
     ];
     let sec = 0.0;
-    let v = 0.3;
+    let v = 0.8;
 
     return (
       <React.Fragment>
+        <div className={this.props.classes.loadingtext}>LOADING...</div>
+        <div
+          className={classNames(screenOverLay, animate[0])}
+          style={{
+            opacity: 1,
+            zIndex: 1,
+            background: main,
+            animationDelay: 0,
+            animationDuration: "5.0s"
+          }}
+          onAnimationEnd={this.onLoadingAnimationEnd}
+        />
         {colors.map((c, i) => {
           sec += v;
           return (
             <div
               key={i}
-              className={classNames(screenOverLay, animate[0])}
+              className={classNames(screenOverLay, animate[2])}
               style={genStyle(c, sec)}
-              onAnimationEnd={this.onLoadingAnimationEnd}
-            >
-              <div className={this.props.classes.loadingtext}>LOADING...</div>
-            </div>
+            ></div>
           );
         })}
-        <div style={{ opacity: 1 }}>
-          {this.state.index === 1 && <Home />}
-          {this.state.index === 2 && <About />}
-          {this.state.index === 3 && <Works />}
-          {this.state.index === 4 && <Contact />}
-        </div>
+        {
+          <div style={{ opacity: 0 }}>
+            {this.state.index === 1 && <Home />}
+            {this.state.index === 2 && <About />}
+            {this.state.index === 3 && <Works />}
+            {this.state.index === 4 && <Contact />}
+          </div>
+        }
       </React.Fragment>
     );
   }
