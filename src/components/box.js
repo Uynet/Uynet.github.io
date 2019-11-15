@@ -263,7 +263,7 @@ class Box extends React.Component {
               fontFamily: "Nico Moji"
             }}
           >
-            RECRUIT
+            JOB HUNTING
           </div>
           <div
             style={{
