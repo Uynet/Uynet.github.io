@@ -228,7 +228,7 @@ class Works extends React.Component {
         ["resource/img/portfolio.png", "resource/img/web.png"],
         [{ name: "github", url: "http://github.com/Uynet/Uynet.github.io" }],
         ["Web", "Design"],
-        "ポートフォリオをつくりたい。初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
+        "このサイト。三代目で、初代はvue,今はReactで作り直したもの。画像2枚目は初代バージョンの背景で、絵も自作です。そういえばブログではない",
         "2019/11"
       ),
       genWork(
@@ -304,7 +304,7 @@ class Works extends React.Component {
       genWork(
         "Tips",
         "Sparkle",
-        ["resource/img/tips/sparkle.gif"],
+        ["resource/img/tips/sparkle.gif", "resource/img/tips/hanabi.mp4"],
         [
           {
             name: "NEORT",
@@ -359,11 +359,11 @@ class Works extends React.Component {
       ),
       genWork(
         "Tips",
-        "スマホ全天球VRするやつ",
-        ["resource/img/artc.png"],
+        "全天球VR",
+        ["resource/img/artc.png", "resource/img/tips/artc2.mp4"],
         [{ name: "リンク", url: "http://artc.uynet.trap.show" }],
         ["CG"],
-        "スマホの重力センサと全天球画像を使ってVRっぽいことをするアプリ。もともとは文系講義の作品課題で、初めて使うwebGLで悪戦苦闘しながら作った。浮かんでいるキューブをタップするとシーンが遷移する",
+        "スマホの重力センサと全天球画像を使ってVRっぽいことをするアプリ。背景に板ポリを置いていて、スマホの重力センサから視線ベクトルを計算してテクスチャマッピングしている。ともともとは文系講義で「ファンタジーな道具をプレゼンする」みたいな作品課題が出された時、初めてのwebGLで作れるギリギリの技術力の中で「ワープゲート」を悪戦苦闘しながら表現したもの。浮かんでいるキューブをタップするとシーンが遷移する",
         "2018/06"
       ),
       genWork(
@@ -374,20 +374,6 @@ class Works extends React.Component {
         ["CG"],
         "CGの研究室に入る前に入門しておいた。fragment一枚で描く簡単なもの。屈折、反射までやった",
         "2018/04"
-      ),
-      genWork(
-        "Tips",
-        "花火",
-        ["resource/img/tips/hanabi.mp4"],
-        [
-          {
-            name: "リンク",
-            url: "https://uynet.github.io/src/Product/e1g/e1g1/"
-          }
-        ],
-        ["canvas"],
-        "結構お気に入りのパーティクルエフェクト",
-        "2016/08"
       )
     ];
     const sounds = [
@@ -419,7 +405,8 @@ class Works extends React.Component {
         [
           "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/559328304&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
         ],
-        [[{ name: "Flythm", url: "https://flythm.trap.games" }]],
+
+        [{ name: "Flythm", url: "https://flythm.trap.games" }],
         ["Sound"],
         "Flythmに提供した楽曲。実は制作期間5日と短い。",
         "2018/04"
