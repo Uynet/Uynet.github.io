@@ -129,6 +129,8 @@ class WorkModal extends React.Component {
           </div>
         </MediaQuery>
         <MediaQuery query="(max-width: 429px)">
+          <div className={modal.header}>{name}</div>
+          <div style={{ height: 42 /*height + paddingTop */ }} />
           <div className={deleteIcon} onClick={this.props.close}>
             <div style={{ position: "relative" }}>
               {
