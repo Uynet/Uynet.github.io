@@ -57,17 +57,17 @@ class LoadAll extends React.Component {
   constructor(props) {
     super(props);
     this.state = { index: 0 };
-    document.body.classList.add("no-scroll");
+    document.body.classList.add("no-scrollLoading");
   }
   componentDidMount = () => {
     setTimeout(this.loadNext, 500);
   };
   onLoadingAnimationEnd = () => {
-    document.body.classList.remove("no-scroll");
+    document.body.classList.remove("no-scrollLoading");
     setTimeout(this.props.onLoadCompleted, 0);
   };
   loadNext = () => {
-    if (this.state.index === 2) document.body.classList.add("no-scroll"); //homeがremoveしてしまうのでここにも
+    if (this.state.index === 2) document.body.classList.add("no-scrollLoading"); //homeがremoveしてしまうのでここにも
     this.setState({ index: this.state.index + 1 });
     if (this.state.index < 4)
       setTimeout(this.loadNext, loadtime[this.state.index - 1]);

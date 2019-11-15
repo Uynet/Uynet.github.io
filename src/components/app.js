@@ -35,7 +35,6 @@ class App extends React.Component {
     }
   }
   onLoadCompleted = () => {
-    console.log("conm");
     this.setState({ onLoading: false });
   };
   toggleMenubar = path => {

@@ -26,10 +26,10 @@ const genLink = (name, url) => {
 
 class Home extends React.Component {
   componentDidMount() {
-    document.body.classList.add("no-scroll");
+    document.body.classList.add("no-scrollLoading");
   }
   componentWillUnmount() {
-    document.body.classList.remove("no-scroll");
+    document.body.classList.remove("no-scrollLoading");
   }
   render() {
     const links = [
