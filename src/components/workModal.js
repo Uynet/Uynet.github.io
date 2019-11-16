@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Hammer from "react-hammerjs"; //スワイプ検出
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 
 import MediaQuery from "react-responsive";
 import { menubar, accent, modalBG, base, menubar2 } from "../utils/colors.js";
@@ -21,6 +22,14 @@ class WorkModal extends React.Component {
     super(props);
     this.ref = React.createRef();
     this.state = { imgLoc: 0, onHover: false, deltaX: 0 };
+  }
+  componentDidMount() {
+    const modal = document.querySelector(".modal_modal__TTJeR");
+    console.log(modal);
+    disableBodyScroll(modal);
+  }
+  componentWillUnmount() {
+    clearAllBodyScrollLocks();
   }
   handleClick = e => {
     this.ref.current.toggleOpen();
@@ -129,8 +138,8 @@ class WorkModal extends React.Component {
           </div>
         </MediaQuery>
         <MediaQuery query="(max-width: 429px)">
-          <div className={modal.header}>{name}</div>
-          <div style={{ height: 42 /*height + paddingTop */ }} />
+          {/*<div className={modal.header}></div>
+          <div style={{ height: 42} />*/}
           <div className={deleteIcon} onClick={this.props.close}>
             <div style={{ position: "relative" }}>
               {
@@ -147,41 +156,6 @@ class WorkModal extends React.Component {
                 />
               }
             </div>
-          </div>
-          <div className={footer}>
-            {
-              <div
-                style={{
-                  width: "100vw",
-                  textAlign: "center"
-                }}
-              >
-                <FontAwesomeIcon
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    bottom: 0,
-                    margin: "auto",
-                    color: base,
-                    left: "5%"
-                  }}
-                  onClick={this.goPrev}
-                  icon={["fas", "less-than"]}
-                />
-                <FontAwesomeIcon
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    bottom: 0,
-                    margin: "auto",
-                    color: base,
-                    right: "5%"
-                  }}
-                  onClick={this.goNext}
-                  icon={["fas", "greater-than"]}
-                />
-              </div>
-            }
           </div>
         </MediaQuery>
         <Hammer
@@ -255,8 +229,43 @@ class WorkModal extends React.Component {
                   );
                 })}
               </div>
-              <div style={{ height: 32 }} />
             </div>
+            <div className={footer}>
+              {
+                <div
+                  style={{
+                    width: "100vw",
+                    textAlign: "center"
+                  }}
+                >
+                  <FontAwesomeIcon
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      margin: "auto",
+                      color: base,
+                      left: 30
+                    }}
+                    onClick={this.goPrev}
+                    icon={["fas", "less-than"]}
+                  />
+                  <FontAwesomeIcon
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      margin: "auto",
+                      color: base,
+                      right: 30
+                    }}
+                    onClick={this.goNext}
+                    icon={["fas", "greater-than"]}
+                  />
+                </div>
+              }
+            </div>
+            <div style={{ height: 64 }} />
           </div>
         </Hammer>
       </React.Fragment>
