@@ -19,6 +19,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: #fffdf8;
+  overflow: auto;
   height: 100%;
   width: 100%;
   margin: 0;
