@@ -183,7 +183,7 @@ const Clip = props => {
         borderRadius: 12,
         opacity: 0,
         animation: "fadeIn ease 1.0s forwards",
-        animationDelay: 1.3 + index / 10 + "s",
+        animationDelay: 0.0 + index / 10 + "s",
         position: "relative",
         display: "inline-block",
         cursor: "pointer",

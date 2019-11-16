@@ -262,9 +262,7 @@ class Box extends React.Component {
               textAlign: "center",
               fontFamily: "Nico Moji"
             }}
-          >
-            JOB HUNTING
-          </div>
+          ></div>
           <div
             style={{
               textAlign: "center",
@@ -272,7 +270,7 @@ class Box extends React.Component {
               //fontFamily: "honoka",
             }}
           >
-            就活中です。興味を持っていただいた方はcontactからご連絡くださると嬉しいです
+            就活してます
           </div>
         </div>
       </React.Fragment>

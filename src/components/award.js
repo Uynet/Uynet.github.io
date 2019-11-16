@@ -26,7 +26,6 @@ class Award extends React.Component {
             >
               <div className={award.name}>{name}</div>
             </div>
-            <div className={award.description}>{description}</div>
           </a>
         </div>
       </React.Fragment>

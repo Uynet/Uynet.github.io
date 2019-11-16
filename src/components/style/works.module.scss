@@ -8,19 +8,17 @@
 }
 .frame {
   text-align: center;
-  opacity: 0;
   color: $fontColor;
   overflow: hidden;
-  animation: fadeIn ease 0.6s forwards;
+  ///animation: fadeIn ease 0.6s forwards;
 }
 .frameFixed {
   text-align: center;
-  opacity: 0;
   pointer-events: none;
   touch-action: none;
   color: $fontColor;
   overflow: hidden;
-  animation: fadeIn ease 0.6s forwards;
+  //animation: fadeIn ease 0.6s forwards;
 }
 .header {
   position: absolute;

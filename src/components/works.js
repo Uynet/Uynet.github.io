@@ -120,6 +120,9 @@ class Works extends React.Component {
       isFirstTime: true,
       modalIsOpen: false,
       displayingWork: null,
+      openedProducts: false,
+      openedTips: false,
+      openedSounds: false,
       products: [],
       tips: [],
       sounds: [],
@@ -463,7 +466,31 @@ class Works extends React.Component {
       sounds: sounds,
       allWorks: [...products, ...tips, ...sounds]
     });
+    window.addEventListener(
+      "scroll",
+      event => this.watchCurrentPosition(),
+      true
+    );
+    setTimeout(_ => {
+      this.setState({ openedProducts: true });
+    }, 1300);
   };
+  componentWillUnmount() {
+    //window.removeEventListener("scroll", this);
+  }
+
+  scrollTop() {
+    return Math.max(
+      window.pageYOffset,
+      document.documentElement.scrollTop,
+      document.body.scrollTop
+    );
+  }
+  watchCurrentPosition = () => {
+    if (this.scrollTop() > 400) this.setState({ openedTips: true });
+    if (this.scrollTop() > 1400) this.setState({ openedSounds: true });
+  };
+  underLineAnimationEnd = () => {};
   render() {
     const frameClass = this.state.modalIsOpen
       ? worksClass.frameFixed
@@ -535,37 +562,55 @@ class Works extends React.Component {
           <div className={worksClass.underLine2}></div>
           <div className={worksClass.desc}>主な制作物</div>
         </div>
-        <Products
-          modalIsOpen={this.state.modalIsOpen}
-          isFirstTime={this.state.isFirstTime}
-          handleClick={this.handleClick}
-          frameClass={frameClass}
-          products={this.state.products}
-        />
-        <div className={worksClass.category}>
-          <div className={worksClass.categoryString}>Tips</div>
-          <div className={worksClass.underLine2}></div>
-          <div className={worksClass.desc}>諸々</div>
-        </div>
-        <Products
-          modalIsOpen={this.state.modalIsOpen}
-          isFirstTime={this.state.isFirstTime}
-          handleClick={this.handleClick}
-          frameClass={frameClass}
-          products={this.state.tips}
-        />
-        <div className={worksClass.category}>
-          <div className={worksClass.categoryString}>Sounds</div>
-          <div className={worksClass.underLine2}></div>
-          <div className={worksClass.desc}>音楽</div>
-        </div>
-        <Products
-          modalIsOpen={this.state.modalIsOpen}
-          isFirstTime={this.state.isFirstTime}
-          handleClick={this.handleClick}
-          frameClass={frameClass}
-          products={this.state.sounds}
-        />
+        {this.state.openedProducts ? (
+          <>
+            <Products
+              modalIsOpen={this.state.modalIsOpen}
+              isFirstTime={this.state.isFirstTime}
+              handleClick={this.handleClick}
+              frameClass={frameClass}
+              products={this.state.products}
+            />
+          </>
+        ) : (
+          <div style={{ height: 333 }} />
+        )}
+        {this.state.openedTips ? (
+          <>
+            <div className={worksClass.category}>
+              <div className={worksClass.categoryString}>Tips</div>
+              <div className={worksClass.underLine2}></div>
+              <div className={worksClass.desc}>諸々</div>
+            </div>
+            <Products
+              modalIsOpen={this.state.modalIsOpen}
+              isFirstTime={this.state.isFirstTime}
+              handleClick={this.handleClick}
+              frameClass={frameClass}
+              products={this.state.tips}
+            />
+          </>
+        ) : (
+          <div style={{ height: 200 }} />
+        )}
+        {this.state.openedSounds ? (
+          <>
+            <div className={worksClass.category}>
+              <div className={worksClass.categoryString}>Sounds</div>
+              <div className={worksClass.underLine2}></div>
+              <div className={worksClass.desc}>音楽</div>
+            </div>
+            <Products
+              modalIsOpen={this.state.modalIsOpen}
+              isFirstTime={this.state.isFirstTime}
+              handleClick={this.handleClick}
+              frameClass={frameClass}
+              products={this.state.sounds}
+            />
+          </>
+        ) : (
+          <div style={{ height: 200 }} />
+        )}
         <div style={{ textAlign: "center", padding: 50 }}>
           <a
             href="https://twitter.com/i/moments/981932201557114881"
