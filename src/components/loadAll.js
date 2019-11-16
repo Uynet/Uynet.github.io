@@ -48,7 +48,7 @@ function genStyle(color, delay) {
     zIndex: 200,
     background: color,
     animationDelay: delay,
-    animationDuration: "2.0s"
+    animationDuration: "1.0s"
   };
 }
 
@@ -73,7 +73,18 @@ class LoadAll extends React.Component {
       setTimeout(this.loadNext, loadtime[this.state.index - 1]);
   };
   render() {
-    const colors = ["#909040", menubar2, font];
+    const colors = [
+      //"#909040",
+      //"#d0b060",
+      "#a080d0",
+      "#e070a0",
+      menubar2,
+      "#a0c030"
+      /*
+      menubar,
+      font,
+      */
+    ];
     //const colors = [];
     const animate = [
       animateSlideDown,
@@ -82,7 +93,7 @@ class LoadAll extends React.Component {
       animateSlideRight
     ];
     let sec = 0.0;
-    let v = 0.8;
+    let v = 0.4;
 
     return (
       <React.Fragment>
@@ -95,7 +106,7 @@ class LoadAll extends React.Component {
             zIndex: 1,
             background: main,
             animationDelay: 0,
-            animationDuration: "5.0s"
+            animationDuration: "3s"
           }}
           onAnimationEnd={this.onLoadingAnimationEnd}
         />
@@ -111,10 +122,12 @@ class LoadAll extends React.Component {
         })}
         {
           <div style={{ opacity: 0 }}>
+            {/*
             {this.state.index === 1 && <Home />}
             {this.state.index === 2 && <About />}
             {this.state.index === 3 && <Works />}
             {this.state.index === 4 && <Contact />}
+           */}
           </div>
         }
       </React.Fragment>

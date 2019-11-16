@@ -27,7 +27,7 @@ class App extends React.Component {
       path === "/#/works" ||
       path === "/#/contact" ||
       path === "/#/blog";
-    this.state = { path: path, onLoading: false };
+    this.state = { path: path, onLoading: true };
     this.menubar = React.createRef();
     this.hambar = React.createRef();
     if (!k) {
