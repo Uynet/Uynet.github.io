@@ -122,6 +122,7 @@ class LoadAll extends React.Component {
         })}
         {
           <div style={{ opacity: 0 }}>
+            <About />
             {/*
             {this.state.index === 1 && <Home />}
             {this.state.index === 2 && <About />}
