@@ -8,6 +8,7 @@
   animation: fadeIn ease 0.5s 1.3s forwards;
 }
 .award {
+  width: 100%;
   border-radius: 12px;
   position: relative;
   padding: 4px;
@@ -19,7 +20,7 @@
   background: $modalBG;
 }
 .image {
-  border-radius: 12px 12px 0px 0px;
+  border-radius: 12px;
   object-fit: cover;
   min-height: 150px;
   background-size: cover;

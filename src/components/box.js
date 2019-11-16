@@ -24,20 +24,26 @@ const s = {
     textAlign: "left",
     display: "inline-block",
     poasition: "relative",
+    maxWidth: 800,
     color: font
   },
   card: {
     opacity: 0,
-    width: "80vw",
+    position: "relative",
+    width: "100%",
     padding: "20px 0px",
     animation: "fadeIn  ease 0.6s forwards"
   },
   title: {
     color: main,
     fontSize: 24,
+    position: "relative",
+    width: "100%",
     fontWeight: "bold"
   },
   content: {
+    position: "relative",
+    width: "100%",
     lineHeight: 1.4,
     //background: modalBG,
     //border: "dotted 3px " + accent,
@@ -62,8 +68,7 @@ class Box extends React.Component {
             style={{
               opacity: 0,
               animation: "fadeIn  ease 0.6s forwards",
-              animationDelay: this.getDelay(),
-              width: "80vw"
+              animationDelay: this.getDelay()
             }}
           >
             <div className={this.props.classes.card}>
@@ -127,8 +132,8 @@ class Box extends React.Component {
                   </div>
                   <div>ピクシブ株式会社 選考インターン参加</div>
                 </div>
+                など
               </div>
-              など
             </div>
 
             <div className={this.props.classes.card}>
