@@ -55,7 +55,6 @@ class Tag extends React.Component {
     this.setState({ onHover: false });
   };
   render() {
-    console.log(this.props.link);
     return (
       <React.Fragment>
         <div

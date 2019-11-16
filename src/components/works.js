@@ -488,7 +488,7 @@ class Works extends React.Component {
   }
   watchCurrentPosition = () => {
     if (this.scrollTop() > 400) this.setState({ openedTips: true });
-    if (this.scrollTop() > 1400) this.setState({ openedSounds: true });
+    if (this.scrollTop() > 1300) this.setState({ openedSounds: true });
   };
   underLineAnimationEnd = () => {};
   render() {
@@ -573,7 +573,7 @@ class Works extends React.Component {
             />
           </>
         ) : (
-          <div style={{ height: 400 }} />
+          <div style={{ height: 600 }} />
         )}
         {this.state.openedTips ? (
           <>
@@ -609,7 +609,7 @@ class Works extends React.Component {
             />
           </>
         ) : (
-          <div style={{ height: 200 }} />
+          <div style={{ height: 600 }} />
         )}
         <div style={{ textAlign: "center", padding: 50 }}>
           <a

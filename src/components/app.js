@@ -20,7 +20,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     let path = "/#/" + window.location.href.split("/").pop();
-    console.log(path);
     const k =
       path === "/#/" ||
       path === "/#/about" ||

@@ -15,7 +15,6 @@ class Award extends React.Component {
   };
   render() {
     const { name, description, image, link } = this.props;
-    console.log(link);
     return (
       <React.Fragment>
         <div className={award.award}>
