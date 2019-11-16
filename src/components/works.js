@@ -573,7 +573,7 @@ class Works extends React.Component {
             />
           </>
         ) : (
-          <div style={{ height: 333 }} />
+          <div style={{ height: 400 }} />
         )}
         {this.state.openedTips ? (
           <>
@@ -591,7 +591,7 @@ class Works extends React.Component {
             />
           </>
         ) : (
-          <div style={{ height: 200 }} />
+          <div style={{ height: 600 }} />
         )}
         {this.state.openedSounds ? (
           <>
