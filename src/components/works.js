@@ -40,10 +40,12 @@ const customStylesSp = {
     WebkitOverflowScrolling: "touch",
     padding: 0,
     borderRadius: 0
-  },
+  }
+  /*
   ReactModal__BodyOpen: {
     position: "fixed"
   }
+  */
 };
 
 const customStyles = {
@@ -153,12 +155,12 @@ class Works extends React.Component {
       displayingWork: work,
       isFirstTime: false
     });
-    window.document.body.classList.add("no-scroll");
+    //window.document.body.classList.add("no-scroll");
   };
   afterOpenModal = () => {};
   closeModal = () => {
     this.setState({ modalIsOpen: false, displayingWork: null });
-    window.document.body.classList.remove("no-scroll");
+    //window.document.body.classList.remove("no-scroll");
   };
   genWorks = () => {
     const products = [
@@ -179,7 +181,7 @@ class Works extends React.Component {
           }
         ],
         ["Game", "Program", "Graphic", "Sound"],
-        "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。動産環境はPC(Chromeのみ)。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。コンテンツが少なくゲームデザインが完成していない部分が課題。",
+        "自分のプロダクトの中で最強のブラウザゲーム。ほぼ全てのリソースが個人による開発で、JavaScript一万行以上のゲームフレームワーク構築、アートディレクション、フォント制作、楽曲、サウンド制作などを一人で行なっている。動作環境はPC(Chromeのみ)。2018年U22プログラミングコンテスト経済産業大臣賞(プロダクト)受賞作品。コンテンツが少なくゲームデザインが完成していない部分が課題。",
         "2018/1~"
       ),
       genWork(
@@ -354,7 +356,7 @@ class Works extends React.Component {
       genWork(
         "Tips",
         "shelAnime",
-        ["resource/img/tips/shellAnime.mp4"],
+        ["resource/img/tips/shelanime.gif"],
         [{ name: "gitHub", url: "github.com/Uynet/shelAnime" }],
         ["shell"],
         "顔文字がアニメーションするだけのシェル芸....なのだけどちょっとバズって、githubで一番likeがついてしまった。npmで配布していて、npx poyopoyochanでお手元で動きます",

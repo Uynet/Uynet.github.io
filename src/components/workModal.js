@@ -265,7 +265,6 @@ class WorkModal extends React.Component {
                 </div>
               }
             </div>
-            <div style={{ height: 64 }} />
           </div>
         </Hammer>
       </React.Fragment>
