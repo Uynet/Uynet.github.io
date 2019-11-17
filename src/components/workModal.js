@@ -157,6 +157,41 @@ class WorkModal extends React.Component {
               }
             </div>
           </div>
+          <div className={footer}>
+            {
+              <div
+                style={{
+                  width: "100vw",
+                  textAlign: "center"
+                }}
+              >
+                <FontAwesomeIcon
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    bottom: 0,
+                    margin: "auto",
+                    color: base,
+                    left: 30
+                  }}
+                  onClick={this.goPrev}
+                  icon={["fas", "less-than"]}
+                />
+                <FontAwesomeIcon
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    bottom: 0,
+                    margin: "auto",
+                    color: base,
+                    right: 30
+                  }}
+                  onClick={this.goNext}
+                  icon={["fas", "greater-than"]}
+                />
+              </div>
+            }
+          </div>
         </MediaQuery>
         <Hammer
           onPanStart={this.onPanStart}
@@ -230,41 +265,7 @@ class WorkModal extends React.Component {
                 })}
               </div>
             </div>
-            <div className={footer}>
-              {
-                <div
-                  style={{
-                    width: "100vw",
-                    textAlign: "center"
-                  }}
-                >
-                  <FontAwesomeIcon
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      bottom: 0,
-                      margin: "auto",
-                      color: base,
-                      left: 30
-                    }}
-                    onClick={this.goPrev}
-                    icon={["fas", "less-than"]}
-                  />
-                  <FontAwesomeIcon
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      bottom: 0,
-                      margin: "auto",
-                      color: base,
-                      right: 30
-                    }}
-                    onClick={this.goNext}
-                    icon={["fas", "greater-than"]}
-                  />
-                </div>
-              }
-            </div>
+            <div style={{ height: 60 }} />
           </div>
         </Hammer>
       </React.Fragment>
