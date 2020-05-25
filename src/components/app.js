@@ -1,7 +1,7 @@
 import React from "react";
 //import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Home from "./home.js";
-import About from "./about.js";
+import Profile from "./profile.js";
 import Works from "./works.js";
 import Contact from "./contact.js";
 import Blog from "./blog.js";
@@ -22,7 +22,7 @@ class App extends React.Component {
     let path = "/#/" + window.location.href.split("/").pop();
     const k =
       path === "/#/" ||
-      path === "/#/about" ||
+      path === "/#/profile" ||
       path === "/#/works" ||
       path === "/#/contact" ||
       path === "/#/blog";
@@ -54,7 +54,7 @@ class App extends React.Component {
           <Router>
             <Switch>
               <Route exact path="/" />
-              <Route exact path="/about" />
+              <Route exact path="/profile" />
               <Route exact path="/works" />
               <Route exact component={NotFound} />
             </Switch>
@@ -72,7 +72,7 @@ class App extends React.Component {
             <Hamberger ref={this.hambar} onClick={this.toggleMenubar} />
             <Menubar ref={this.menubar} update={this.toggleMenubar} />
             {this.state.path === "/#/" && <Home />}
-            {this.state.path === "/#/about" && <About />}
+            {this.state.path === "/#/profile" && <Profile />}
             {this.state.path === "/#/works" && <Works />}
             {this.state.path === "/#/contact" && <Contact />}
             {this.state.path === "/#/blog" && <Blog />}

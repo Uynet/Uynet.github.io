@@ -2,12 +2,12 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import BGEffect from "./BGEffect";
 import Box from "./box.js";
-import about from "./style/about.module.scss";
+import profile from "./style/profile.module.scss";
 import HeaderEffect from "./headerEffect";
 
 const s = {};
 
-class About extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
@@ -19,10 +19,10 @@ class About extends React.Component {
     return (
       <React.Fragment>
         <BGEffect />
-        <HeaderEffect color="#30FFE0" className={about.header} />
-        <div className={about.title}>
-          <div className={about.titleString}>About</div>
-          <div className={about.underLine}></div>
+        <HeaderEffect color="#30FFE0" className={profile.header} />
+        <div className={profile.title}>
+          <div className={profile.titleString}>profile</div>
+          <div className={profile.underLine}></div>
         </div>
 
         <div style={{ textAlign: "center" }}>
@@ -30,21 +30,21 @@ class About extends React.Component {
             <img
               src="/resource/img/icon.png"
               alt={"(ﾉ)･ω･(ヾ)"}
-              className={about.icon}
+              className={profile.icon}
             ></img>
-            <div className={about.myname}>uynet</div>
-            <div className={about.sub}>creator</div>
+            <div className={profile.myname}>uynet</div>
+            <div className={profile.sub}></div>
           </div>
         </div>
 
-        <div className={about.space}></div>
+        <div className={profile.space}></div>
 
         <div style={{ textAlign: "center" }}>
           <Box />
         </div>
-        <div className={about.footerSpace}></div>
+        <div className={profile.footerSpace}></div>
       </React.Fragment>
     );
   }
 }
-export default withStyles(s)(About);
+export default withStyles(s)(Profile);

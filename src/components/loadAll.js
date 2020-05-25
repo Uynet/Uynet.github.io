@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
 import Home from "./home.js";
-import About from "./about.js";
+import profile from "./profile.js";
 import Works from "./works.js";
 import Contact from "./contact.js";
 import {
@@ -122,10 +122,10 @@ class LoadAll extends React.Component {
         })}
         {
           <div style={{ opacity: 0 }}>
-            <About />
+            <profile />
             {/*
             {this.state.index === 1 && <Home />}
-            {this.state.index === 2 && <About />}
+            {this.state.index === 2 && <profile />}
             {this.state.index === 3 && <Works />}
             {this.state.index === 4 && <Contact />}
            */}

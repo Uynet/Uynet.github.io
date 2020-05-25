@@ -12,11 +12,11 @@ import {
   accent,
   base
 } from "../utils/colors.js";
-import about from "./style/about.module.scss";
+import profile from "./style/profile.module.scss";
 import Award from "./award.js";
 
 const bio =
-  "主にプログラミングで創作をしています。作曲、デザイン、ゲーム制作などが好きで、エンジニアというよりクリエータに近いです。3D技術やゲーム関連などに興味があります";
+"ゲーム会社でフリーランスのエンジニアやってます"
 const s = {
   frame: {
     // background: "#fff",
@@ -63,7 +63,7 @@ class Box extends React.Component {
     return (
       <React.Fragment>
         <div className={this.props.classes.frame}>
-          <div className={about.bio}>{bio}</div>
+          <div className={profile.bio}>{bio}</div>
           <div
             style={{
               opacity: 0,
@@ -84,10 +84,10 @@ class Box extends React.Component {
                 >
                   <div>HN</div>
                   <div>uynet(ゆいねっと)</div>
-                  <div>BIRTH</div>
+                  <div>誕生日</div>
                   <div>1996/12/19</div>
-                  <div>ORG</div>
-                  <div>東京工業大学/情報理工学院M1</div>
+                  <div>学歴</div>
+                  <div>2019 東京工業大学 工学部 情報工学科 卒</div>
                 </div>
               </div>
             </div>
@@ -119,7 +119,7 @@ class Box extends React.Component {
                   }
                   link={"https://twitter.com/uynet/status/1034010674475585537"}
                 />
-                ほかにも...
+                ほか
                 <div style={{ paddingLeft: 16 }}>
                   <div>
                     <a href="https://www.bcnaward.jp/itjr/winning/date=2019">
@@ -132,87 +132,9 @@ class Box extends React.Component {
                   </div>
                   <div>ピクシブ株式会社 選考インターン参加</div>
                 </div>
-                など
               </div>
             </div>
 
-            <div className={this.props.classes.card}>
-              <div className={this.props.classes.title}>できること</div>
-              <div className={this.props.classes.content}>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "auto 1fr",
-                    gridGap: 10
-                  }}
-                >
-                  <div
-                    style={{
-                      fontWeight: "bold",
-                      color: itemColor
-                    }}
-                  >
-                    ゲーム制作
-                  </div>
-                  <div>
-                    音楽だけやっていたころから含めると8年くらいゲーム制作に関わっています。表現やUXが得意ですが実はアーキテクチャを考えるのも好きです。
-                  </div>
-                  <div
-                    style={{
-                      fontWeight: "bold",
-                      color: itemColor
-                    }}
-                  >
-                    作曲
-                  </div>
-                  <div>
-                    Cubase10を使っています。9年くらいやっていて、ピアノが弾けます。作品は
-                    worksを参照
-                  </div>
-                  <div
-                    style={{
-                      fontWeight: "bold",
-                      color: itemColor
-                    }}
-                  >
-                    デザイン
-                  </div>
-                  <div>少なくともこんな感じのサイトが作れます。色が好き</div>
-                  <div
-                    style={{
-                      fontWeight: "bold",
-                      color: itemColor
-                    }}
-                  >
-                    3DCG(技術)
-                  </div>
-                  <div>
-                    レンダリングが研究分野で、グラフィックスパイプラインやシェーダの技術的な基礎知識があります。最近xR関連のバイトを始めました
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className={this.props.classes.card}>
-              <div className={this.props.classes.title}>
-                言語/フレームワーク
-              </div>
-              <div className={this.props.classes.content}>
-                <br />
-                JavaScript/TypeScript/NodeJS/
-                <br />
-                HTML/CSS/SCSS/React
-                <br />
-                PIXI.JS/webGL/OpenGL/GLSL/
-                <br />
-                Java/C++
-                <br />
-              </div>
-            </div>
-            <div className={this.props.classes.card}>
-              <div className={this.props.classes.title}>エディタ</div>
-              <div className={this.props.classes.content}>vim / VSCODE</div>
-            </div>
             <div className={this.props.classes.card}>
               <div className={this.props.classes.title}>リンク</div>
               <div className={this.props.classes.content}>
@@ -275,7 +197,6 @@ class Box extends React.Component {
               //fontFamily: "honoka",
             }}
           >
-            就活してます
           </div>
         </div>
       </React.Fragment>
