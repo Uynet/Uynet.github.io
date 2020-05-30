@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "gkktt";
-  src: url("/Fonts/gkktt.ttf") format("opentype"); }
+  src: url("../../Fonts/gkktt.ttf") format("opentype"); }
 
 img {
   object-fit: cover; }
