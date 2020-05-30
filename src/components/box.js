@@ -16,7 +16,7 @@ import profile from "./style/profile.module.scss";
 import Award from "./award.js";
 
 const bio =
-"ゲーム会社でフリーランスのエンジニアやってます"
+"フリーです。準備中"
 const s = {
   frame: {
     // background: "#fff",
