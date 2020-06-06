@@ -1,10 +1,10 @@
 @font-face {
   font-family: "honoka";
-  src: url("/Fonts/honoka.ttf") format("opentype"); }
+  src: url("../Fonts/honoka.ttf") format("opentype"); }
 
 @font-face {
   font-family: "gkktt";
-  src: url("../../Fonts/gkktt.ttf") format("opentype"); }
+  src: url("../Fonts/gkktt.ttf") format("opentype"); }
 
 img {
   object-fit: cover; }
