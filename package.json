@@ -68,7 +68,7 @@
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5"
   },
-  "useEslintrc":true,
+  "useEslintrc": true,
   "eslintConfig": {
     "rules": {
       "no-unused-vars": 0
